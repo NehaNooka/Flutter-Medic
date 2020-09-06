@@ -92,34 +92,44 @@ class Home extends StatelessWidget {
             ],
           ),
         ),
-        body: Body1());
+        body: Body1(uid: this.uid));
   }
 }
 
 class Body1 extends StatefulWidget {
-
+  Body1({this.uid});
+  final String uid;
   @override
-  _Body1State createState() => _Body1State();
+  _Body1State createState() => _Body1State(uid: this.uid);
 }
 
 class _Body1State extends State<Body1> {
+  _Body1State({this.uid});
+  final String uid;
+
+  // ignore: missing_return
+  Widget getPage(int index) {
+    if (index == 0) {
+      return Home1();
+    }
+    if (index == 1) {
+      return Drugs();
+    }
+    if (index == 2) {
+      return Notes(uid: uid);
+    }
+    if (index == 3) {
+      return  Fav();
+    }
+  }
 
   int _currentIndex = 0;
 
-  final tabs = [
-    Center(
-      child: Home1(),
-    ),
-    Center(
-      child: Drugs(),
-    ),
-    Center(
-      child: Notes(),
-    ),
-    Center(
-      child: Fav(),
-    ),
-  ];
+  onTabTapped(int index) {
+    setState(() {
+      _currentIndex = index;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -130,7 +140,7 @@ class _Body1State extends State<Body1> {
         home: new Scaffold(
             body: Center(
                 child: SafeArea(
-                  child: tabs[_currentIndex],
+                  child:getPage(_currentIndex),
                 )),
             bottomNavigationBar: BottomNavigationBar(
                 backgroundColor: Colors.cyan ,
@@ -138,7 +148,6 @@ class _Body1State extends State<Body1> {
                 type: BottomNavigationBarType.fixed,
                 selectedItemColor: Colors.black,
                 iconSize: 30,
-                currentIndex: _currentIndex,
                 items: [
                   BottomNavigationBarItem(
                     icon: Icon(Icons.home),
@@ -157,11 +166,10 @@ class _Body1State extends State<Body1> {
                     label: "Favourites",
                   ),
                 ],
-                onTap: (index) {
-                  setState(() {
-                    _currentIndex = index;
-                  });
-                })));
+    onTap: onTabTapped,
+    currentIndex: _currentIndex,
+               )),
+  );
   }
 }
 

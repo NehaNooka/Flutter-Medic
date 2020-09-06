@@ -1,17 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-
 class Notes extends StatefulWidget {
+  Notes({this.uid});
+  final String uid;
   @override
-  _NotesState createState() => _NotesState();
+  _NotesState createState() => _NotesState(uid: uid);
 }
 
 class _NotesState extends State<Notes> {
 
-  String todoTitle = "";
+  _NotesState({this.uid});
+  final String uid;
 
+  String todoTitle = "";
   createTodos() {
-    DocumentReference documentReference = Firestore.instance.collection("MyNotes").document(todoTitle);
+    DocumentReference documentReference = Firestore.instance.collection(uid).document(todoTitle);
     Map<String, String> todos = {"todoTitle": todoTitle};
 
     documentReference.setData(todos).whenComplete(() => print("Input Created"));
@@ -19,10 +22,11 @@ class _NotesState extends State<Notes> {
 
   deleteTodos(item) {
 
-    DocumentReference documentReference = Firestore.instance.collection("MyNotes").document(item);
+    DocumentReference documentReference = Firestore.instance.collection(uid).document(item);
 
     documentReference.delete().whenComplete(() => print("Deleted"));
   }
+@override
 
 
   @override
@@ -63,7 +67,7 @@ class _NotesState extends State<Notes> {
         ),
         body:
         StreamBuilder(
-          stream: Firestore.instance.collection("MyNotes").snapshots(),
+          stream: Firestore.instance.collection(uid).snapshots(),
           builder: (context,snapshots){
             if(snapshots.data == null) return Center(child: Text("No notes", style: TextStyle(color: Colors.grey),));
             return  ListView.builder(
