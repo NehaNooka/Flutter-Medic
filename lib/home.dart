@@ -97,13 +97,13 @@ class Home extends StatelessWidget {
 }
 
 class Body1 extends StatefulWidget {
+
   @override
   _Body1State createState() => _Body1State();
 }
 
 class _Body1State extends State<Body1> {
 
-  _Body1State({});
   int _currentIndex = 0;
 
   final tabs = [
@@ -114,7 +114,7 @@ class _Body1State extends State<Body1> {
       child: Drugs(),
     ),
     Center(
-      child: Notes1(uid: ),
+      child: Notes(),
     ),
     Center(
       child: Fav(),
