@@ -10,10 +10,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Medic',
-      theme: ThemeData(
-        primarySwatch: Colors.cyan,
-      ),
+
       home: IntroScreen(),
     );
   }

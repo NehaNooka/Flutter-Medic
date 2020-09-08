@@ -23,13 +23,13 @@ class Search extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: new AppBar(
-        title: const Text(
-          'Medical Dictionary',
-          style:
-          TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
-        ),
+      appBar: AppBar(
+
         backgroundColor: Colors.cyan,
+        title: Text(
+          "Medic",
+          style: TextStyle(color: Colors.white),
+        ),
       ),
       body: Container(
         constraints: BoxConstraints.expand(),

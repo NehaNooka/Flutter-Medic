@@ -33,7 +33,15 @@ class _NotesState extends State<Notes> {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
+
       home: new Scaffold(
+        appBar: AppBar(
+          backgroundColor: Colors.cyan,
+          title: Text(
+            "Notes",
+            style: TextStyle(color: Colors.white),
+          ),
+        ),
         floatingActionButton: FloatingActionButton(
           onPressed: () {
             showDialog(
