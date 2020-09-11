@@ -17,7 +17,7 @@ class _EmailLogInState extends State<EmailLogIn> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(title: Text("Login")),
+        appBar: AppBar(title: Text("Login"),backgroundColor: Colors.cyan,),
         body: Container(
     child: Form(
               key: _formKey,
@@ -72,7 +72,7 @@ class _EmailLogInState extends State<EmailLogIn> {
                       child: isLoading
                           ? CircularProgressIndicator()
                           : RaisedButton(
-                        color: Colors.lightBlue,
+                        color: Colors.cyan,
                         onPressed: () {
                           if (_formKey.currentState.validate()) {
                             setState(() {

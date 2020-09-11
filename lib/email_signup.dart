@@ -22,7 +22,7 @@ class _EmailSignUpState extends State<EmailSignUp> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(title: Text("Sign Up")),
+        appBar: AppBar(title: Text("Sign Up"),backgroundColor: Colors.cyan,),
         body: Form(
             key: _formKey,
             child: SingleChildScrollView(
@@ -95,7 +95,7 @@ class _EmailSignUpState extends State<EmailSignUp> {
                     child: isLoading
                         ? CircularProgressIndicator()
                         : RaisedButton(
-                      color: Colors.lightBlue,
+                      color: Colors.cyan,
                       onPressed: () {
                         if (_formKey.currentState.validate()) {
                           setState(() {

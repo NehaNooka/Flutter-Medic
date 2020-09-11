@@ -35,13 +35,6 @@ class _NotesState extends State<Notes> {
       debugShowCheckedModeBanner: false,
 
       home: new Scaffold(
-        appBar: AppBar(
-          backgroundColor: Colors.cyan,
-          title: Text(
-            "Notes",
-            style: TextStyle(color: Colors.white),
-          ),
-        ),
         floatingActionButton: FloatingActionButton(
           onPressed: () {
             showDialog(
@@ -63,6 +56,7 @@ class _NotesState extends State<Notes> {
                         onPressed: () {
                          createTodos();
                         Navigator.of(context).pop();
+
                           },
                         child: Text("Add" ,style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),),
                       ),
@@ -97,6 +91,10 @@ class _NotesState extends State<Notes> {
           trailing: IconButton(icon: Icon(Icons.delete, color: Colors.red,),
           onPressed: (){
          deleteTodos(documentSnapshot["todoTitle"]);
+         final snackBar = SnackBar(
+           content: Text(' Note Deleted'),
+         );
+         Scaffold.of(context).showSnackBar(snackBar);
           },
           ),
           ),
