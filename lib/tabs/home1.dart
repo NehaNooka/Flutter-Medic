@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'dart:convert';
-import 'package:draggable_scrollbar/draggable_scrollbar.dart';
+
 import 'package:wallpaper/tabs/search.dart';
 import 'package:http/http.dart' as http;
 
@@ -35,27 +35,38 @@ class _Home1State extends State<Home1> {
       "https://raw.githubusercontent.com/NookaNeha/JSON/master/dataset.json";
 
   List<myModel> myAllData = [];
+  List<myModel> Nfd = [];
 
   @override
   void initState() {
+    loadData().then((value) {
+      setState(() {
+        myAllData.addAll(value);
+        Nfd = myAllData;
 
-    loadData();
+      });
+    });
     super.initState();
   }
 
-  loadData() async {
+  Future<List<myModel>>loadData() async {
     var response = await http.get(url, headers: {"Aceept": "application/json"});
+    var notes = List<myModel>();
     if (response.statusCode == 200) {
-      String responeBody = response.body;
-      var jsonBody = json.decode(responeBody);
+      String responseBody = response.body;
+      var jsonBody = json.decode(responseBody);
       for (var data in jsonBody) {
-        myAllData.add(new myModel(
-            data['name'], data['symptoms'], data['causes'], data['overview']));
+        notes.add(myModel.fromJson(data));
       }
+      return notes;
     } else {
-      print('Something went wrong');
+      SnackBar(
+          content: Text('Oops! Something went wrong')
+      );
     }
   }
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -72,13 +83,48 @@ class _Home1State extends State<Home1> {
 
   Widget showMyUI() {
     final ScrollController _scrollController = new ScrollController();
-    return new DraggableScrollbar.semicircle(
-        controller: _scrollController,
-        child: ListView.builder(
+    return
+        ListView.builder(
             controller: _scrollController,
-            itemCount: myAllData.length,
+            itemCount: Nfd.length+1,
             itemBuilder: (_, index) {
-              return new Card(
+              return index == 0 ?
+
+
+              Padding(
+                  padding: EdgeInsets.all(20.0),
+                  child:
+                  TextField(
+
+                    decoration: InputDecoration(
+
+                      border: OutlineInputBorder(
+                        borderRadius: const BorderRadius.all(
+                          const Radius.circular(
+                            5.0,
+                          ),
+                        ),
+                      ),
+                      filled: true,
+                      fillColor: Colors.white60,
+                      contentPadding: EdgeInsets.all(15.0),
+                      hintText: 'Search by Name',),
+                    onChanged: (text) {
+                      text = text.toLowerCase();
+                      setState(() {
+                        Nfd = myAllData.where((note) {
+                          var noteTitle = note.name.toLowerCase();
+                          return noteTitle.contains(text);
+                        }).toList();
+                      });
+                    },
+
+                  ))
+
+
+
+
+                  : new Card(
                 margin: EdgeInsets.all(8.0),
                 elevation: 8.0,
                 shadowColor: Colors.grey,
@@ -101,7 +147,7 @@ class _Home1State extends State<Home1> {
                                   )));
                     }),
               );
-            }));
+            });
   }
 }
 
