@@ -1,55 +1,38 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'dart:convert';
-
+import 'package:wallpaper/main.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:wallpaper/tabs/search.dart';
 import 'package:http/http.dart' as http;
-
-class Homee extends StatefulWidget {
-  Homee({this.uid});
-  final String uid;
-  @override
-  _HomeeState createState() => _HomeeState(uid: uid);
-}
-
-class _HomeeState extends State<Homee> {
-  _HomeeState({this.uid});
-  final String uid;
-
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-        debugShowCheckedModeBanner: false,
-        home: new Scaffold(
-          body: Center(child: Home1()),
-        ));
-  }
-}
-
+import 'package:draggable_scrollbar/draggable_scrollbar.dart';
 class Home1 extends StatefulWidget {
+  Home1({this.uid});
+  final String uid;
   @override
-  _Home1State createState() => _Home1State();
+  _Home1State createState() => _Home1State(uid: uid);
 }
 
 class _Home1State extends State<Home1> {
+  _Home1State({this.uid});
+  final String uid;
   final String url =
       "https://raw.githubusercontent.com/NookaNeha/JSON/master/dataset.json";
-
+  ScrollController _semicircleController = ScrollController();
   List<myModel> myAllData = [];
-  List<myModel> Nfd = [];
-
+  List<myModel> myAllData1 = [];
   @override
   void initState() {
     loadData().then((value) {
       setState(() {
         myAllData.addAll(value);
-        Nfd = myAllData;
-
+        myAllData1 = myAllData;
       });
     });
     super.initState();
   }
 
-  Future<List<myModel>>loadData() async {
+  Future<List<myModel>> loadData() async {
     var response = await http.get(url, headers: {"Aceept": "application/json"});
     var notes = List<myModel>();
     if (response.statusCode == 200) {
@@ -60,94 +43,146 @@ class _Home1State extends State<Home1> {
       }
       return notes;
     } else {
-      SnackBar(
-          content: Text('Oops! Something went wrong')
-      );
+      SnackBar(content: Text('Oops! Something went wrong'));
     }
   }
 
-
-
   @override
   Widget build(BuildContext context) {
-    return new MaterialApp(
-        debugShowCheckedModeBanner: false,
-        home: new Scaffold(
-          body: myAllData.length == 0
-              ? new Center(
-                  child: new CircularProgressIndicator(),
-                )
-              : showMyUI(),
-        ));
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: new Scaffold(
+        appBar: AppBar(
+          backgroundColor: Colors.cyan,
+          title: Text(
+            "Medic",
+            style: TextStyle(color: Colors.white),),
+            actions: [
+              IconButton(
+                icon: Icon(Icons.search),
+                onPressed: () {
+                  showSearch(
+                      context: context,
+                      delegate: DataSearch(myAllData: myAllData1));
+                },
+              )
+            ],
+
+        ),
+        drawer: Drawer(
+          child: new ListView(
+            children: [
+              Padding(padding: EdgeInsets.only(top: 15.0)),
+              ListTile(
+
+                title: Text('Settings',
+                    style: TextStyle(fontSize: 30.0, color: Colors.black45)),
+              ),
+              Card(
+                child: ListTile(
+                    tileColor: Colors.black12,
+                    leading: new IconButton(
+                      icon: new Icon(Icons.info, color: Colors.black),
+                      onPressed: () {},
+                    ),
+                    title: Text('About'),
+                    onTap: () {}),
+              ),
+              Card(
+                child: ListTile(
+                    tileColor: Colors.black12,
+                    leading: new IconButton(
+                      icon: new Icon(Icons.info, color: Colors.black),
+                      onPressed: () {},
+                    ),
+                    title: Text('About'),
+                    onTap: () {}),
+              ),
+              Card(
+                child: ListTile(
+                    tileColor: Colors.black12,
+                    leading: new IconButton(
+                      icon: new Icon(Icons.info, color: Colors.black),
+                      onPressed: () {},
+                    ),
+                    title: Text('About'),
+                    onTap: () {}),
+              ),
+              Card(
+                child: ListTile(
+                    tileColor: Colors.black12,
+                    leading: new IconButton(
+                      icon: new Icon(Icons.info, color: Colors.black),
+                      onPressed: () {},
+                    ),
+                    title: Text('About'),
+                    onTap: () {}),
+              ),
+              Card(
+                child: ListTile(
+                  tileColor: Colors.black12,
+                  leading: new IconButton(
+                    icon: new Icon(Icons.exit_to_app, color: Colors.black),
+                    onPressed: () {},
+                  ),
+                  title: Text('Logout'),
+                  onTap: () {
+                    FirebaseAuth auth = FirebaseAuth.instance;
+                    auth.signOut().then((res) {
+                      Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(builder: (context) => MyApp()),
+                      );
+                    });
+                  },
+                ),
+              ),
+            ],
+          ),
+        ),
+            body: myAllData.length == 0
+                ?   Container(
+              color: Colors.cyan,
+              child: new Center(
+                  child: SpinKitSquareCircle(color: Colors.white,size:100.0,)),
+            )
+                : showMyUI(),
+      ));
   }
 
   Widget showMyUI() {
-    final ScrollController _scrollController = new ScrollController();
-    return
-        ListView.builder(
-            controller: _scrollController,
-            itemCount: Nfd.length+1,
-            itemBuilder: (_, index) {
-              return index == 0 ?
 
-
-              Padding(
-                  padding: EdgeInsets.all(20.0),
-                  child:
-                  TextField(
-
-                    decoration: InputDecoration(
-
-                      border: OutlineInputBorder(
-                        borderRadius: const BorderRadius.all(
-                          const Radius.circular(
-                            5.0,
-                          ),
-                        ),
-                      ),
-                      filled: true,
-                      fillColor: Colors.white60,
-                      contentPadding: EdgeInsets.all(15.0),
-                      hintText: 'Search by Name',),
-                    onChanged: (text) {
-                      text = text.toLowerCase();
-                      setState(() {
-                        Nfd = myAllData.where((note) {
-                          var noteTitle = note.name.toLowerCase();
-                          return noteTitle.contains(text);
-                        }).toList();
-                      });
-                    },
-
-                  ))
-
-
-
-
-                  : new Card(
-                margin: EdgeInsets.all(8.0),
-                elevation: 8.0,
-                shadowColor: Colors.grey,
-                child: ListTile(
-                    leading: Icon(
-                      Icons.album,
-                      color: Colors.redAccent,
-                    ),
-                    title: Text(' ${myAllData[index].name}',
-                        style: TextStyle(fontSize: 28.0, color: Colors.indigo)),
-                    onTap: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => Search(
-                                    name: '${myAllData[index].name}',
-                                    symptoms: '${myAllData[index].symptoms}',
-                                    causes: '${myAllData[index].causes}',
-                                    overview: '${myAllData[index].overview}',
-                                  )));
-                    }),
-              );
-            });
+    return DraggableScrollbar.semicircle(
+      controller: _semicircleController,
+      child: ListView.builder(
+          controller: _semicircleController,
+          itemCount: myAllData.length,
+          itemBuilder: (_, index) {
+            return new Card(
+              margin: EdgeInsets.all(8.0),
+              elevation: 8.0,
+              shadowColor: Colors.grey,
+              child: ListTile(
+                  leading: Icon(
+                    Icons.album,
+                    color: Colors.redAccent,
+                  ),
+                  title: Text(' ${myAllData[index].name}',
+                      style: TextStyle(fontSize: 28.0, color: Colors.indigo)),
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => Search(
+                                  name: '${myAllData[index].name}',
+                                  symptoms: '${myAllData[index].symptoms}',
+                                  causes: '${myAllData[index].causes}',
+                                  overview: '${myAllData[index].overview}',
+                                )));
+                  }),
+            );
+          }),
+    );
   }
 }
 
@@ -155,7 +190,6 @@ class myModel {
   String name;
   String symptoms;
   String causes;
-
   String overview;
 
   myModel(
@@ -171,5 +205,104 @@ class myModel {
     causes = json['causes'];
 
     overview = json['overview'];
+  }
+}
+
+
+class DataSearch extends SearchDelegate<myModel> {
+  List<myModel> myAllData = [];
+  DataSearch({this.myAllData});
+
+  @override
+  List<Widget> buildActions(BuildContext context) {
+    return [
+      IconButton(
+        icon: Icon(Icons.clear),
+        onPressed: () {
+          query = "";
+        },
+      )
+    ];
+  }
+
+  @override
+  Widget buildLeading(BuildContext context) {
+    return IconButton(
+      icon: AnimatedIcon(
+        icon: AnimatedIcons.menu_arrow,
+        progress: transitionAnimation,
+      ),
+      onPressed: () {
+        close(context, null);
+      },
+    );
+  }
+
+  @override
+  Widget buildResults(BuildContext context) {
+    return Container();
+  }
+
+  @override
+  Widget buildSuggestions(BuildContext context) {
+    final myList = query.isEmpty
+        ? myAllData
+        : myAllData
+        .where((p) => p.name.toLowerCase().startsWith(query.toLowerCase()))
+        .toList();
+    return myList.isEmpty
+        ? Center(
+        child: Container(
+            child:
+            Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+              Icon(
+                Icons.search_outlined,
+                color: Colors.red,
+              ),
+              Text("  No Results Found",
+                  style: TextStyle(
+                      fontSize: 24.0,
+                      color: Colors.red,
+                      fontWeight: FontWeight.bold)),
+            ])))
+        : ListView.builder(
+        itemCount: myList.length,
+        itemBuilder: (context, index) {
+          final myModel listItem = myList[index];
+          return Card(
+            child: ListTile(
+              onTap: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => Search(
+                          name: listItem.name,
+                          symptoms: listItem.symptoms,
+                          causes: listItem.causes,
+                          overview: listItem.overview,
+                        )));
+              },
+              leading: Icon(
+                Icons.search_outlined,
+                color: Colors.black,
+              ),
+              title: RichText(
+                text: TextSpan(
+                    text: listItem.name.substring(0, query.length),
+                    style: TextStyle(
+                        color: Colors.blue,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 24.0),
+                    children: [
+                      TextSpan(
+                          text: listItem.name.substring(query.length),
+                          style: TextStyle(
+                              color: Colors.black, fontSize: 20.0))
+                    ]),
+              ),
+
+            ),
+          );
+        });
   }
 }

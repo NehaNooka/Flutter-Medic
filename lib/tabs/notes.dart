@@ -35,6 +35,13 @@ class _NotesState extends State<Notes> {
       debugShowCheckedModeBanner: false,
 
       home: new Scaffold(
+        appBar: AppBar(
+          backgroundColor: Colors.cyan,
+          title: Text(
+            "Medic",
+            style: TextStyle(color: Colors.white),
+          ),
+        ),
         floatingActionButton: FloatingActionButton(
           onPressed: () {
             showDialog(
