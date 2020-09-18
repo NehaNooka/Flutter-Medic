@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_signin_button/flutter_signin_button.dart';
-import 'package:wallpaper/email_login.dart';
-import 'package:wallpaper/email_signup.dart';
+import 'package:wallpaper/Auth/email_login.dart';
+import 'package:wallpaper/Auth/email_signup.dart';
 
 
 class SignUp extends StatelessWidget {

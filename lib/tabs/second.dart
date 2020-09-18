@@ -44,6 +44,7 @@ class _SecondState extends State<Second> {
 
   @override
   Widget build(BuildContext context) {
+
     return new MaterialApp(
         debugShowCheckedModeBanner: false,
         home: new Scaffold(
@@ -72,20 +73,35 @@ class _SecondState extends State<Second> {
   }
 
   Widget showMyUI() {
-
     return DraggableScrollbar.semicircle(
       controller: _semicircleController,
       child: ListView.builder(
           controller: _semicircleController,
           itemCount: myAllData.length,
           itemBuilder: (_, index) {
+            int _selectedIndex;
+            _onSelected(int index) {
+              setState(() {
+                _selectedIndex = index;
+              });
+            }
             return new Card(
               margin: EdgeInsets.all(8.0),
               elevation: 8.0,
               shadowColor: Colors.grey,
               child: ListTile(
+
+                trailing:IconButton(
+                    icon: Icon(
+                      Icons.favorite,
+                      color: _selectedIndex != null && _selectedIndex == index
+                          ? Colors.redAccent
+                          : Colors.grey,
+                    ),
+                    onPressed: (){
+                      _onSelected(index);}),
                 leading: Icon(
-                  Icons.album,
+                  Icons.whatshot ,
                   color: Colors.redAccent,
                 ),
                 title: Text('${myAllData[index].drug}',
@@ -177,6 +193,7 @@ class DataSearch extends SearchDelegate<myModel> {
               return Card(
                 child: ListTile(
                   onTap: () {},
+
                   leading: Icon(
                     Icons.search_outlined,
                     color: Colors.black,

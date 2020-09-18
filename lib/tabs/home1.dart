@@ -1,14 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:wallpaper/Settings/about.dart';
+import 'package:wallpaper/Settings/rate.dart';
 import 'dart:convert';
 import 'package:wallpaper/main.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:wallpaper/tabs/search.dart';
 import 'package:http/http.dart' as http;
 import 'package:draggable_scrollbar/draggable_scrollbar.dart';
+
 class Home1 extends StatefulWidget {
   Home1({this.uid});
   final String uid;
+
   @override
   _Home1State createState() => _Home1State(uid: uid);
 }
@@ -16,6 +21,7 @@ class Home1 extends StatefulWidget {
 class _Home1State extends State<Home1> {
   _Home1State({this.uid});
   final String uid;
+
   final String url =
       "https://raw.githubusercontent.com/NookaNeha/JSON/master/dataset.json";
   ScrollController _semicircleController = ScrollController();
@@ -46,17 +52,31 @@ class _Home1State extends State<Home1> {
       SnackBar(content: Text('Oops! Something went wrong'));
     }
   }
-
+  String greeting() {
+    String day= "";
+    var hour = DateTime.now().hour;
+    if (hour < 12) {
+      day="Morning";
+      return day;
+    }
+    if (hour < 17) {
+      day="Afternoon";
+      return day;
+    }
+    day="Evening";
+    return day;
+  }
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: new Scaffold(
-        appBar: AppBar(
-          backgroundColor: Colors.cyan,
-          title: Text(
-            "Medic",
-            style: TextStyle(color: Colors.white),),
+        debugShowCheckedModeBanner: false,
+        home: new Scaffold(
+          appBar: AppBar(
+            backgroundColor: Colors.cyan,
+            title: Text(
+              "Medic",
+              style: TextStyle(color: Colors.white),
+            ),
             actions: [
               IconButton(
                 icon: Icon(Icons.search),
@@ -67,91 +87,163 @@ class _Home1State extends State<Home1> {
                 },
               )
             ],
-
-        ),
-        drawer: Drawer(
-          child: new ListView(
-            children: [
-              Padding(padding: EdgeInsets.only(top: 15.0)),
-              ListTile(
-
-                title: Text('Settings',
-                    style: TextStyle(fontSize: 30.0, color: Colors.black45)),
-              ),
-              Card(
-                child: ListTile(
-                    tileColor: Colors.black12,
-                    leading: new IconButton(
-                      icon: new Icon(Icons.info, color: Colors.black),
-                      onPressed: () {},
-                    ),
-                    title: Text('About'),
-                    onTap: () {}),
-              ),
-              Card(
-                child: ListTile(
-                    tileColor: Colors.black12,
-                    leading: new IconButton(
-                      icon: new Icon(Icons.info, color: Colors.black),
-                      onPressed: () {},
-                    ),
-                    title: Text('About'),
-                    onTap: () {}),
-              ),
-              Card(
-                child: ListTile(
-                    tileColor: Colors.black12,
-                    leading: new IconButton(
-                      icon: new Icon(Icons.info, color: Colors.black),
-                      onPressed: () {},
-                    ),
-                    title: Text('About'),
-                    onTap: () {}),
-              ),
-              Card(
-                child: ListTile(
-                    tileColor: Colors.black12,
-                    leading: new IconButton(
-                      icon: new Icon(Icons.info, color: Colors.black),
-                      onPressed: () {},
-                    ),
-                    title: Text('About'),
-                    onTap: () {}),
-              ),
-              Card(
-                child: ListTile(
-                  tileColor: Colors.black12,
-                  leading: new IconButton(
-                    icon: new Icon(Icons.exit_to_app, color: Colors.black),
-                    onPressed: () {},
-                  ),
-                  title: Text('Logout'),
-                  onTap: () {
-                    FirebaseAuth auth = FirebaseAuth.instance;
-                    auth.signOut().then((res) {
-                      Navigator.pushReplacement(
-                        context,
-                        MaterialPageRoute(builder: (context) => MyApp()),
-                      );
-                    });
-                  },
-                ),
-              ),
-            ],
           ),
-        ),
-            body: myAllData.length == 0
-                ?   Container(
-              color: Colors.cyan,
-              child: new Center(
-                  child: SpinKitSquareCircle(color: Colors.white,size:100.0,)),
-            )
-                : showMyUI(),
-      ));
+          drawer: Drawer(
+            child: new ListView(
+              children: [
+                DrawerHeader(
+                  decoration: BoxDecoration(
+                      image: DecorationImage(
+                          image: AssetImage("assets/d.jpg"),
+                          fit: BoxFit.cover)),
+                  child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                      Text("Good "+greeting(),
+                      style: GoogleFonts.pacifico( textStyle:TextStyle(
+                          fontSize: 30.0,
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
+                          letterSpacing: 3.5
+                      ))),
+
+                    SizedBox(height: 40.0,),
+                        Text("Settings",
+                            style: TextStyle(
+                                fontSize: 30.0,
+                                color: Colors.white,
+                                fontWeight: FontWeight.bold)),
+
+
+                  ]),
+                ),
+                Card(
+                  child: ListTile(
+                      tileColor: Colors.black12,
+                      leading: new IconButton(
+                        icon: new Icon(Icons.info, color: Colors.black),
+                        onPressed: () {},
+                      ),
+                      title: Text('About'),
+                      onTap: () {}),
+                ),
+                Card(
+                  child: ListTile(
+                      tileColor: Colors.black12,
+                      leading: new IconButton(
+                        icon: new Icon(Icons.info, color: Colors.black),
+                        onPressed: () {},
+                      ),
+                      title: Text('About'),
+                      onTap: () {}),
+                ),
+                Divider(),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Text(
+                    "About",
+                    style: TextStyle(
+                        color: Colors.cyan,
+                        fontSize: 25.0,
+                        fontWeight: FontWeight.bold),
+                  ),
+                ),
+                Card(
+                  child: ListTile(
+                      tileColor: Colors.cyan[200],
+                      leading: new IconButton(
+                        icon: new Icon(Icons.info, color: Colors.black),
+                        onPressed: () {},
+                      ),
+                      title: Text(
+                        'Know More',
+                        style: TextStyle(
+                            color: Colors.black,
+                            fontSize: 18.0,
+                            fontWeight: FontWeight.bold),
+                      ),
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => About()),
+                        );
+                      }),
+                ),
+                Card(
+                  child: ListTile(
+                      tileColor: Colors.cyan[200],
+                      leading: new IconButton(
+                        icon: new Icon(Icons.assistant_photo,
+                            color: Colors.black),
+                        onPressed: () {},
+                      ),
+                      title: Text(
+                        'Rate Us!',
+                        style: TextStyle(
+                            color: Colors.black,
+                            fontSize: 18.0,
+                            fontWeight: FontWeight.bold),
+                      ),
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => Rate()),
+                        );
+                      }),
+                ),
+                Divider(),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Text(
+                    "SignOut",
+                    style: TextStyle(
+                        color: Colors.cyan,
+                        fontSize: 25.0,
+                        fontWeight: FontWeight.bold),
+                  ),
+                ),
+                Card(
+                  child: ListTile(
+                    tileColor: Colors.cyan[200],
+                    leading: new IconButton(
+                      icon: new Icon(Icons.exit_to_app, color: Colors.black),
+                      onPressed: () {},
+                    ),
+                    title: Text(
+                      'LogOut',
+                      style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 18.0,
+                          fontWeight: FontWeight.bold),
+                    ),
+                    onTap: () {
+                      FirebaseAuth auth = FirebaseAuth.instance;
+                      auth.signOut().then((res) {
+                        Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(builder: (context) => MyApp()),
+                        );
+                      });
+                    },
+                  ),
+                ),
+              ],
+            ),
+          ),
+          body: myAllData.length == 0
+              ? Container(
+                  color: Colors.cyan,
+                  child: new Center(
+                      child: SpinKitSquareCircle(
+                    color: Colors.white,
+                    size: 100.0,
+                  )),
+                )
+              : showMyUI(),
+        ));
   }
 
   Widget showMyUI() {
-
     return DraggableScrollbar.semicircle(
       controller: _semicircleController,
       child: ListView.builder(
@@ -164,7 +256,7 @@ class _Home1State extends State<Home1> {
               shadowColor: Colors.grey,
               child: ListTile(
                   leading: Icon(
-                    Icons.album,
+                    Icons.whatshot,
                     color: Colors.redAccent,
                   ),
                   title: Text(' ${myAllData[index].name}',
@@ -208,7 +300,6 @@ class myModel {
   }
 }
 
-
 class DataSearch extends SearchDelegate<myModel> {
   List<myModel> myAllData = [];
   DataSearch({this.myAllData});
@@ -248,61 +339,60 @@ class DataSearch extends SearchDelegate<myModel> {
     final myList = query.isEmpty
         ? myAllData
         : myAllData
-        .where((p) => p.name.toLowerCase().startsWith(query.toLowerCase()))
-        .toList();
+            .where((p) => p.name.toLowerCase().startsWith(query.toLowerCase()))
+            .toList();
     return myList.isEmpty
         ? Center(
-        child: Container(
-            child:
-            Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-              Icon(
-                Icons.search_outlined,
-                color: Colors.red,
-              ),
-              Text("  No Results Found",
-                  style: TextStyle(
-                      fontSize: 24.0,
-                      color: Colors.red,
-                      fontWeight: FontWeight.bold)),
-            ])))
-        : ListView.builder(
-        itemCount: myList.length,
-        itemBuilder: (context, index) {
-          final myModel listItem = myList[index];
-          return Card(
-            child: ListTile(
-              onTap: () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => Search(
-                          name: listItem.name,
-                          symptoms: listItem.symptoms,
-                          causes: listItem.causes,
-                          overview: listItem.overview,
-                        )));
-              },
-              leading: Icon(
-                Icons.search_outlined,
-                color: Colors.black,
-              ),
-              title: RichText(
-                text: TextSpan(
-                    text: listItem.name.substring(0, query.length),
-                    style: TextStyle(
-                        color: Colors.blue,
-                        fontWeight: FontWeight.bold,
-                        fontSize: 24.0),
-                    children: [
-                      TextSpan(
-                          text: listItem.name.substring(query.length),
-                          style: TextStyle(
-                              color: Colors.black, fontSize: 20.0))
-                    ]),
-              ),
-
+            child: Container(
+                child:
+                    Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+            Icon(
+              Icons.search_outlined,
+              color: Colors.red,
             ),
-          );
-        });
+            Text("  No Results Found",
+                style: TextStyle(
+                    fontSize: 24.0,
+                    color: Colors.red,
+                    fontWeight: FontWeight.bold)),
+          ])))
+        : ListView.builder(
+            itemCount: myList.length,
+            itemBuilder: (context, index) {
+              final myModel listItem = myList[index];
+              return Card(
+                child: ListTile(
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => Search(
+                                  name: listItem.name,
+                                  symptoms: listItem.symptoms,
+                                  causes: listItem.causes,
+                                  overview: listItem.overview,
+                                )));
+                  },
+                  leading: Icon(
+                    Icons.search_outlined,
+                    color: Colors.black,
+                  ),
+                  title: RichText(
+                    text: TextSpan(
+                        text: listItem.name.substring(0, query.length),
+                        style: TextStyle(
+                            color: Colors.blue,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 24.0),
+                        children: [
+                          TextSpan(
+                              text: listItem.name.substring(query.length),
+                              style: TextStyle(
+                                  color: Colors.black, fontSize: 20.0))
+                        ]),
+                  ),
+                ),
+              );
+            });
   }
 }

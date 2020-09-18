@@ -75,6 +75,7 @@ class _NotesState extends State<Notes> {
           child: Icon(Icons.add, color: Colors.white),
         ),
         body:
+
         StreamBuilder(
           stream: Firestore.instance.collection(uid).snapshots(),
           builder: (context,snapshots){
