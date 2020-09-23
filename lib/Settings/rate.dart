@@ -7,22 +7,23 @@ class Rate extends StatefulWidget {
 }
 class _RateState extends State<Rate> {
   var myFeedbackText = "COULD BE BETTER";
-  var sliderValue = 0.0;
-  IconData myFeedback = FontAwesomeIcons.sadTear;
-  Color myFeedbackColor = Colors.cyan;
+  var sliderValue = 5.0;
+  IconData myFeedback = FontAwesomeIcons.laugh;
+  Color myFeedbackColor = Colors.green;
 
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
+backgroundColor: Color(0xFF0A0E21),
       appBar: AppBar(
 
         title: Text("Feedback"),
-        backgroundColor: Colors.cyan,
+        backgroundColor: Color(0xFF0A0E21),
 //        actions: <Widget>[
 //        ],
       ),
       body: Container(
-color: Colors.deepPurple[400],
+
         child: Column(
           children: <Widget>[
             SizedBox(height:30.0),
@@ -107,10 +108,10 @@ color: Colors.deepPurple[400],
                             alignment: Alignment.bottomCenter,
                             child: RaisedButton(
                               shape:RoundedRectangleBorder(borderRadius: new BorderRadius.circular(35.0)),
-                              color: Colors.cyan,
+                              color: Colors.pink,
                               padding: EdgeInsets.all(15.0),
                               child: Text('Submit',
-                                style: TextStyle(fontSize: 25.0,color: Colors.black),),
+                                style: TextStyle(fontSize: 25.0,color: Colors.white),),
                               onPressed: () {
                                 bookFlight(context);
                               },

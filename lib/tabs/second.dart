@@ -47,10 +47,14 @@ class _SecondState extends State<Second> {
 
     return new MaterialApp(
         debugShowCheckedModeBanner: false,
+        theme: ThemeData.dark().copyWith(
+          primaryColor: Color(0xFF0A0E21),
+          scaffoldBackgroundColor: Color(0xFF0A0E21),
+        ),
         home: new Scaffold(
           appBar: AppBar(
             title: Text("Medic"),
-            backgroundColor: Colors.cyan,
+            backgroundColor:Color(0xFF0A0E21),
             actions: [
               IconButton(
                 icon: Icon(Icons.search),
@@ -64,7 +68,7 @@ class _SecondState extends State<Second> {
           ),
           body: myAllData.length == 0
               ? Container(
-            color: Colors.cyan,
+            color: Color(0xFF0A0E21),
                 child: new Center(
                     child: SpinKitSquareCircle(color: Colors.white,size:100.0,)),
               )
@@ -89,6 +93,7 @@ class _SecondState extends State<Second> {
               margin: EdgeInsets.all(8.0),
               elevation: 8.0,
               shadowColor: Colors.grey,
+              color: Colors.white70,
               child: ListTile(
 
                 trailing:IconButton(
@@ -105,11 +110,11 @@ class _SecondState extends State<Second> {
                   color: Colors.redAccent,
                 ),
                 title: Text('${myAllData[index].drug}',
-                    style: TextStyle(fontSize: 28.0, color: Colors.indigo)),
+                    style: TextStyle(fontSize: 28.0, color: Colors.blue[900])),
                 subtitle: Text('${myAllData[index].condition}',
                     style: TextStyle(
                         fontSize: 20.0,
-                        color: Colors.brown,
+                        color: Colors.blue[600],
                         fontWeight: FontWeight.w500)),
               ),
             );

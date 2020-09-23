@@ -1,14 +1,11 @@
+
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:wallpaper/Settings/about.dart';
-import 'package:wallpaper/Settings/rate.dart';
 import 'dart:convert';
-import 'package:wallpaper/main.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:wallpaper/tabs/search.dart';
 import 'package:http/http.dart' as http;
 import 'package:draggable_scrollbar/draggable_scrollbar.dart';
+
 
 class Home1 extends StatefulWidget {
   Home1({this.uid});
@@ -52,31 +49,25 @@ class _Home1State extends State<Home1> {
       SnackBar(content: Text('Oops! Something went wrong'));
     }
   }
-  String greeting() {
-    String day= "";
-    var hour = DateTime.now().hour;
-    if (hour < 12) {
-      day="Morning";
-      return day;
-    }
-    if (hour < 17) {
-      day="Afternoon";
-      return day;
-    }
-    day="Evening";
-    return day;
-  }
+
+
+
   @override
   Widget build(BuildContext context) {
+
     return MaterialApp(
         debugShowCheckedModeBanner: false,
+        theme: ThemeData.dark().copyWith(
+          primaryColor: Color(0xFF0A0E21),
+          scaffoldBackgroundColor: Color(0xFF0A0E21),
+        ),
         home: new Scaffold(
           appBar: AppBar(
-            backgroundColor: Colors.cyan,
+
             title: Text(
-              "Medic",
-              style: TextStyle(color: Colors.white),
-            ),
+              "Medic"
+             ),
+
             actions: [
               IconButton(
                 icon: Icon(Icons.search),
@@ -88,151 +79,10 @@ class _Home1State extends State<Home1> {
               )
             ],
           ),
-          drawer: Drawer(
-            child: new ListView(
-              children: [
-                DrawerHeader(
-                  decoration: BoxDecoration(
-                      image: DecorationImage(
-                          image: AssetImage("assets/d.jpg"),
-                          fit: BoxFit.cover)),
-                  child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                      Text("Good "+greeting(),
-                      style: GoogleFonts.pacifico( textStyle:TextStyle(
-                          fontSize: 30.0,
-                          color: Colors.white,
-                          fontWeight: FontWeight.bold,
-                          letterSpacing: 3.5
-                      ))),
 
-                    SizedBox(height: 40.0,),
-                        Text("Settings",
-                            style: TextStyle(
-                                fontSize: 30.0,
-                                color: Colors.white,
-                                fontWeight: FontWeight.bold)),
-
-
-                  ]),
-                ),
-                Card(
-                  child: ListTile(
-                      tileColor: Colors.black12,
-                      leading: new IconButton(
-                        icon: new Icon(Icons.info, color: Colors.black),
-                        onPressed: () {},
-                      ),
-                      title: Text('About'),
-                      onTap: () {}),
-                ),
-                Card(
-                  child: ListTile(
-                      tileColor: Colors.black12,
-                      leading: new IconButton(
-                        icon: new Icon(Icons.info, color: Colors.black),
-                        onPressed: () {},
-                      ),
-                      title: Text('About'),
-                      onTap: () {}),
-                ),
-                Divider(),
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Text(
-                    "About",
-                    style: TextStyle(
-                        color: Colors.cyan,
-                        fontSize: 25.0,
-                        fontWeight: FontWeight.bold),
-                  ),
-                ),
-                Card(
-                  child: ListTile(
-                      tileColor: Colors.cyan[200],
-                      leading: new IconButton(
-                        icon: new Icon(Icons.info, color: Colors.black),
-                        onPressed: () {},
-                      ),
-                      title: Text(
-                        'Know More',
-                        style: TextStyle(
-                            color: Colors.black,
-                            fontSize: 18.0,
-                            fontWeight: FontWeight.bold),
-                      ),
-                      onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => About()),
-                        );
-                      }),
-                ),
-                Card(
-                  child: ListTile(
-                      tileColor: Colors.cyan[200],
-                      leading: new IconButton(
-                        icon: new Icon(Icons.assistant_photo,
-                            color: Colors.black),
-                        onPressed: () {},
-                      ),
-                      title: Text(
-                        'Rate Us!',
-                        style: TextStyle(
-                            color: Colors.black,
-                            fontSize: 18.0,
-                            fontWeight: FontWeight.bold),
-                      ),
-                      onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => Rate()),
-                        );
-                      }),
-                ),
-                Divider(),
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Text(
-                    "SignOut",
-                    style: TextStyle(
-                        color: Colors.cyan,
-                        fontSize: 25.0,
-                        fontWeight: FontWeight.bold),
-                  ),
-                ),
-                Card(
-                  child: ListTile(
-                    tileColor: Colors.cyan[200],
-                    leading: new IconButton(
-                      icon: new Icon(Icons.exit_to_app, color: Colors.black),
-                      onPressed: () {},
-                    ),
-                    title: Text(
-                      'LogOut',
-                      style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 18.0,
-                          fontWeight: FontWeight.bold),
-                    ),
-                    onTap: () {
-                      FirebaseAuth auth = FirebaseAuth.instance;
-                      auth.signOut().then((res) {
-                        Navigator.pushReplacement(
-                          context,
-                          MaterialPageRoute(builder: (context) => MyApp()),
-                        );
-                      });
-                    },
-                  ),
-                ),
-              ],
-            ),
-          ),
           body: myAllData.length == 0
               ? Container(
-                  color: Colors.cyan,
+                  color: Color(0xFF0A0E21),
                   child: new Center(
                       child: SpinKitSquareCircle(
                     color: Colors.white,
@@ -253,6 +103,7 @@ class _Home1State extends State<Home1> {
             return new Card(
               margin: EdgeInsets.all(8.0),
               elevation: 8.0,
+              color: Colors.white70,
               shadowColor: Colors.grey,
               child: ListTile(
                   leading: Icon(
@@ -260,7 +111,7 @@ class _Home1State extends State<Home1> {
                     color: Colors.redAccent,
                   ),
                   title: Text(' ${myAllData[index].name}',
-                      style: TextStyle(fontSize: 28.0, color: Colors.indigo)),
+                      style: TextStyle(fontSize: 28.0, color: Colors.blue[900])),
                   onTap: () {
                     Navigator.push(
                         context,
@@ -396,3 +247,5 @@ class DataSearch extends SearchDelegate<myModel> {
             });
   }
 }
+
+

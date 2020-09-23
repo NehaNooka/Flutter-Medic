@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:wallpaper/tabs/bookmark.dart';
+import 'package:wallpaper/Bmi/screens/input_page.dart';
+import 'package:wallpaper/tabs/pageview.dart';
 import 'package:wallpaper/tabs/notes.dart';
 import 'package:wallpaper/tabs/second.dart';
 import 'package:wallpaper/tabs/home1.dart';
@@ -12,7 +13,8 @@ class Home extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(body: Body1(uid: this.uid));
+    return Scaffold(
+    body: Body1(uid: this.uid));
   }
 }
 
@@ -31,17 +33,21 @@ class _Body1State extends State<Body1> {
   // ignore: missing_return
   Widget getPage(int index) {
     if (index == 0) {
-      return Home1(uid: uid);
+      return Scroll();
     }
     if (index == 1) {
-      return Second();
+      return Home1(uid: uid);
     }
     if (index == 2) {
-      return Notes(uid: uid);
+      return Second();
     }
     if (index == 3) {
-      return Fav();
+      return Notes(uid: uid);
     }
+    if (index == 4) {
+      return BMICalculator();
+    }
+
   }
 
   int _currentIndex = 0;
@@ -62,15 +68,19 @@ class _Body1State extends State<Body1> {
             child: getPage(_currentIndex),
           )),
           bottomNavigationBar: BottomNavigationBar(
-            backgroundColor: Colors.cyan,
-            unselectedItemColor: Colors.black45,
+            backgroundColor: Color(0xFF0A0E21),
+            unselectedItemColor: Colors.grey,
             type: BottomNavigationBarType.fixed,
-            selectedItemColor: Colors.black,
+            selectedItemColor: Colors.white,
             iconSize: 30,
             items: [
               BottomNavigationBarItem(
                 icon: Icon(Icons.home),
                 label: "Home",
+              ),
+              BottomNavigationBarItem(
+                icon: Icon(Icons.ac_unit),
+                label: "Diseases",
               ),
               BottomNavigationBarItem(
                 icon: Icon(Icons.all_out),
@@ -81,8 +91,8 @@ class _Body1State extends State<Body1> {
                 label: "Notes",
               ),
               BottomNavigationBarItem(
-                icon: Icon(Icons.favorite),
-                label: "Favourites",
+                icon: Icon(Icons.calculate),
+                label: "Calculate",
               ),
             ],
             onTap: onTabTapped,

@@ -22,92 +22,97 @@ class _EmailSignUpState extends State<EmailSignUp> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(title: Text("Sign Up"),backgroundColor: Colors.cyan,),
-        body: Form(
-            key: _formKey,
-            child: SingleChildScrollView(
-                child: Column(children: <Widget>[
-                  Padding(
-                    padding: EdgeInsets.all(20.0),
-                    child: TextFormField(
-                      controller: nameController,
-                      decoration: InputDecoration(
-                        labelText: "Enter User Name",
-                        enabledBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(10.0),
+      backgroundColor: Color(0xFF0A0E21),
+          appBar: AppBar(title: Text("Sign Up"),backgroundColor: Color(0xFF0A0E21),),
+          body: Form(
+              key: _formKey,
+              child: SingleChildScrollView(
+                  child: Column(children: <Widget>[
+                    Padding(
+                      padding: EdgeInsets.all(20.0),
+                      child: Container(
+                        color: Colors.white,
+                        child: TextFormField(
+                          controller: nameController,
+                          decoration: InputDecoration(
+                            labelText: "Enter User Name",
+                              labelStyle: TextStyle(fontSize: 20.0,fontWeight: FontWeight.bold)
+                          ),
+                          // The validator receives the text that the user has entered.
+                          validator: (value) {
+                            if (value.isEmpty) {
+                              return 'Enter User Name';
+                            }
+                            return null;
+                          },
                         ),
                       ),
-                      // The validator receives the text that the user has entered.
-                      validator: (value) {
-                        if (value.isEmpty) {
-                          return 'Enter User Name';
-                        }
-                        return null;
-                      },
                     ),
-                  ),
-                  Padding(
-                    padding: EdgeInsets.all(20.0),
-                    child: TextFormField(
-                      controller: emailController,
-                      decoration: InputDecoration(
-                        labelText: "Enter Email",
-                        enabledBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(10.0),
+                    Padding(
+                      padding: EdgeInsets.all(20.0),
+                      child: Container(
+                        color: Colors.white,
+                        child: TextFormField(
+                          controller: emailController,
+                          decoration: InputDecoration(
+                            labelText: "Enter Email",
+                              labelStyle: TextStyle(fontSize: 20.0,fontWeight: FontWeight.bold)
+                          ),
+                          // The validator receives the text that the user has entered.
+                          validator: (value) {
+                            if (value.isEmpty) {
+                              return 'Enter an Email Address';
+                            } else if (!value.contains('@')) {
+                              return 'Please enter a valid email address';
+                            }
+                            return null;
+                          },
                         ),
                       ),
-                      // The validator receives the text that the user has entered.
-                      validator: (value) {
-                        if (value.isEmpty) {
-                          return 'Enter an Email Address';
-                        } else if (!value.contains('@')) {
-                          return 'Please enter a valid email address';
-                        }
-                        return null;
-                      },
                     ),
-                  ),
 
-                  Padding(
-                    padding: EdgeInsets.all(20.0),
-                    child: TextFormField(
-                      obscureText: true,
-                      controller: passwordController,
-                      decoration: InputDecoration(
-                        labelText: "Enter Password",
-                        enabledBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(10.0),
+                    Padding(
+                      padding: EdgeInsets.all(20.0),
+                      child: Container(
+                        color: Colors.white,
+                        child: TextFormField(
+                          obscureText: true,
+                          controller: passwordController,
+                          decoration: InputDecoration(
+                            labelText: "Enter Password",
+                              labelStyle: TextStyle(fontSize: 20.0,fontWeight: FontWeight.bold)
+                          ),
+                          // The validator receives the text that the user has entered.
+                          validator: (value) {
+                            if (value.isEmpty) {
+                              return 'Enter Password';
+                            } else if (value.length < 6) {
+                              return 'Password must be atleast 6 characters!';
+                            }
+                            return null;
+                          },
                         ),
                       ),
-                      // The validator receives the text that the user has entered.
-                      validator: (value) {
-                        if (value.isEmpty) {
-                          return 'Enter Password';
-                        } else if (value.length < 6) {
-                          return 'Password must be atleast 6 characters!';
-                        }
-                        return null;
-                      },
                     ),
-                  ),
-                  Padding(
-                    padding: EdgeInsets.all(20.0),
-                    child: isLoading
-                        ? CircularProgressIndicator()
-                        : RaisedButton(
-                      color: Colors.cyan,
-                      onPressed: () {
-                        if (_formKey.currentState.validate()) {
-                          setState(() {
-                            isLoading = true;
-                          });
-                          registerToFb();
-                        }
-                      },
-                      child: Text('Submit'),
-                    ),
-                  )
-                ]))));
+                    Padding(
+                      padding: EdgeInsets.all(20.0),
+                      child: isLoading
+                          ? CircularProgressIndicator()
+                          : RaisedButton(
+                        color: Colors.pink,
+                        onPressed: () {
+                          if (_formKey.currentState.validate()) {
+                            setState(() {
+                              isLoading = true;
+                            });
+                            registerToFb();
+                          }
+                        },
+                        child: Text('Submit',style: TextStyle(color: Colors.white,fontSize: 18.0,fontWeight: FontWeight.bold),),
+                      ),
+                    )
+                  ])))
+    );
   }
 
   void registerToFb() {

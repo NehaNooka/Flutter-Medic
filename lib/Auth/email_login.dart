@@ -16,76 +16,83 @@ class _EmailLogInState extends State<EmailLogIn> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        appBar: AppBar(title: Text("Login"),backgroundColor: Colors.cyan,),
-        body: Container(
-    child: Form(
-              key: _formKey,
-              child: SingleChildScrollView(
-                  child: Column(children: <Widget>[
-                    Padding(
-                      padding: EdgeInsets.all(20.0),
-                      child: TextFormField(
-                        controller: emailController,
-                        decoration: InputDecoration(
-                          labelText: "Enter Email Address",
-                          enabledBorder: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(10.0),
+    return
+       Scaffold(
+         backgroundColor: Color(0xFF0A0E21),
+          appBar: AppBar(title: Text("Login"),backgroundColor: Color(0xFF0A0E21),),
+          body: Container(
+      child: Form(
+                key: _formKey,
+                child: SingleChildScrollView(
+                    child: Column(children: <Widget>[
+                      Padding(
+                        padding: EdgeInsets.all(20.0),
+                        child: Container(
+                          color: Colors.white,
+                          child: TextFormField(
+                            controller: emailController,
+                            decoration: InputDecoration(
+                              labelText: "Enter Email Address",
+                             labelStyle: TextStyle(fontSize: 20.0,fontWeight: FontWeight.bold)
+                            ),
+                            // The validator receives the text that the user has entered.
+                            validator: (value) {
+                              if (value.isEmpty) {
+                                return 'Enter Email Address';
+                              }
+                              else if(!value.contains('@')){
+                                return 'Please enter a valid email address!';
+                              }
+                              return null;
+                            },
                           ),
                         ),
-                        // The validator receives the text that the user has entered.
-                        validator: (value) {
-                          if (value.isEmpty) {
-                            return 'Enter Email Address';
-                          }
-                          else if(!value.contains('@')){
-                            return 'Please enter a valid email address!';
-                          }
-                          return null;
-                        },
                       ),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.all(20.0),
-                      child: TextFormField(
-                        obscureText: true,
-                        controller: passwordController,
-                        decoration: InputDecoration(
-                          labelText: "Enter Password",
-                          enabledBorder: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(10.0),
+                      Padding(
+                        padding: EdgeInsets.all(20.0),
+                        child: Container(
+                          color: Colors.white,
+                          child: TextFormField(
+cursorColor: Colors.black,
+                            obscureText: true,
+                            controller: passwordController,
+                            decoration: InputDecoration(
+                              labelText: "Enter Password",
+
+                                labelStyle: TextStyle(fontSize: 20.0,fontWeight: FontWeight.bold)
+                            ),
+                            // The validator receives the text that the user has entered.
+                            validator: (value) {
+                              if (value.isEmpty) {
+                                return 'Enter Password';
+                              } else if (value.length < 6) {
+                                return 'Password must be atleast 6 characters!';
+                              }
+                              return null;
+                            },
                           ),
                         ),
-                        // The validator receives the text that the user has entered.
-                        validator: (value) {
-                          if (value.isEmpty) {
-                            return 'Enter Password';
-                          } else if (value.length < 6) {
-                            return 'Password must be atleast 6 characters!';
-                          }
-                          return null;
-                        },
                       ),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.all(20.0),
-                      child: isLoading
-                          ? CircularProgressIndicator()
-                          : RaisedButton(
-                        color: Colors.cyan,
-                        onPressed: () {
-                          if (_formKey.currentState.validate()) {
-                            setState(() {
-                              isLoading = true;
-                            });
-                            logInToFb();
-                          }
-                        },
-                        child: Text('Submit'),
-                      ),
-                    )
-                  ]))),
-        ));
+                      Padding(
+                        padding: EdgeInsets.all(20.0),
+                        child: isLoading
+                            ? CircularProgressIndicator()
+                            : RaisedButton(
+                          color: Colors.pink,
+                          onPressed: () {
+                            if (_formKey.currentState.validate()) {
+                              setState(() {
+                                isLoading = true;
+                              });
+                              logInToFb();
+                            }
+                          },
+                          child: Text('Submit',style: TextStyle(color: Colors.white,fontSize: 18.0,fontWeight: FontWeight.bold),),
+                        ),
+                      )
+                    ]))),
+          )
+    );
   }
 
   void logInToFb() {

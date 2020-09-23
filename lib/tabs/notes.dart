@@ -33,12 +33,16 @@ class _NotesState extends State<Notes> {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-
+        theme: ThemeData.dark().copyWith(
+          primaryColor: Color(0xFF0A0E21),
+          scaffoldBackgroundColor: Color(0xFF0A0E21),
+        ),
       home: new Scaffold(
+
         appBar: AppBar(
-          backgroundColor: Colors.cyan,
+          backgroundColor:Color(0xFF0A0E21),
           title: Text(
-            "Medic",
+            "Notes",
             style: TextStyle(color: Colors.white),
           ),
         ),
@@ -91,11 +95,12 @@ class _NotesState extends State<Notes> {
             },
           key: Key(documentSnapshot["todoTitle"]),
           child: Card(
+
           margin: EdgeInsets.all(8),
           elevation: 4,
           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
           child: ListTile(
-          title: Text(documentSnapshot["todoTitle"]),
+          title: Text(documentSnapshot["todoTitle"],style: TextStyle(fontSize: 22.0),),
           trailing: IconButton(icon: Icon(Icons.delete, color: Colors.red,),
           onPressed: (){
          deleteTodos(documentSnapshot["todoTitle"]);
