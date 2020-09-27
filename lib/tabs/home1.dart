@@ -1,6 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:flutter_tts/flutter_tts.dart';
 import 'dart:convert';
 import 'package:wallpaper/tabs/search.dart';
 import 'package:http/http.dart' as http;
@@ -50,7 +51,12 @@ class _Home1State extends State<Home1> {
     }
   }
 
-
+  final FlutterTts flutterTts = FlutterTts();
+  speak(String text) async{
+    await flutterTts.setVolume(1.0);
+    await flutterTts.setLanguage("hi-IN");
+    await flutterTts.speak(text);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -65,7 +71,7 @@ class _Home1State extends State<Home1> {
           appBar: AppBar(
 
             title: Text(
-              "Medic"
+              "DISEASES"
              ),
 
             actions: [
@@ -110,6 +116,14 @@ class _Home1State extends State<Home1> {
                     Icons.whatshot,
                     color: Colors.redAccent,
                   ),
+                  trailing: IconButton(
+
+                      icon: Icon(
+                        Icons.volume_up,
+                        color: Colors.blueGrey[900],
+                        size: 30.0,
+                      ),
+                      onPressed: ()=> speak(' ${myAllData[index].name}')),
                   title: Text(' ${myAllData[index].name}',
                       style: TextStyle(fontSize: 28.0, color: Colors.blue[900])),
                   onTap: () {
@@ -154,6 +168,12 @@ class myModel {
 class DataSearch extends SearchDelegate<myModel> {
   List<myModel> myAllData = [];
   DataSearch({this.myAllData});
+  final FlutterTts flutterTts = FlutterTts();
+  speak(String text) async{
+    await flutterTts.setVolume(200.0);
+    await flutterTts.setLanguage("hi-IN");
+    await flutterTts.speak(text);
+  }
 
   @override
   List<Widget> buildActions(BuildContext context) {
@@ -228,6 +248,14 @@ class DataSearch extends SearchDelegate<myModel> {
                     Icons.search_outlined,
                     color: Colors.black,
                   ),
+                  trailing: IconButton(
+
+                      icon: Icon(
+                        Icons.volume_up,
+                        color: Colors.green[900],
+                        size: 30.0,
+                      ),
+                      onPressed: ()=> speak(listItem.name)),
                   title: RichText(
                     text: TextSpan(
                         text: listItem.name.substring(0, query.length),

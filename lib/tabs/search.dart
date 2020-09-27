@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-
+import 'package:flutter_tts/flutter_tts.dart';
 class Search extends StatelessWidget {
   final name;
   final symptoms;
   final causes;
-
   final overview;
 
   Search({
@@ -15,6 +14,12 @@ class Search extends StatelessWidget {
     this.overview,
   }) : super(key: key);
 
+  final FlutterTts flutterTts = FlutterTts();
+speak(String text) async{
+await flutterTts.setVolume(1.0);
+  await flutterTts.setLanguage("hi-IN");
+  await flutterTts.speak(text);
+}
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -46,15 +51,17 @@ class Search extends StatelessWidget {
                           ),
                         ),
                         Align(
-                          alignment: Alignment.bottomRight,
+                          alignment: Alignment.topCenter,
                           child: new FloatingActionButton(
                             onPressed: () {},
                             child: IconButton(
+
                                 icon: Icon(
-                                  Icons.favorite_outline_rounded,
+                                  Icons.volume_up,
                                   color: Colors.white,
+
                                 ),
-                                onPressed: () {}),
+                                onPressed: ()=> speak(name)),
                           ),
                         )
                       ],

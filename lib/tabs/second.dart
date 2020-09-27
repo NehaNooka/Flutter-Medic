@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_tts/flutter_tts.dart';
 import 'package:http/http.dart' as http;
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:draggable_scrollbar/draggable_scrollbar.dart';
@@ -41,7 +42,12 @@ class _SecondState extends State<Second> {
       SnackBar(content: Text('Oops! Something went wrong'));
     }
   }
-
+  final FlutterTts flutterTts = FlutterTts();
+  speak(String text) async{
+    await flutterTts.setVolume(1.0);
+    await flutterTts.setLanguage("hi-IN");
+    await flutterTts.speak(text);
+  }
   @override
   Widget build(BuildContext context) {
 
@@ -53,7 +59,7 @@ class _SecondState extends State<Second> {
         ),
         home: new Scaffold(
           appBar: AppBar(
-            title: Text("Medic"),
+            title: Text("MEDICINES"),
             backgroundColor:Color(0xFF0A0E21),
             actions: [
               IconButton(
@@ -83,12 +89,7 @@ class _SecondState extends State<Second> {
           controller: _semicircleController,
           itemCount: myAllData.length,
           itemBuilder: (_, index) {
-            int _selectedIndex;
-            _onSelected(int index) {
-              setState(() {
-                _selectedIndex = index;
-              });
-            }
+
             return new Card(
               margin: EdgeInsets.all(8.0),
               elevation: 8.0,
@@ -96,15 +97,15 @@ class _SecondState extends State<Second> {
               color: Colors.white70,
               child: ListTile(
 
-                trailing:IconButton(
+                trailing: IconButton(
+
                     icon: Icon(
-                      Icons.favorite,
-                      color: _selectedIndex != null && _selectedIndex == index
-                          ? Colors.redAccent
-                          : Colors.grey,
+                      Icons.volume_up,
+                      color: Colors.blueGrey[900],
+                      size: 30.0,
                     ),
-                    onPressed: (){
-                      _onSelected(index);}),
+                    onPressed: ()=> speak('${myAllData[index].drug}')),
+
                 leading: Icon(
                   Icons.whatshot ,
                   color: Colors.redAccent,

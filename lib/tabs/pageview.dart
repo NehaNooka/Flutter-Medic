@@ -3,10 +3,12 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:wallpaper/Settings/about.dart';
+import 'package:wallpaper/Settings/faq.dart';
 import 'package:wallpaper/Settings/privacy.dart';
 import 'package:wallpaper/Settings/rate.dart';
 import 'package:wallpaper/Settings/terms.dart';
 import 'package:wallpaper/main.dart';
+
 
 class Scroll extends StatefulWidget {
   @override
@@ -47,7 +49,7 @@ class _ScrollState extends State<Scroll> {
     return  Scaffold(
       backgroundColor: Color(0xFF0A0E21),
           appBar: AppBar(
-            title: Text('Medic'),
+            title: Text('MEDIC'),
             backgroundColor: Color(0xFF0A0E21),
           ),
           drawer: Drawer(
@@ -79,16 +81,16 @@ class _ScrollState extends State<Scroll> {
                                 fontWeight: FontWeight.bold)),
                       ]),
                 ),
-                Divider(),
+
                 Card(
                   child: ListTile(
                       tileColor: Color(0xFF0A0E21),
                       leading: new IconButton(
-                        icon: new Icon(Icons.info, color: Colors.white),
+                        icon: new Icon(Icons.info_outline, color: Colors.white),
                         onPressed: () {},
                       ),
                       title: Text(
-                        'Know More',
+                        'App Info',
                         style: TextStyle(
                             color: Colors.white,
                             fontSize: 18.0,
@@ -98,6 +100,27 @@ class _ScrollState extends State<Scroll> {
                         Navigator.push(
                           context,
                           MaterialPageRoute(builder: (context) => About()),
+                        );
+                      }),
+                ),
+                Card(
+                  child: ListTile(
+                      tileColor: Color(0xFF0A0E21),
+                      leading: new IconButton(
+                        icon: new Icon(Icons.question_answer, color: Colors.white),
+                        onPressed: () {},
+                      ),
+                      title: Text(
+                        'FAQs',
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 18.0,
+                            fontWeight: FontWeight.bold),
+                      ),
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => Faq()),
                         );
                       }),
                 ),
@@ -122,7 +145,7 @@ class _ScrollState extends State<Scroll> {
                         );
                       }),
                 ),
-                Divider(),
+
                 Card(
                   child: ListTile(
                       tileColor: Color(0xFF0A0E21),
@@ -166,7 +189,7 @@ class _ScrollState extends State<Scroll> {
                         );
                       }),
                 ),
-                Divider(),
+
                 Card(
                   child: ListTile(
                     tileColor: Color(0xFF0A0E21),
@@ -192,6 +215,28 @@ class _ScrollState extends State<Scroll> {
                     },
                   ),
                 ),
+                Card(
+                  child: ListTile(
+                    tileColor: Color(0xFF0A0E21),
+
+                    title: Text(
+                      'Version',
+                      style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 18.0,
+                          fontWeight: FontWeight.bold),
+                    ),
+                    subtitle: Text(
+                      '1.0.1',
+                      style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 12.0,
+                          fontWeight: FontWeight.bold),
+                    ),
+                    onTap: () {
+                    },
+                  ),
+                ),
               ],
             ),
           ),
@@ -200,6 +245,27 @@ class _ScrollState extends State<Scroll> {
             scrollDirection: Axis.horizontal,
             physics: BouncingScrollPhysics(),
             children: [
+              Container(
+
+                decoration: new BoxDecoration(
+                  color: Colors.blue[100],
+                  border: Border.all(width: 10.0, color: Colors.white),
+                  borderRadius: BorderRadius.all(Radius.circular(75.0) //
+                  ),
+                ),
+                margin: EdgeInsets.all(10.0),
+                child: Center(
+                  child: new Text(
+                      "  Laughing is good for the heart and can increase blood flow by 20 percent.",
+                      style: GoogleFonts.pacifico(
+                          textStyle: TextStyle(
+                              fontSize: 40.0,
+                              color: Colors.blue[800],
+                              fontWeight: FontWeight.bold,
+                              letterSpacing: 2.0,
+                              wordSpacing: 2.0))),
+                ),
+              ),
               Container(
                 decoration: new BoxDecoration(
                   color: Colors.brown[100],
@@ -216,6 +282,66 @@ class _ScrollState extends State<Scroll> {
                           textStyle: TextStyle(
                               fontSize: 40.0,
                               color: Colors.brown[800] ,
+                              fontWeight: FontWeight.bold,
+                              letterSpacing: 2.0,
+                              wordSpacing: 2.0))),
+                ),
+              ),
+              Container(
+                decoration: new BoxDecoration(
+                  color: Colors.pink[100],
+                  border: Border.all(width: 10.0, color: Colors.white),
+                  borderRadius: BorderRadius.all(Radius.circular(75.0) //
+                  ),
+                ),
+                margin: EdgeInsets.all(10.0),
+                child: Center(
+                  child: new Text(
+                      "  Reading can lower the levels of unhealthy stress hormones.",
+                      style: GoogleFonts.pacifico(
+                          textStyle: TextStyle(
+                              fontSize: 40.0,
+                              color: Colors.pink[800],
+                              fontWeight: FontWeight.bold,
+                              letterSpacing: 2.0,
+                              wordSpacing: 2.0))),
+                ),
+              ),
+              Container(
+                decoration: new BoxDecoration(
+                  color: Colors.green[100],
+                  border: Border.all(width: 10.0, color: Colors.white),
+                  borderRadius: BorderRadius.all(Radius.circular(75.0) //
+                  ),
+                ),
+                margin: EdgeInsets.all(10.0),
+                child: Center(
+                  child: new Text(
+                      "  Tea can lower risks of heart attack , certain cancers , type 2 Diabetes.",
+                      style: GoogleFonts.pacifico(
+                          textStyle: TextStyle(
+                              fontSize: 40.0,
+                              color: Colors.green[800],
+                              fontWeight: FontWeight.bold,
+                              letterSpacing: 2.0,
+                              wordSpacing: 2.0))),
+                ),
+              ),
+              Container(
+                decoration: new BoxDecoration(
+                  color: Colors.red[100],
+                  border: Border.all(width: 10.0, color: Colors.white),
+                  borderRadius: BorderRadius.all(Radius.circular(75.0) //
+                  ),
+                ),
+                margin: EdgeInsets.all(10.0),
+                child: Center(
+                  child: new Text(
+                      "  Breathing deeply can improve circulation, decreased anxiety and reduced blood pressure.",
+                      style: GoogleFonts.pacifico(
+                          textStyle: TextStyle(
+                              fontSize: 40.0,
+                              color: Colors.red[800],
                               fontWeight: FontWeight.bold,
                               letterSpacing: 2.0,
                               wordSpacing: 2.0))),
@@ -269,7 +395,7 @@ class _ScrollState extends State<Scroll> {
                 margin: EdgeInsets.all(10.0),
                 child: Center(
                   child: new Text(
-                      "  Drinking coffee can reduce the risk of depression,especially in women.",
+                      "  Drinking coffee can reduce risk of depression ,especially in women.",
                       style: GoogleFonts.pacifico(
                           textStyle: TextStyle(
                               fontSize: 40.0,
@@ -279,87 +405,9 @@ class _ScrollState extends State<Scroll> {
                               wordSpacing: 2.0))),
                 ),
               ),
-              Container(
-                decoration: new BoxDecoration(
-                  color: Colors.pink[100],
-                  border: Border.all(width: 10.0, color: Colors.white),
-                  borderRadius: BorderRadius.all(Radius.circular(75.0) //
-                      ),
-                ),
-                margin: EdgeInsets.all(10.0),
-                child: Center(
-                  child: new Text(
-                      "  Reading can lower the levels of unhealthy stress hormones.",
-                      style: GoogleFonts.pacifico(
-                          textStyle: TextStyle(
-                              fontSize: 40.0,
-                              color: Colors.pink[800],
-                              fontWeight: FontWeight.bold,
-                              letterSpacing: 2.0,
-                              wordSpacing: 2.0))),
-                ),
-              ),
-              Container(
-                decoration: new BoxDecoration(
-                  color: Colors.green[100],
-                  border: Border.all(width: 10.0, color: Colors.white),
-                  borderRadius: BorderRadius.all(Radius.circular(75.0) //
-                      ),
-                ),
-                margin: EdgeInsets.all(10.0),
-                child: Center(
-                  child: new Text(
-                      "  Nearly 30% of the world’s population is obese.",
-                      style: GoogleFonts.pacifico(
-                          textStyle: TextStyle(
-                              fontSize: 40.0,
-                              color: Colors.green[800],
-                              fontWeight: FontWeight.bold,
-                              letterSpacing: 2.0,
-                              wordSpacing: 2.0))),
-                ),
-              ),
-              Container(
-                decoration: new BoxDecoration(
-                  color: Colors.red[100],
-                  border: Border.all(width: 10.0, color: Colors.white),
-                  borderRadius: BorderRadius.all(Radius.circular(75.0) //
-                      ),
-                ),
-                margin: EdgeInsets.all(10.0),
-                child: Center(
-                  child: new Text(
-                      "  A lack of exercise now causes as many deaths as smoking.",
-                      style: GoogleFonts.pacifico(
-                          textStyle: TextStyle(
-                              fontSize: 40.0,
-                              color: Colors.red[800],
-                              fontWeight: FontWeight.bold,
-                              letterSpacing: 2.0,
-                              wordSpacing: 2.0))),
-                ),
-              ),
-              Container(
 
-                decoration: new BoxDecoration(
-                  color: Colors.blue[100],
-                  border: Border.all(width: 10.0, color: Colors.white),
-                  borderRadius: BorderRadius.all(Radius.circular(75.0) //
-                      ),
-                ),
-                margin: EdgeInsets.all(10.0),
-                child: Center(
-                  child: new Text(
-                      "  Laughing is good for the heart and can increase blood flow by 20 percent.",
-                      style: GoogleFonts.pacifico(
-                          textStyle: TextStyle(
-                              fontSize: 40.0,
-                              color: Colors.blue[800],
-                              fontWeight: FontWeight.bold,
-                              letterSpacing: 2.0,
-                              wordSpacing: 2.0))),
-                ),
-              )
+
+
             ],
           )
     );

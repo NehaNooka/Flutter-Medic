@@ -42,7 +42,7 @@ class _NotesState extends State<Notes> {
         appBar: AppBar(
           backgroundColor:Color(0xFF0A0E21),
           title: Text(
-            "Notes",
+            "NOTES",
             style: TextStyle(color: Colors.white),
           ),
         ),
@@ -76,7 +76,7 @@ class _NotesState extends State<Notes> {
                   );
                 });
           },
-          child: Icon(Icons.add, color: Colors.white),
+          child: Icon(Icons.add, color: Colors.black),
         ),
         body:
 
