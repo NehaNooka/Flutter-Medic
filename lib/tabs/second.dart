@@ -5,6 +5,8 @@ import 'package:flutter_tts/flutter_tts.dart';
 import 'package:http/http.dart' as http;
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:draggable_scrollbar/draggable_scrollbar.dart';
+import 'package:substring_highlight/substring_highlight.dart';
+
 class Second extends StatefulWidget {
   @override
   _SecondState createState() => _SecondState();
@@ -175,7 +177,7 @@ class DataSearch extends SearchDelegate<myModel> {
     final myList = query.isEmpty
         ? myAllData
         : myAllData
-            .where((p) => p.drug.toLowerCase().startsWith(query.toLowerCase()))
+            .where((p) => p.drug.toLowerCase().contains(query.toLowerCase()))
             .toList();
     return myList.isEmpty
         ? Center(
@@ -204,20 +206,21 @@ class DataSearch extends SearchDelegate<myModel> {
                     Icons.search_outlined,
                     color: Colors.black,
                   ),
-                  title: RichText(
-                    text: TextSpan(
-                        text: listItem.drug.substring(0, query.length),
-                        style: TextStyle(
-                            color: Colors.blue,
-                            fontWeight: FontWeight.bold,
-                            fontSize: 24.0),
-                        children: [
-                          TextSpan(
-                              text: listItem.drug.substring(query.length),
-                              style: TextStyle(
-                                  color: Colors.black, fontSize: 20.0))
-                        ]),
+                  title:  SubstringHighlight(
+                    text: listItem.drug,
+                    term: query,
+                    textStyle: TextStyle(                       // non-highlight style
+                        color: Colors.black,
+                        fontSize:18.0
+                    ),
+                    textStyleHighlight: TextStyle(              // highlight style
+                        color: Colors.blue,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 20.0
+                    ),
                   ),
+
+
                   subtitle: Text(listItem.condition),
                 ),
               );

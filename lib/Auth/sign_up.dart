@@ -22,25 +22,72 @@ backgroundColor: Color(0xFF0A0E21),
                 ),
                 Padding(
                   padding: EdgeInsets.all(10.0),
-                  child: Text("Welcome to Medic",
-                      style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 40,
-                          color: Colors.white,
-                          fontFamily: 'Roboto')),
+                  child: RichText(
+                          text: TextSpan(
+                              text: 'Welcome to ',
+                              style: TextStyle(
+                                  color: Colors.white, fontSize: 34),
+                              children: <TextSpan>[
+                                TextSpan(text: ' Medic',
+                                    style: TextStyle(
+                                        color: Colors.white, backgroundColor:Colors.pink,fontSize: 34),
+                                )
+                              ]
+                          ),
+                        ),
+
                 ),
                 SizedBox(
                   height: 25.0,
                 ),
+                    Padding(
+                      padding: EdgeInsets.all(8.0),
+                      child: Container(
+                        height: 40.0,
+                        child: SignInButtonBuilder(
+                          text: 'Sign in with Email',
+                          icon: Icons.email,
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) => EmailLogIn()),
+                            );
+                          },
+                          backgroundColor: Colors.blue,
+                        )
+
+
+                      ),),
+                    SizedBox(
+                      height: 25.0,
+                    ),
+                    Padding(
+                      padding: EdgeInsets.all(8.0),
+                      child: RichText(
+                        text: TextSpan(
+                            text: 'Don\'t have an account?',
+                            style: TextStyle(
+                                color: Colors.white, fontSize: 18),
+                            children: <TextSpan>[
+                              TextSpan(text: ' Register Below',
+                                style: TextStyle(
+                                    color: Colors.blueAccent,fontSize: 18),
+                              )
+                            ]
+                        ),
+                      ),
+
+                    ),
+
                 Padding(
-                    padding: EdgeInsets.all(15.0),
+                    padding: EdgeInsets.all(8.0),
                     child: Container(
 
-                      height: 50.0,
-                      child: SignInButton(
-                        Buttons.Google,
-                        text: "Sign up with Google",
-
+                      height: 40.0,
+                      child:
+                      SignInButtonBuilder(
+                        text: 'Register with Email',
+                        icon: Icons.email,
                         onPressed: () {
                           Navigator.push(
                             context,
@@ -48,24 +95,14 @@ backgroundColor: Color(0xFF0A0E21),
                           );
                         },
 
-               ),
-                    ),),
-                Padding(
-                  padding: EdgeInsets.all(15.0),
-                  child: Container(
-                    height: 50.0,
-                    child: SignInButton(
-                      Buttons.Google,
-                      text: "Login with Google",
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => EmailLogIn()),
-                        );
-                      },
+                        backgroundColor: Colors.blueGrey[700],
+                      )
 
-                    ),
-                  ),),
+
+
+
+                    ),),
+
               ]),
             ),
           )

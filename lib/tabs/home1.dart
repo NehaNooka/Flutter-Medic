@@ -6,7 +6,7 @@ import 'dart:convert';
 import 'package:wallpaper/tabs/search.dart';
 import 'package:http/http.dart' as http;
 import 'package:draggable_scrollbar/draggable_scrollbar.dart';
-
+import 'package:substring_highlight/substring_highlight.dart';
 
 class Home1 extends StatefulWidget {
   Home1({this.uid});
@@ -210,7 +210,7 @@ class DataSearch extends SearchDelegate<myModel> {
     final myList = query.isEmpty
         ? myAllData
         : myAllData
-            .where((p) => p.name.toLowerCase().startsWith(query.toLowerCase()))
+            .where((p) => p.name.toLowerCase().contains(query.toLowerCase()))
             .toList();
     return myList.isEmpty
         ? Center(
@@ -256,20 +256,24 @@ class DataSearch extends SearchDelegate<myModel> {
                         size: 30.0,
                       ),
                       onPressed: ()=> speak(listItem.name)),
-                  title: RichText(
-                    text: TextSpan(
-                        text: listItem.name.substring(0, query.length),
-                        style: TextStyle(
-                            color: Colors.blue,
-                            fontWeight: FontWeight.bold,
-                            fontSize: 24.0),
-                        children: [
-                          TextSpan(
-                              text: listItem.name.substring(query.length),
-                              style: TextStyle(
-                                  color: Colors.black, fontSize: 20.0))
-                        ]),
+                  title:
+                  SubstringHighlight(
+                    text: listItem.name,
+                    term: query,
+                    textStyle: TextStyle(                       // non-highlight style
+                      color: Colors.black,
+                      fontSize:18.0
+                    ),
+                    textStyleHighlight: TextStyle(              // highlight style
+                      color: Colors.blue,
+                      fontWeight: FontWeight.bold,
+                        fontSize: 20.0
+                    ),
                   ),
+
+
+
+
                 ),
               );
             });

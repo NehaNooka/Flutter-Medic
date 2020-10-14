@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:wallpaper/Settings/about.dart';
 import 'package:wallpaper/Settings/faq.dart';
+import 'package:wallpaper/Settings/helpline.dart';
 import 'package:wallpaper/Settings/privacy.dart';
 import 'package:wallpaper/Settings/rate.dart';
 import 'package:wallpaper/Settings/terms.dart';
@@ -16,7 +17,7 @@ class Scroll extends StatefulWidget {
 }
 
 class _ScrollState extends State<Scroll> {
-  final controller = PageController(initialPage: 0, viewportFraction: 0.8);
+
 
   String greeting() {
     String day = "";
@@ -36,7 +37,8 @@ class _ScrollState extends State<Scroll> {
   
 
   PageController _controller = PageController(
-    initialPage: 0,
+    initialPage: 1,
+      viewportFraction: 0.8
   );
   @override
   void dispose() {
@@ -72,7 +74,7 @@ class _ScrollState extends State<Scroll> {
                                     fontWeight: FontWeight.bold,
                                     letterSpacing: 3.5))),
                         SizedBox(
-                          height: 40.0,
+                          height: 32.0,
                         ),
                         Text("Settings",
                             style: TextStyle(
@@ -81,7 +83,27 @@ class _ScrollState extends State<Scroll> {
                                 fontWeight: FontWeight.bold)),
                       ]),
                 ),
-
+                Card(
+                  child: ListTile(
+                      tileColor: Color(0xFF0A0E21),
+                      leading: new IconButton(
+                        icon: new Icon(Icons.phone, color: Colors.white),
+                        onPressed: () {},
+                      ),
+                      title: Text(
+                        ' HelpLine',
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 18.0,
+                            fontWeight: FontWeight.bold),
+                      ),
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => Helpline()),
+                        );
+                      }),
+                ),
                 Card(
                   child: ListTile(
                       tileColor: Color(0xFF0A0E21),
@@ -227,7 +249,7 @@ class _ScrollState extends State<Scroll> {
                           fontWeight: FontWeight.bold),
                     ),
                     subtitle: Text(
-                      '1.0.1',
+                      '1.0.2',
                       style: TextStyle(
                           color: Colors.white,
                           fontSize: 12.0,
@@ -246,9 +268,8 @@ class _ScrollState extends State<Scroll> {
             physics: BouncingScrollPhysics(),
             children: [
               Container(
-
                 decoration: new BoxDecoration(
-                  color: Colors.blue[100],
+                  color: Colors.brown[100],
                   border: Border.all(width: 10.0, color: Colors.white),
                   borderRadius: BorderRadius.all(Radius.circular(75.0) //
                   ),
@@ -259,29 +280,8 @@ class _ScrollState extends State<Scroll> {
                       "  Laughing is good for the heart and can increase blood flow by 20 percent.",
                       style: GoogleFonts.pacifico(
                           textStyle: TextStyle(
-                              fontSize: 40.0,
-                              color: Colors.blue[800],
-                              fontWeight: FontWeight.bold,
-                              letterSpacing: 2.0,
-                              wordSpacing: 2.0))),
-                ),
-              ),
-              Container(
-                decoration: new BoxDecoration(
-                  color: Colors.brown[100],
-                  border: Border.all(width: 10.0, color: Colors.white),
-
-                  borderRadius: BorderRadius.all(Radius.circular(75.0) //
-                      ),
-                ),
-                margin: EdgeInsets.all(10.0),
-                child: Center(
-                  child: new Text(
-                      "  Walking outside or spending time in green space can reduce negative thoughts.",
-                      style: GoogleFonts.pacifico(
-                          textStyle: TextStyle(
-                              fontSize: 40.0,
-                              color: Colors.brown[800] ,
+                              fontSize: 32.0,
+                              color: Colors.brown[800],
                               fontWeight: FontWeight.bold,
                               letterSpacing: 2.0,
                               wordSpacing: 2.0))),
@@ -300,13 +300,35 @@ class _ScrollState extends State<Scroll> {
                       "  Reading can lower the levels of unhealthy stress hormones.",
                       style: GoogleFonts.pacifico(
                           textStyle: TextStyle(
-                              fontSize: 40.0,
+                              fontSize: 32.0,
                               color: Colors.pink[800],
                               fontWeight: FontWeight.bold,
                               letterSpacing: 2.0,
                               wordSpacing: 2.0))),
                 ),
               ),
+              Container(
+                decoration: new BoxDecoration(
+                  color: Colors.blue[100],
+                  border: Border.all(width: 10.0, color: Colors.white),
+
+                  borderRadius: BorderRadius.all(Radius.circular(75.0) //
+                      ),
+                ),
+                margin: EdgeInsets.all(10.0),
+                child: Center(
+                  child: new Text(
+                      "  Walking outside or spending time in green space can reduce negative thoughts.",
+                      style: GoogleFonts.pacifico(
+                          textStyle: TextStyle(
+                              fontSize: 32.0,
+                              color: Colors.blue[800] ,
+                              fontWeight: FontWeight.bold,
+                              letterSpacing: 2.0,
+                              wordSpacing: 2.0))),
+                ),
+              ),
+
               Container(
                 decoration: new BoxDecoration(
                   color: Colors.green[100],
@@ -320,7 +342,7 @@ class _ScrollState extends State<Scroll> {
                       "  Tea can lower risks of heart attack , certain cancers , type 2 Diabetes.",
                       style: GoogleFonts.pacifico(
                           textStyle: TextStyle(
-                              fontSize: 40.0,
+                              fontSize: 32.0,
                               color: Colors.green[800],
                               fontWeight: FontWeight.bold,
                               letterSpacing: 2.0,
@@ -340,7 +362,7 @@ class _ScrollState extends State<Scroll> {
                       "  Breathing deeply can improve circulation, decreased anxiety and reduced blood pressure.",
                       style: GoogleFonts.pacifico(
                           textStyle: TextStyle(
-                              fontSize: 40.0,
+                              fontSize: 32.0,
                               color: Colors.red[800],
                               fontWeight: FontWeight.bold,
                               letterSpacing: 2.0,
@@ -360,7 +382,7 @@ class _ScrollState extends State<Scroll> {
                         "  Chocolate is good for your skin. it improve blood flow and protect against UV damage.",
                         style: GoogleFonts.pacifico(
                             textStyle: TextStyle(
-                                fontSize: 40.0, color: Colors.teal[800],
+                                fontSize: 32.0, color: Colors.teal[800],
                             fontWeight: FontWeight.bold,
                             letterSpacing: 2.0,
                             wordSpacing: 2.0)))),
@@ -378,7 +400,7 @@ class _ScrollState extends State<Scroll> {
                       "  Chewing gum makes you more alert, relieves stress and reduces anxiety levels.",
                       style: GoogleFonts.pacifico(
                           textStyle: TextStyle(
-                              fontSize: 40.0,
+                              fontSize: 32.0,
                               color: Colors.deepOrange[800],
                               fontWeight: FontWeight.bold,
                               letterSpacing: 2.0,
@@ -398,7 +420,7 @@ class _ScrollState extends State<Scroll> {
                       "  Drinking coffee can reduce risk of depression ,especially in women.",
                       style: GoogleFonts.pacifico(
                           textStyle: TextStyle(
-                              fontSize: 40.0,
+                              fontSize: 32.0,
                               color: Colors.purple[800],
                               fontWeight: FontWeight.bold,
                               letterSpacing: 2.0,
