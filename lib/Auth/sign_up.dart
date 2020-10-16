@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_signin_button/flutter_signin_button.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:wallpaper/Auth/email_login.dart';
 import 'package:wallpaper/Auth/email_signup.dart';
 
@@ -28,10 +29,17 @@ backgroundColor: Color(0xFF0A0E21),
                               style: TextStyle(
                                   color: Colors.white, fontSize: 34),
                               children: <TextSpan>[
-                                TextSpan(text: ' Medic',
-                                    style: TextStyle(
-                                        color: Colors.white, backgroundColor:Colors.pink,fontSize: 34),
-                                )
+                                TextSpan(text: ' Medic ',
+                                    style:GoogleFonts.pacifico(
+                          textStyle: TextStyle(
+                          fontSize: 34.0,
+                              fontWeight: FontWeight.bold,
+                              letterSpacing: 5.0,
+                            color: Colors.white, backgroundColor:Colors.blue,
+                          ))),
+
+
+
                               ]
                           ),
                         ),
@@ -43,6 +51,10 @@ backgroundColor: Color(0xFF0A0E21),
                     Padding(
                       padding: EdgeInsets.all(8.0),
                       child: Container(
+                          decoration: new BoxDecoration(
+                            borderRadius: BorderRadius.all(Radius.circular(75.0) //
+                            ),
+                          ),
                         height: 40.0,
                         child: SignInButtonBuilder(
                           text: 'Sign in with Email',
@@ -82,7 +94,10 @@ backgroundColor: Color(0xFF0A0E21),
                 Padding(
                     padding: EdgeInsets.all(8.0),
                     child: Container(
-
+                        decoration: new BoxDecoration(
+                          borderRadius: BorderRadius.all(Radius.circular(15.0) //
+                          ),
+                        ),
                       height: 40.0,
                       child:
                       SignInButtonBuilder(

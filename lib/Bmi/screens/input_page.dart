@@ -57,8 +57,8 @@ class _InputPageState extends State<InputPage> {
                     });
                   },
                   colour: selectedGender == Gender.male
-                      ? kActiveCardColour
-                      : kInactiveCardColour,
+                      ? kInactiveCardColour
+                      : kActiveCardColour,
                   cardChild: IconContent(
                     icon: FontAwesomeIcons.mars,
                     label: 'MALE',
@@ -73,8 +73,8 @@ class _InputPageState extends State<InputPage> {
                     });
                   },
                   colour: selectedGender == Gender.female
-                      ? kActiveCardColour
-                      : kInactiveCardColour,
+                      ? kInactiveCardColour
+                      : kActiveCardColour,
                   cardChild: IconContent(
                     icon: FontAwesomeIcons.venus,
                     label: 'FEMALE',

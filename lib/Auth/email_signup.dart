@@ -23,7 +23,7 @@ class _EmailSignUpState extends State<EmailSignUp> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Color(0xFF0A0E21),
-          appBar: AppBar(title: Text("Sign Up"),backgroundColor: Color(0xFF0A0E21),),
+          appBar: AppBar(title: Text("Register"),backgroundColor: Color(0xFF0A0E21),),
           body: Form(
               key: _formKey,
               child: SingleChildScrollView(
