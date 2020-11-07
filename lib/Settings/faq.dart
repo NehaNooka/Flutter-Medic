@@ -1,235 +1,175 @@
 import 'package:flutter/material.dart';
+import 'package:folding_cell/folding_cell/widget.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:wallpaper/constants.dart';
 
 class Faq extends StatelessWidget {
+  final _foldingCellKey1 = GlobalKey<SimpleFoldingCellState>();
+  final _foldingCellKey2 = GlobalKey<SimpleFoldingCellState>();
+  final _foldingCellKey3 = GlobalKey<SimpleFoldingCellState>();
+  final _foldingCellKey4 = GlobalKey<SimpleFoldingCellState>();
+  final _foldingCellKey5 = GlobalKey<SimpleFoldingCellState>();
+  final _foldingCellKey6 = GlobalKey<SimpleFoldingCellState>();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Color(0xFF0A0E21),
+       
         appBar: AppBar(
-          title: Text('FAQs'),
-          backgroundColor: Color(0xFF0A0E21),
+          centerTitle: true,
+          iconTheme: new IconThemeData(color: Colors.black),
+          title: Text("FAQs",
+              style: GoogleFonts.pacifico(
+                  textStyle: TextStyle(
+                      fontSize: 22.0,
+                      color: Colors.black,
+                      fontWeight: FontWeight.bold,
+                      letterSpacing: 2))),
+          backgroundColor: appBarColor,
         ),
-        body:Container(margin: EdgeInsets.all(20),
-          child: ListView(
-            children: <Widget>[ Container(child:Text("Medical Dictionary FAQs\n",textAlign: TextAlign.center,
-              textDirection: TextDirection.ltr,
-              style: TextStyle(
-                  decoration: TextDecoration.none,
-                  fontSize: 24.0,
-                  fontFamily: 'Raleway',
-                  fontWeight: FontWeight.w700,
-                  color: Colors.red
-              ),)
-            ),
-              Container(child:Text("1) Who is this app for?",
-                textDirection: TextDirection.ltr,
-                style: TextStyle(
-                    decoration: TextDecoration.none,
-                    fontSize: 20.0,
-                    fontFamily: 'Raleway',
-                    fontWeight: FontWeight.w700,
-                    color: Colors.red
-                ),)
-              ),
-              Container(
-                  child:Text("For healthcare ,pharmaceuticals ,physicians ,hospital nurses ,medical students ,nursing professionals ,pharmacy,physician assistants and for students who work in clinical practice and dispensary.\n",
-                    textDirection: TextDirection.ltr,
-                    style: TextStyle(
-                        decoration: TextDecoration.none,
-                        fontSize: 18.0,
-                        fontFamily: 'Roboto',
-                        fontWeight: FontWeight.w500,
-                        color: Colors.white
-                    ),)
-              ),
-              Container(child:Text("2) How this app is useful?",
-                textDirection: TextDirection.ltr,
-                style: TextStyle(
-                    decoration: TextDecoration.none,
-                    fontSize: 20.0,
-                    fontFamily: 'Raleway',
-                    fontWeight: FontWeight.w700,
-                    color: Colors.red
-                ),)
-              ),
-              Container(child:Text("With detailed information on 12000s of diseases and probable prescription drug info,this app is a free medical encyclopedia guide.\n",
-                textDirection: TextDirection.ltr,
-                style: TextStyle(
-                    decoration: TextDecoration.none,
-                    fontSize: 18.0,
-                    fontFamily: 'Roboto',
-                    fontWeight: FontWeight.w500,
-                    color: Colors.white
-                ),)
-              ),
-              Container(child:Text("3) Which devices can I use?",
-                textDirection: TextDirection.ltr,
-                style: TextStyle(
-                    decoration: TextDecoration.none,
-                    fontSize: 20.0,
-                    fontFamily: 'Raleway',
-                    fontWeight: FontWeight.w700,
-                    color: Colors.red
-                ),)
-              ),
-              Container(child:Text("You can use this app in any Android device.\n ",
-                textDirection: TextDirection.ltr,
-                style: TextStyle(
-                    decoration: TextDecoration.none,
-                    fontSize: 18.0,
-                    fontFamily: 'Roboto',
-                    fontWeight: FontWeight.w500,
-                    color: Colors.white
-                ),)
-              ),
-              Container(child:Text("4) How it is different from other medical dictionary app?",
-                textDirection: TextDirection.ltr,
-                style: TextStyle(
-                    decoration: TextDecoration.none,
-                    fontSize: 20.0,
-                    fontFamily: 'Raleway',
-                    fontWeight: FontWeight.w700,
-                    color: Colors.red
-                ),)
-              ),
-              Container(child:Text("Medical dictionary is  different from other applications  because it is an app in which user can search about any disease and get a detailed information about its description, causes ,overview. Also user can search about any medicine and get the information about the condition in which it is used. User can also make personal notes for future uses. And also user can calculate Body Mass Index of anyone to take care of his body weight. And last thing ,User can get new and mind blowing facts and hacks related to health and fitness daily to keep them motivated.\n ",
-                textDirection: TextDirection.ltr,
-                style: TextStyle(
-                    decoration: TextDecoration.none,
-                    fontSize: 18.0,
-                    fontFamily: 'Roboto',
-                    fontWeight: FontWeight.w500,
-                    color: Colors.white
-                ),)
-              ),
-              Container(child:Text("5) Why can't I hear the audio pronunciations?",
-                textDirection: TextDirection.ltr,
-                style: TextStyle(
-                    decoration: TextDecoration.none,
-                    fontSize: 20.0,
-                    fontFamily: 'Raleway',
-                    fontWeight: FontWeight.w700,
-                    color: Colors.red
-                ),)
-              ),
-              Container(child:Text("First, please check that your device is not muted. If you are not sure how to unmute your device, please refer to your device's user manual for more information.\n "
-                  "Also, please check to make sure that you are connected to the Internet. Though the app allows you to look up words independently of a network connection, a network connection is required to access the graphical illustrations, audio pronunciations, voice search, and Word of the Day.\n",
-                textDirection: TextDirection.ltr,
-                style: TextStyle(
-                    decoration: TextDecoration.none,
-                    fontSize: 18.0,
-                    fontFamily: 'Roboto',
-                    fontWeight: FontWeight.w500,
-                    color: Colors.white
-                ),)
-              ),
-              Container(child:Text("6) Why use apps when I can use Google?",
-                textDirection: TextDirection.ltr,
-                style: TextStyle(
-                    decoration: TextDecoration.none,
-                    fontSize: 20.0,
-                    fontFamily: 'Raleway',
-                    fontWeight: FontWeight.w700,
-                    color: Colors.red
-                ),)
-              ),
-              Container(child:Text("It’s quite likely that a lot of the information available in a medical dictionary app is probably also available via Google search – and for free at that.\n"
-                  "But there are many reasons why having your medical dictionary information contained in an app is beneficial.",
-                textDirection: TextDirection.ltr,
-                style: TextStyle(
-                    decoration: TextDecoration.none,
-                    fontSize: 18.0,
-                    fontFamily: 'Roboto',
-                    fontWeight: FontWeight.w500,
-                    color: Colors.white
-                ),)
-              ),
-              Column(
-                children: <Widget>[
-                  new ListTile(
-                    leading: new MyBullet(),
-                    title: new Text('Ease of use – apps are designed to provide a simple, easy and hassle free experience for the user.',
-                      textDirection: TextDirection.ltr,
-                      style: TextStyle(
-                          decoration: TextDecoration.none,
-                          fontSize: 18.0,
-                          fontFamily: 'Roboto',
-                          fontWeight: FontWeight.w500,
-                          color: Colors.white
-                      ),),
-                  ),
-                  new ListTile(
-                    leading: new MyBullet(),
-                    title: new Text('Save time – the information is right there – so you don’t need to trawl through half a dozen websites in order to find what you need.',
-                      textDirection: TextDirection.ltr,
-                      style: TextStyle(
-                          decoration: TextDecoration.none,
-                          fontSize: 18.0,
-                          fontFamily: 'Roboto',
-                          fontWeight: FontWeight.w500,
-                          color: Colors.white
-                      ),),
-                  ),
-                  new ListTile(
-                    leading: new MyBullet(),
-                    title: new Text('Free updates – the content should be updated regularly, so you can be confident your information is always current.',
-                      textDirection: TextDirection.ltr,
-                      style: TextStyle(
-                          decoration: TextDecoration.none,
-                          fontSize: 18.0,
-                          fontFamily: 'Roboto',
-                          fontWeight: FontWeight.w500,
-                          color: Colors.white
-                      ),),
-                  ),
-                  new ListTile(
-                    leading: new MyBullet(),
-                    title: new Text('Quality source – if you choose an app from a high-quality publisher there’s a good change it will be accurate and reliable.',
-                      textDirection: TextDirection.ltr,
-                      style: TextStyle(
-                          decoration: TextDecoration.none,
-                          fontSize: 18.0,
-                          fontFamily: 'Roboto',
-                          fontWeight: FontWeight.w500,
-                          color: Colors.white
-                      ),),
-                  ),
-                  new ListTile(
-                    leading: new MyBullet(),
-                    title: new Text('Convenience – the information is available at your fingertips, literally.',
-                      textDirection: TextDirection.ltr,
-                      style: TextStyle(
-                          decoration: TextDecoration.none,
-                          fontSize: 18.0,
-                          fontFamily: 'Roboto',
-                          fontWeight: FontWeight.w500,
-                          color: Colors.white
-                      ),),
-                  )
-                ],
-              ),
-              Container(child:Text("Note : If you have any query related to our app then you can contact us on dhwani1896@gmail.com.We will try to respond as quickly as possible,but it may take a while.",
-                textDirection: TextDirection.ltr,
-                style: TextStyle(
-                    decoration: TextDecoration.none,
-                    fontSize: 18.0,
-                    fontFamily: 'Roboto',
-                    fontWeight: FontWeight.w700,
-                    color: Colors.red
-                ),)
-              ),
-            ],),) );
+        body:Container(
+    child: SingleChildScrollView(
+      child: Column(
+      children: <Widget>[
+      SimpleFoldingCell.create(
+      key: _foldingCellKey1,
+      frontWidget: _buildFrontWidget(_foldingCellKey1, "Who is this app for?"),
+      innerWidget: _buildInnerWidget(_foldingCellKey1,"For healthcare ,pharmaceuticals ,physicians ,hospital nurses ,medical students ,nursing professionals ,pharmacy,physician assistants and for students who work in clinical practice and dispensary.\n",),
+      cellSize: Size(MediaQuery.of(context).size.width, 140),
+      padding: EdgeInsets.all(15),
+      animationDuration: Duration(milliseconds: 300),
+      borderRadius: 10,
+      onOpen: () => print('cell 1 opened'),
+      onClose: () => print('cell 1 closed'),
+      ),
+      SimpleFoldingCell.create(
+      key: _foldingCellKey2,
+      frontWidget: _buildFrontWidget(_foldingCellKey2, "How is  this app  useful?"),
+      innerWidget: _buildInnerWidget(_foldingCellKey2,"With detailed information on 12000s of diseases and probable prescription drug info,this app is a free medical encyclopedia guide.\n",),
+      cellSize: Size(MediaQuery.of(context).size.width, 125),
+      padding: EdgeInsets.all(15),
+      animationDuration: Duration(milliseconds: 300),
+      borderRadius: 10,
+      onOpen: () => print('cell 2 opened'),
+      onClose: () => print('cell 2 closed'),
+      ),
+        SimpleFoldingCell.create(
+          key: _foldingCellKey3,
+          frontWidget: _buildFrontWidget(_foldingCellKey3, " From which devices can I use?"),
+          innerWidget: _buildInnerWidget(_foldingCellKey3,"You can use this app in any Android device.\n ",),
+          cellSize: Size(MediaQuery.of(context).size.width, 125),
+          padding: EdgeInsets.all(15),
+          animationDuration: Duration(milliseconds: 300),
+          borderRadius: 10,
+          onOpen: () => print('cell 3 opened'),
+          onClose: () => print('cell 3 closed'),
+        ),
+        SimpleFoldingCell.create(
+          key: _foldingCellKey4,
+          frontWidget: _buildFrontWidget(_foldingCellKey4, "How it is different from other medical dictionary app?"),
+          innerWidget: _buildInnerWidget(_foldingCellKey4,"Medic gives a detailed information about diseases,medicines.User can make personal notes for future uses. And also user can calculate Body Mass Index. And last thing ,User can get new word of the day daily.",),
+          cellSize: Size(MediaQuery.of(context).size.width, 125),
+          padding: EdgeInsets.all(15),
+          animationDuration: Duration(milliseconds: 300),
+          borderRadius: 10,
+          onOpen: () => print('cell 4 opened'),
+          onClose: () => print('cell 4 closed'),
+        ),
+        SimpleFoldingCell.create(
+          key: _foldingCellKey5,
+          frontWidget: _buildFrontWidget(_foldingCellKey5, "Why can't I hear the audio pronunciations?"),
+          innerWidget: _buildInnerWidget(_foldingCellKey5,"First, please check that your device is not muted..Also, please make sure that you are connected to the Internet, a network connection is required to access, audio pronunciations.\n",),
+          cellSize: Size(MediaQuery.of(context).size.width, 125),
+          padding: EdgeInsets.all(15),
+          animationDuration: Duration(milliseconds: 300),
+          borderRadius: 10,
+          onOpen: () => print('cell 5 opened'),
+          onClose: () => print('cell 5 closed'),
+        ),
+        SimpleFoldingCell.create(
+          key: _foldingCellKey6,
+          frontWidget: _buildFrontWidget(_foldingCellKey6, "Why use this app when I can use Google?"),
+          innerWidget: _buildInnerWidget(_foldingCellKey6,"It’s quite likely that a lot of the information available via Google search.But there are many reasons why this app is beneficial. Some are Ease of use, Saves time, Detailed Info, Convenient",),
+          cellSize: Size(MediaQuery.of(context).size.width, 125),
+          padding: EdgeInsets.all(15),
+          animationDuration: Duration(milliseconds: 300),
+          borderRadius: 10,
+          onOpen: () => print('cell 6 opened'),
+          onClose: () => print('cell 6 closed'),
+        ),
+      ],
+      ),
+    ),
+    ));
   }
-}
-class MyBullet extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return new Container(margin:EdgeInsets.all(10.0),
-      height: 10.0,
-      width: 10.0,
-      decoration: new BoxDecoration(
-        color: Colors.white,
-        shape: BoxShape.circle,
+
+  Widget _buildFrontWidget(
+      GlobalKey<SimpleFoldingCellState> key, String title) {
+    return Container(
+      color: Color(0xFFffcd3c),
+      alignment: Alignment.center,
+      child: Stack(
+        children: <Widget>[
+          Align(
+            alignment: Alignment.center,
+            child: Text(
+              title,
+              style: GoogleFonts.aldrich(
+                color: Color(0xFF2e282a),
+                fontSize: 20.0,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ),
+          Positioned(
+            right: 5,
+            bottom: 0,
+            child: FlatButton(
+              onPressed: () => key?.currentState?.toggleFold(),
+              child: Text(
+                "ANSWER",
+              ),
+              textColor: Colors.white,
+              color: Colors.deepPurple,
+              splashColor: Colors.white.withOpacity(0.5),
+            ),
+          )
+        ],
+      ),
+    );
+  }
+
+  Widget _buildInnerWidget(GlobalKey<SimpleFoldingCellState> key, String title) {
+    return Container(
+      color: Colors.deepPurple[800],
+      padding: EdgeInsets.only(top: 10),
+      child: Stack(
+        children: [
+          Align(
+            alignment: Alignment.topCenter,
+            child: Text(
+             title,
+              style: GoogleFonts.aldrich(
+                color: Colors.white,
+                fontSize: 18.0,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ),
+
+          Positioned(
+            right: 5,
+            bottom: 0,
+            child: FlatButton(
+              onPressed: () => key?.currentState?.toggleFold(),
+              child: Text(
+                "Close",
+              ),
+              textColor: Colors.black,
+              color: Colors.yellow,
+              splashColor: Colors.white.withOpacity(0.5),
+            ),
+          ),
+        ],
       ),
     );
   }

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:wallpaper/constants.dart';
 
 class Privacy extends StatelessWidget {
   @override
@@ -7,10 +9,18 @@ class Privacy extends StatelessWidget {
     return
    
    Scaffold(
-        backgroundColor:Color(0xFF0A0E21),
+
           appBar: AppBar(
-            title: Text('Privacy Policy'),
-            backgroundColor: Color(0xFF0A0E21),
+            centerTitle: true,
+            iconTheme: new IconThemeData(color: Colors.black),
+            title: Text("PRIVACY POLICY",
+                style: GoogleFonts.pacifico(
+                    textStyle: TextStyle(
+                        fontSize: 22.0,
+                        color: Colors.black,
+                        fontWeight: FontWeight.bold,
+                        letterSpacing: 2))),
+            backgroundColor: appBarColor,
            ),
 
           body:Container(margin: EdgeInsets.all(20),
@@ -38,7 +48,7 @@ class Privacy extends StatelessWidget {
                           fontSize: 18.0,
                           fontFamily: 'Roboto',
                           fontWeight: FontWeight.w500,
-                          color: Colors.white
+                          color: Colors.black
                       ),)
                 ),
                 Container(child:Text("Information Collection and Use",
@@ -59,7 +69,7 @@ class Privacy extends StatelessWidget {
                       fontSize: 18.0,
                       fontFamily: 'Roboto',
                       fontWeight: FontWeight.w500,
-                      color: Colors.white
+                      color: Colors.black
                   ),)
                 ),
                 Column(
@@ -110,7 +120,7 @@ class Privacy extends StatelessWidget {
                       fontSize: 18.0,
                       fontFamily: 'Roboto',
                       fontWeight: FontWeight.w500,
-                      color: Colors.white
+                      color: Colors.black
                   ),)
                 ),
                 Container(child:Text("Cookies",
@@ -131,7 +141,7 @@ class Privacy extends StatelessWidget {
                       fontSize: 18.0,
                       fontFamily: 'Roboto',
                       fontWeight: FontWeight.w500,
-                      color: Colors.white
+                      color: Colors.black
                   ),)
                 ),
                 Container(child:Text("Service Providers",
@@ -155,7 +165,7 @@ class Privacy extends StatelessWidget {
                             fontSize: 18.0,
                             fontFamily: 'Roboto',
                             fontWeight: FontWeight.w500,
-                            color: Colors.white
+                            color: Colors.black
                         ),),
                     ),
                     new ListTile(
@@ -167,7 +177,7 @@ class Privacy extends StatelessWidget {
                             fontSize: 18.0,
                             fontFamily: 'Roboto',
                             fontWeight: FontWeight.w500,
-                            color: Colors.white
+                            color: Colors.black
                         ),),
                     ),
                     new ListTile(
@@ -179,7 +189,7 @@ class Privacy extends StatelessWidget {
                             fontSize: 18.0,
                             fontFamily: 'Roboto',
                             fontWeight: FontWeight.w500,
-                            color: Colors.white
+                            color: Colors.black
                         ),),
                     ),
                     new ListTile(
@@ -191,7 +201,7 @@ class Privacy extends StatelessWidget {
                             fontSize: 18.0,
                             fontFamily: 'Roboto',
                             fontWeight: FontWeight.w500,
-                            color: Colors.white
+                            color: Colors.black
                         ),),
                     )
                   ],
@@ -204,7 +214,7 @@ class Privacy extends StatelessWidget {
                       fontSize: 18.0,
                       fontFamily: 'Roboto',
                       fontWeight: FontWeight.w500,
-                      color: Colors.white
+                      color: Colors.black
                   ),)
                 ),
                 Container(child:Text("Security",
@@ -224,7 +234,7 @@ class Privacy extends StatelessWidget {
                       fontSize: 18.0,
                       fontFamily: 'Roboto',
                       fontWeight: FontWeight.w500,
-                      color: Colors.white
+                      color: Colors.black
                   ),)
                 ),
                 Container(child:Text("Links to Other Sites",
@@ -244,7 +254,7 @@ class Privacy extends StatelessWidget {
                       fontSize: 18.0,
                       fontFamily: 'Roboto',
                       fontWeight: FontWeight.w500,
-                      color: Colors.white
+                      color: Colors.black
                   ),)
                 ),
                 Container(child:Text("Changes to This Privacy Policy",
@@ -264,7 +274,7 @@ class Privacy extends StatelessWidget {
                       fontSize: 18.0,
                       fontFamily: 'Roboto',
                       fontWeight: FontWeight.w500,
-                      color: Colors.white
+                      color: Colors.black
                   ),)
                 ),
                 Container(child:Text("Contact Us",
@@ -284,7 +294,7 @@ class Privacy extends StatelessWidget {
                       fontSize: 18.0,
                       fontFamily: 'Roboto',
                       fontWeight: FontWeight.w500,
-                      color: Colors.white
+                      color: Colors.black
                   ),)
                 ),
               ],),)
@@ -298,7 +308,7 @@ class MyBullet extends StatelessWidget {
       height: 10.0,
       width: 10.0,
       decoration: new BoxDecoration(
-        color: Colors.white,
+        color: Colors.black,
         shape: BoxShape.circle,
       ),
     );

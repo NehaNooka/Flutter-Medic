@@ -1,12 +1,14 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:wallpaper/constants.dart';
 class Rate extends StatefulWidget {
   @override
   _RateState createState() => _RateState();
 }
 class _RateState extends State<Rate> {
-  var myFeedbackText = "COULD BE BETTER";
+  var myFeedbackText = "NO FEEDBACK";
   var sliderValue = 5.0;
   IconData myFeedback = FontAwesomeIcons.laugh;
   Color myFeedbackColor = Colors.green;
@@ -14,11 +16,18 @@ class _RateState extends State<Rate> {
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
-backgroundColor: Color(0xFF0A0E21),
-      appBar: AppBar(
 
-        title: Text("Feedback"),
-        backgroundColor: Color(0xFF0A0E21),
+      appBar: AppBar(
+        centerTitle: true,
+        iconTheme: new IconThemeData(color: Colors.black),
+        title: Text("RATE US",
+            style: GoogleFonts.pacifico(
+                textStyle: TextStyle(
+                    fontSize: 22.0,
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold,
+                    letterSpacing: 2))),
+        backgroundColor: appBarColor,
 //        actions: <Widget>[
 //        ],
       ),
@@ -30,25 +39,26 @@ backgroundColor: Color(0xFF0A0E21),
             Container(child:Padding(
               padding: const EdgeInsets.all(16.0),
               child: Container(child: Text("Do you want to rate our App?",
-                style: TextStyle(color: Colors.white, fontSize: 28.0,fontWeight:FontWeight.bold),)),
+                style: TextStyle(color: Colors.black, fontSize: 28.0,fontWeight:FontWeight.bold),)),
             ),),
             SizedBox(height:30.0),
             Container(
+
               child: Align(
                 child: Material(
-                  color: Colors.yellow[400],
                   elevation: 14.0,
                   borderRadius: BorderRadius.circular(24.0),
                   shadowColor: Color(0x802196F3),
                   child: Container(
+                      color: Colors.yellow[800],
                       width: 350.0,
                       height: 380.0,
-                      color:Colors.white,
+
                       child: Column(children: <Widget>[
                         Padding(
                           padding: const EdgeInsets.all(16.0),
                           child: Container(child: Text(myFeedbackText,
-                            style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold,fontSize: 22.0),)),
+                            style: TextStyle(color: Colors.deepPurple, fontWeight: FontWeight.bold,fontSize: 26.0),)),
                         ),
                         Padding(
                           padding: const EdgeInsets.all(8.0),
@@ -63,19 +73,19 @@ backgroundColor: Color(0xFF0A0E21),
                               max: 5,
                               divisions: 5,
                               value: sliderValue,
-                              activeColor: Colors.lightBlueAccent,
+                              activeColor: Colors.deepPurple,
                               inactiveColor: Colors.blueGrey,
                               onChanged: (newValue) {
                                 setState(() {
                                   sliderValue = newValue;
                                   if (sliderValue > 0 && sliderValue <= 1) {
                                     myFeedback = FontAwesomeIcons.sadTear;
-                                    myFeedbackColor = Colors.red;
+                                    myFeedbackColor = Colors.blueGrey;
                                     myFeedbackText = "COULD BE MUCH BETTER";
                                   }
                                   if (sliderValue >= 1.1 && sliderValue <= 2) {
                                     myFeedback = FontAwesomeIcons.frown;
-                                    myFeedbackColor = Colors.indigoAccent;
+                                    myFeedbackColor = Colors.redAccent;
                                     myFeedbackText = "BELOW AVERAGE";
                                   }
                                   if (sliderValue >= 2.1 && sliderValue <= 3) {
@@ -90,7 +100,7 @@ backgroundColor: Color(0xFF0A0E21),
                                   }
                                   if (sliderValue >= 4.1 && sliderValue <= 5) {
                                     myFeedback = FontAwesomeIcons.laugh;
-                                    myFeedbackColor = Colors.green;
+                                    myFeedbackColor = Colors.teal;
                                     myFeedbackText = "EXCELLENT";
                                   }
                                 });

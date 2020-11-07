@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:wallpaper/Bmi/screens/input_page.dart';
-import 'package:wallpaper/tabs/pageview.dart';
-import 'package:wallpaper/tabs/notes.dart';
-import 'package:wallpaper/tabs/second.dart';
-import 'package:wallpaper/tabs/home1.dart';
+import 'package:wallpaper/constants.dart';
+import 'package:wallpaper/tabs/HomePage.dart';
+import 'package:wallpaper/tabs/Meds.dart';
+import 'package:wallpaper/tabs/Diseases.dart';
 
 class Home extends StatelessWidget {
   Home({this.uid});
@@ -29,23 +28,15 @@ class Body1 extends StatefulWidget {
 class _Body1State extends State<Body1> {
   _Body1State({this.uid});
   final String uid;
-
-  // ignore: missing_return
   Widget getPage(int index) {
     if (index == 0) {
-      return Scroll();
+      return HomeScreen();
     }
     if (index == 1) {
       return Home1(uid: uid);
     }
     if (index == 2) {
       return Second();
-    }
-    if (index == 3) {
-      return Notes(uid: uid);
-    }
-    if (index == 4) {
-      return BMICalculator();
     }
 
   }
@@ -68,10 +59,10 @@ class _Body1State extends State<Body1> {
             child: getPage(_currentIndex),
           )),
           bottomNavigationBar: BottomNavigationBar(
-            backgroundColor: Color(0xFF0A0E21),
-            unselectedItemColor: Colors.grey,
+            backgroundColor: appBarColor,
+            unselectedItemColor: Colors.black38,
             type: BottomNavigationBarType.fixed,
-            selectedItemColor: Colors.white,
+            selectedItemColor: Colors.black,
             iconSize: 30,
             items: [
               BottomNavigationBarItem(
@@ -86,14 +77,7 @@ class _Body1State extends State<Body1> {
                 icon: Icon(Icons.all_out),
                 label: "Meds",
               ),
-              BottomNavigationBarItem(
-                icon: Icon(Icons.note_add),
-                label: "Notes",
-              ),
-              BottomNavigationBarItem(
-                icon: Icon(Icons.calculate),
-                label: "Calculate",
-              ),
+
             ],
             onTap: onTabTapped,
             currentIndex: _currentIndex,

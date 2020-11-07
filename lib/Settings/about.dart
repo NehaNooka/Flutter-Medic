@@ -1,12 +1,23 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:wallpaper/constants.dart';
+
 class About extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return  Scaffold(
-backgroundColor: Color(0xFF0A0E21),
+backgroundColor: Colors.white,
         appBar: AppBar(
-          backgroundColor: Color(0xFF0A0E21),
-          title: Text('App Info'),
+          centerTitle: true,
+          iconTheme: new IconThemeData(color: Colors.black),
+          backgroundColor: appBarColor,
+          title: Text("APP INFO",
+              style: GoogleFonts.pacifico(
+                  textStyle: TextStyle(
+                      fontSize: 24.0,
+                      color: Colors.black,
+                      fontWeight: FontWeight.bold,
+                      letterSpacing: 2))),
         ),
 
         body: Container(
@@ -23,7 +34,7 @@ backgroundColor: Color(0xFF0A0E21),
                         color: Colors.orange, // set border color
                         width: 2.0), // set border width
                     borderRadius: BorderRadius.all(
-                        Radius.circular(10.0)), // set rounded corner radius
+                        Radius.circular(20.0)), // set rounded corner radius
                     boxShadow: [
                       BoxShadow(
                           blurRadius: 10, color: Colors.orange, offset: Offset(1, 3))
