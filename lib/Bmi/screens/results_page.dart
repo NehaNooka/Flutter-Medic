@@ -42,7 +42,7 @@ class ResultPage extends StatelessWidget {
           Expanded(
             flex: 2,
             child: ReusableCard(
-              color: Colors.yellow[800],
+              color: Colors.yellow[700],
               cardChild: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -51,7 +51,7 @@ class ResultPage extends StatelessWidget {
                     'Your BMI index is',
                     style: TextStyle(
                       fontSize: 24.0,
-                      color: Colors.deepPurple,
+                      color: Colors.lightBlue[900],
                       fontWeight: FontWeight.w900,
                     ),
                   ),
@@ -111,7 +111,7 @@ class ResultPage extends StatelessWidget {
                           minWidth: 150,
                           shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(30)),
-                          color: Colors.deepPurple,
+                          color: Colors.lightBlue[900],
                           child: Text(
                             "Re-Calculate".toUpperCase(),
                             style: TextStyle(
@@ -128,7 +128,7 @@ class ResultPage extends StatelessWidget {
                         minWidth: 150,
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(30)),
-                        color: Colors.deepPurple.shade400,
+                        color: Colors.lightBlue[900],
                         child: Text(
                           "BMI Chart".toUpperCase(),
                           style: TextStyle(

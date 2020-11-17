@@ -17,15 +17,15 @@ class AuthService {
     return await _firebaseAuth.currentUser();
   }
   // Email & Password Sign Up
-  Future<String> createUserWithEmailAndPassword(
+  Future createUserWithEmailAndPassword(
       String email, String password, String name) async {
-    final currentUser = await _firebaseAuth.createUserWithEmailAndPassword(
+  await _firebaseAuth.createUserWithEmailAndPassword(
       email: email,
       password: password,
     );
   }
-  Future<String> createUser(email, password, displayName) async {
-    final currentUser = await _firebaseAuth.createUserWithEmailAndPassword(
+  Future createUser(email, password, displayName) async {
+     await _firebaseAuth.createUserWithEmailAndPassword(
       email: email,
       password: password,
     );
@@ -59,13 +59,13 @@ return getCurrentUID();
 class NameValidator {
   static String validate(String value) {
     if(value.isEmpty) {
-      return "Name can't be empty";
+      return "Name can't be empty!";
     }
     if(value.length < 2) {
-      return "Name must be at least 2 characters long";
+      return "Name must be at least 2 characters long!";
     }
     if(value.length > 50) {
-      return "Name must be less than 50 characters long";
+      return "Name must be less than 50 characters long!";
     }
     return null;
   }
@@ -74,7 +74,10 @@ class NameValidator {
 class EmailValidator {
   static String validate(String value) {
     if(value.isEmpty) {
-      return "Email can't be empty";
+      return "Email can't be empty!";
+    }
+    if(!value.contains('@')){
+      return 'Please enter a valid email address!';
     }
     return null;
   }
@@ -83,7 +86,10 @@ class EmailValidator {
 class PasswordValidator {
   static String validate(String value) {
     if(value.isEmpty) {
-      return "Password can't be empty";
+      return "Password can't be empty!";
+    }
+    if(value.length<8) {
+      return "Password must be atleast 8 digit!";
     }
     return null;
   }

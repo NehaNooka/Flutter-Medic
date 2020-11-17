@@ -1,42 +1,55 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:wallpaper/Bmi/screens/input_page.dart';
+import 'package:wallpaper/Notes/main.dart';
 import 'package:wallpaper/constants.dart';
-import 'package:wallpaper/tabs/HomePage.dart';
 import 'package:wallpaper/tabs/Meds.dart';
 import 'package:wallpaper/tabs/Diseases.dart';
+import 'package:wallpaper/tabs/dashboard.dart';
+import 'package:wallpaper/tabs/notes.dart';
 
 class Home extends StatelessWidget {
-  Home({this.uid});
-  final String uid;
-
   final String title = "Medic";
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-    body: Body1(uid: this.uid));
+    body: Body1());
   }
 }
 
 class Body1 extends StatefulWidget {
-  Body1({this.uid});
-  final String uid;
-
   @override
-  _Body1State createState() => _Body1State(uid: this.uid);
+  _Body1State createState() => _Body1State();
 }
 
 class _Body1State extends State<Body1> {
-  _Body1State({this.uid});
-  final String uid;
+  final FirebaseAuth _auth = FirebaseAuth.instance;
+  var uid;
+  @override
+  void initState()  {
+  getCurrentUID();
+    super.initState();
+  }
+  void getCurrentUID() async {
+    final FirebaseUser user = await _auth.currentUser();
+     uid = user.uid;  }
+
+  // ignore: missing_return
   Widget getPage(int index) {
     if (index == 0) {
-      return HomeScreen();
+      return MenuDashboardPage();
     }
     if (index == 1) {
-      return Home1(uid: uid);
+      return Home1();
     }
     if (index == 2) {
       return Second();
+    }
+    if (index == 3) {
+      return Notes(uid:uid);
+    }if (index == 4) {
+      return BMIMain();
     }
 
   }
@@ -60,7 +73,7 @@ class _Body1State extends State<Body1> {
           )),
           bottomNavigationBar: BottomNavigationBar(
             backgroundColor: appBarColor,
-            unselectedItemColor: Colors.black38,
+            unselectedItemColor: Colors.black54,
             type: BottomNavigationBarType.fixed,
             selectedItemColor: Colors.black,
             iconSize: 30,
@@ -77,7 +90,14 @@ class _Body1State extends State<Body1> {
                 icon: Icon(Icons.all_out),
                 label: "Meds",
               ),
-
+              BottomNavigationBarItem(
+                icon: Icon(Icons.note_add
+                ),
+                label: "Notes",
+              ), BottomNavigationBarItem(
+                icon: Icon(Icons.calculate_rounded),
+                label: "BMI",
+              ),
             ],
             onTap: onTabTapped,
             currentIndex: _currentIndex,
@@ -85,3 +105,4 @@ class _Body1State extends State<Body1> {
     );
   }
 }
+

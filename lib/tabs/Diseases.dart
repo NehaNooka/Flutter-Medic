@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:flutter_tts/flutter_tts.dart';
@@ -11,16 +10,12 @@ import 'package:draggable_scrollbar/draggable_scrollbar.dart';
 import 'package:substring_highlight/substring_highlight.dart';
 
 class Home1 extends StatefulWidget {
-  Home1({this.uid});
-  final String uid;
 
   @override
-  _Home1State createState() => _Home1State(uid: uid);
+  _Home1State createState() => _Home1State();
 }
 
 class _Home1State extends State<Home1> {
-  _Home1State({this.uid});
-  final String uid;
 
   final String url =
       "https://raw.githubusercontent.com/NookaNeha/JSON/master/dataset.json";
@@ -93,10 +88,12 @@ class _Home1State extends State<Home1> {
 
           body: myAllData.length == 0
               ? Container(
-                  color: appBarColor,
+                  color: Colors.white,
                   child: new Center(
+
                       child: SpinKitSquareCircle(
                     color: Colors.black38,
+
                     size: 100.0,
                   )),
                 )

@@ -113,24 +113,22 @@ class _MainState extends State<Main> {
                         '${word.word[0].toUpperCase()}${word.word.substring(1)}',
                         style: TextStyle(
                           fontSize: 25.0,
+                          color:Colors.deepPurple,
+                          fontWeight: FontWeight.w700
+
                         ),
                       ),
                     ],
                   ),
-                  Row(
-                    children: [
-                      Icon(Icons.share),
-                      Icon(Icons.favorite),
-                    ],
-                  ),
+
                 ],
               ),
               Text(
                 word.definitions[0].partOfSpeech,
                 style: TextStyle(
                   fontFamily: 'Roboto',
-                  fontSize: 14,
-                  color: Colors.grey,
+                  fontSize: 16,
+                  color: Colors.black45,
                   fontStyle: FontStyle.italic,
                 ),
               ),
@@ -140,7 +138,7 @@ class _MainState extends State<Main> {
               Text(
                 word.definitions[0].text,
                 style: TextStyle(
-                  fontSize: 16.0,
+                  fontSize: 18.0,
                 ),
               ),
               SizedBox(

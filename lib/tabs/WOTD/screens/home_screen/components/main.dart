@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_tts/flutter_tts.dart';
 import 'package:http/http.dart' as http;
 import 'package:intl/intl.dart';
 import 'package:wallpaper/tabs/WOTD/key.dart';
@@ -41,7 +42,13 @@ class _MainState extends State<Main> {
     super.initState();
     futureWord = fetchWord();
   }
+  final FlutterTts flutterTts = FlutterTts();
 
+  speak(String text) async {
+    await flutterTts.setVolume(1.0);
+    await flutterTts.setLanguage("hi-IN");
+    await flutterTts.speak(text);
+  }
   Widget build(BuildContext context) {
     return Container(
       height: 500.0,
@@ -72,14 +79,16 @@ class _MainState extends State<Main> {
                               style: TextStyle(
                                 fontSize: 45,
                                 fontFamily: 'Roboto',
-                                fontWeight: FontWeight.w400,
-                                color: Colors.black,
+                                fontWeight: FontWeight.w800,
+                                color: Colors.deepPurple,
                               ),
                             ),
-                            Icon(
-                              Icons.mic,
-                              size: 35.0,
-                            ),
+                            IconButton(
+                                icon: Icon(
+                                  Icons.mic,
+                                  color: Colors.deepPurple,
+                                ),
+                                onPressed: () => speak('${snapshot.data.word[0].toUpperCase()}${snapshot.data.word.substring(1)}')),
                           ],
                         ),
                         Text(
@@ -87,7 +96,7 @@ class _MainState extends State<Main> {
                           style: TextStyle(
                             fontFamily: 'Roboto',
                             fontSize: 18,
-                            color: Colors.grey,
+                            color: Colors.black45,
                             fontStyle: FontStyle.italic,
                           ),
                         ),

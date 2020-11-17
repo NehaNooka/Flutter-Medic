@@ -1,9 +1,12 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:wallpaper/Settings/helpline.dart';
+import 'package:wallpaper/Games/2048/main.dart';
+import 'package:wallpaper/Games/Hangman/main.dart';
+import 'package:wallpaper/Games/Memory/main.dart';
+import 'package:wallpaper/Games/TicTacToe/main.dart';
+import 'package:wallpaper/Login/fadeAnimation.dart';
 import 'package:wallpaper/constants.dart';
-import 'package:wallpaper/tabs/WOTD/wotd.dart';
-import 'package:wallpaper/tabs/notes1.dart';
 
 class GameDashboard extends StatefulWidget {
   @override
@@ -14,7 +17,6 @@ class _GameDashboardState extends State<GameDashboard>{
   @override
   Widget build(BuildContext context) {
     return  Scaffold(
-
         appBar: AppBar(
           iconTheme: new IconThemeData(color: Colors.black),
           centerTitle: true,
@@ -40,6 +42,7 @@ class GameDashboard1 extends StatefulWidget {
 }
 
 class _GameDashboard1State extends State<GameDashboard1> {
+  Color cardColor= Colors.deepPurple[400];
   Items item1 = new Items(
     title: "Snake",
     img: "assets/icon/games/snake.png",
@@ -60,213 +63,214 @@ class _GameDashboard1State extends State<GameDashboard1> {
     img: "assets/icon/games/hangman.png",
   );
 
-  Items item5 = new Items(
-    title: "Super Mario",
-    img: "assets/icon/games/mario.png",
-  );
-
-
   @override
   Widget build(BuildContext context) {
     return
-      GridView.count(
-        childAspectRatio: 1.0,
-        padding: EdgeInsets.only(left: 16, right: 16),
-        crossAxisCount: 2,
-        crossAxisSpacing: 18,
-        mainAxisSpacing: 18,
-        children: [
-          GestureDetector(
-            onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => Wotd()),
-              );
-            },
-            child: Container(
-              decoration: BoxDecoration(
-                  color: Color(0xFFffcd3c), borderRadius: BorderRadius.circular(10)),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
+
+        SafeArea(
+            child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
-                  Image.asset(
-                    item1.img,
-                    width: 42,
-                  ),
                   SizedBox(
-                    height: 14,
+                    height: MediaQuery.of(context).size.height * 0.03,
                   ),
-                  Center(
-                    child: Text(
-                      item1.title,
-                      style: GoogleFonts.openSans(
-                          textStyle: TextStyle(
-                              color: Colors.white,
-                              fontSize: 25,
-                              fontWeight: FontWeight.w600)),
+                  FadeAnimation(
+                    2.4,
+                    Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 8.0,vertical: 8.0),
+                      child: Container(
+                        width: MediaQuery.of(context).size.width * 0.90,
+
+                          child: Text(" What will you like to play??",
+                              style: TextStyle(
+                                  fontFamily: "Blackcherry",
+                                  color: Colors.deepPurple,
+                                  fontSize: 40,
+                                  fontWeight: FontWeight.w600,
+                                  letterSpacing: 2.5)),
+                      ),
                     ),
                   ),
                   SizedBox(
-                    height: 8,
+                    height: MediaQuery.of(context).size.height * 0.03,
                   ),
-
-                ],
-              ),
-            ),
-          ),
-          GestureDetector(
-            onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => Helpline()),
-              );
-            },
-            child: Container(
-              decoration: BoxDecoration(
-                  color: Color(0xFFffcd3c), borderRadius: BorderRadius.circular(10)),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  Image.asset(
-                    item2.img,
-                    width: 42,
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => Two()),
+                          );
+                        },
+                        child: Container(
+                          width: MediaQuery.of(context).size.width * 0.40,
+                          height:
+                          MediaQuery.of(context).size.height * 0.20,
+                          decoration: BoxDecoration(
+                              color: cardColor,
+                              borderRadius: BorderRadius.circular(10)),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: <Widget>[
+                              Image.asset(
+                                item1.img,
+                                width: 42,
+                              ),
+                              SizedBox(
+                                height: 14,
+                              ),
+                              Center(
+                                child: Text(
+                                  item1.title,
+                                  style: GoogleFonts.openSans(
+                                      textStyle: TextStyle(
+                                          color: Colors.white,
+                                          fontSize: 25,
+                                          fontWeight: FontWeight.w600)),
+                                ),
+                              ),
+                              SizedBox(
+                                height: 8,
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => TicTac()),
+                          );
+                        },
+                        child: Container(
+                          width: MediaQuery.of(context).size.width * 0.40,
+                          height:
+                          MediaQuery.of(context).size.height * 0.20,
+                          decoration: BoxDecoration(
+                              color: cardColor,
+                              borderRadius: BorderRadius.circular(10)),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: <Widget>[
+                              Image.asset(
+                                item2.img,
+                                width: 42,
+                              ),
+                              SizedBox(
+                                height: 14,
+                              ),
+                              Center(
+                                child: Text(
+                                  item2.title,
+                                  style: GoogleFonts.openSans(
+                                      textStyle: TextStyle(
+                                          color: Colors.white,
+                                          fontSize: 25,
+                                          fontWeight: FontWeight.w600)),
+                                ),
+                              ),
+                              SizedBox(
+                                height: 8,
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
-                  SizedBox(
-                    height: 14,
-                  ),
-                  Center(
-                    child: Text(
-                      item2.title,
-                      style: GoogleFonts.openSans(
-                          textStyle: TextStyle(
-                              color: Colors.white,
-                              fontSize: 25,
-                              fontWeight: FontWeight.w600)),
-                    ),
-                  ),
-                  SizedBox(
-                    height: 8,
-                  ),
-
-                ],
-              ),
-            ),
-          ),
-          GestureDetector(
-            onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => Helpline()),
-              );
-            },
-            child: Container(
-              decoration: BoxDecoration(
-                  color: Color(0xFFffcd3c), borderRadius: BorderRadius.circular(10)),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  Image.asset(
-                    item3.img,
-                    width: 42,
-                  ),
-                  SizedBox(
-                    height: 14,
-                  ),
-                  Center(
-                    child: Text(
-                      item3.title,
-                      style: GoogleFonts.openSans(
-                          textStyle: TextStyle(
-                              color: Colors.white,
-                              fontSize: 25,
-                              fontWeight: FontWeight.w600)),
-                    ),
-                  ),
-                  SizedBox(
-                    height: 8,
-                  ),
-
-                ],
-              ),
-            ),
-          ),
-          GestureDetector(
-            onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => Helpline()),
-              );
-            },
-            child: Container(
-              decoration: BoxDecoration(
-                  color: Color(0xFFffcd3c), borderRadius: BorderRadius.circular(10)),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  Image.asset(
-                    item4.img,
-                    width: 42,
-                  ),
-                  SizedBox(
-                    height: 14,
-                  ),
-                  Center(
-                    child: Text(
-                      item4.title,
-                      style: GoogleFonts.openSans(
-                          textStyle: TextStyle(
-                              color: Colors.white,
-                              fontSize: 25,
-                              fontWeight: FontWeight.w600)),
-                    ),
-                  ),
-                  SizedBox(
-                    height: 8,
-                  ),
-
-                ],
-              ),
-            ),
-          ),
-          GestureDetector(
-            onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => TodoList()),
-              );
-            },
-            child: Container(
-              decoration: BoxDecoration(
-                  color: Color(0xFFffcd3c), borderRadius: BorderRadius.circular(10)),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  Image.asset(
-                    item5.img,
-                    width: 42,
-                  ),
-                  SizedBox(
-                    height: 14,
-                  ),
-                  Center(
-                    child: Text(
-                      item5.title,
-                      style: GoogleFonts.openSans(
-                          textStyle: TextStyle(
-                              color: Colors.white,
-                              fontSize: 25,
-                              fontWeight: FontWeight.w600)),
-                    ),
-                  ),
-                  SizedBox(
-                    height: 8,
-                  ),
-
-                ],
-              ),
-            ),
-          ),
-        ],
+                  SizedBox(height: 20),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => Memory()),
+                          );
+                        },
+                        child: Container(
+                          width: MediaQuery.of(context).size.width * 0.40,
+                          height:
+                          MediaQuery.of(context).size.height * 0.20,
+                          decoration: BoxDecoration(
+                              color: cardColor,
+                              borderRadius: BorderRadius.circular(10)),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: <Widget>[
+                              Image.asset(
+                                item3.img,
+                                width: 42,
+                              ),
+                              SizedBox(
+                                height: 14,
+                              ),
+                              Center(
+                                child: Text(
+                                  item3.title,
+                                  style: GoogleFonts.openSans(
+                                      textStyle: TextStyle(
+                                          color: Colors.white,
+                                          fontSize: 25,
+                                          fontWeight: FontWeight.w600)),
+                                ),
+                              ),
+                              SizedBox(
+                                height: 8,
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => Hangman()),
+                          );
+                        },
+                        child: Container(
+                          width: MediaQuery.of(context).size.width * 0.40,
+                          height:
+                          MediaQuery.of(context).size.height * 0.20,
+                          decoration: BoxDecoration(
+                              color: cardColor,
+                              borderRadius: BorderRadius.circular(10)),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: <Widget>[
+                              Image.asset(
+                                item4.img,
+                                width: 42,
+                              ),
+                              SizedBox(
+                                height: 14,
+                              ),
+                              Center(
+                                child: Text(
+                                  item4.title,
+                                  style: GoogleFonts.openSans(
+                                      textStyle: TextStyle(
+                                          color: Colors.white,
+                                          fontSize: 25,
+                                          fontWeight: FontWeight.w600)),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ],
+                  )
+                ])
       );
   }
 }

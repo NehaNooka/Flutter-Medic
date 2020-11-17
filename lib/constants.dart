@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 const  appBarTextColor = Colors.black;
-const  appBarColor= Colors.white;
+Color  appBarColor= Colors.white;
+Color  cardColor= Colors.lightBlue[900];
 const  bmiHeadingColor = Colors.black;
 
 const kSpacingUnit = 10;

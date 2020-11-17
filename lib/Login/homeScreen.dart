@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:wallpaper/Login/customButton.dart';
-import 'package:wallpaper/Login/customButtonAnimation.dart';
 import 'package:wallpaper/Login/fadeAnimation.dart';
+import 'package:wallpaper/LoginScreen/loginScreen.dart';
+import 'package:wallpaper/LoginScreen/resetPassword.dart';
+import 'package:wallpaper/LoginScreen/signUpScreen.dart';
 
 
 class HomeScreen extends StatefulWidget {
@@ -54,39 +56,46 @@ class _HomeScreenState extends State<HomeScreen> {
                     FadeAnimation(
                         2.8,
                         CustomButton(
-                          label: "Sign up",
+                          label: "REGISTER",
                           background: Colors.transparent,
                           fontColor: Colors.white,
                           borderColor: Colors.white,
-                          onTap: () {
-                            Navigator.of(context)
-                                .pushReplacementNamed('/signUp');
-                          },
+                            onTap:  () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => SignUpScreen()));
+                            }
                         )),
                     SizedBox(height: 20),
                     FadeAnimation(
                         3.2,
-                        CustomButtonAnimation(
-                          label: "Sign In",
-                          backbround: Colors.white,
+                        CustomButton(
+                          label: "LOGIN",
+                          background: Colors.white,
                           borderColor: Colors.white,
                           fontColor: Color(0xFFF001117),
-                          onTap: () {
-                            Navigator.of(context)
-                                .pushReplacementNamed('/signIn');
-                          },
+                            onTap:  () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => LoginScreen()));
+                            }
                         )),
                     SizedBox(height: 30),
                     FadeAnimation(
                         3.2,
-                        CustomButtonAnimation(
-                          label: "Forgot Password",
-                          backbround: Colors.white,
+                        CustomButton(
+                          label: "FORGOT PASSWORD",
+                          background: Colors.white,
                           borderColor: Colors.white,
                           fontColor: Color(0xFFF001117),
-                          onTap: () {
-                            Navigator.of(context).pushReplacementNamed('/pswd');
-                          },
+                          onTap:  () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => ResetPassword()));
+                          }
                         )),
                   ],
                 )

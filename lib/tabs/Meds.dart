@@ -83,7 +83,7 @@ class _SecondState extends State<Second> {
           ),
           body: myAllData.length == 0
               ? Container(
-            color: appBarColor,
+            color: Colors.white,
                 child: new Center(
                     child: SpinKitSquareCircle(color: Colors.black38,size:100.0,)),
               )
