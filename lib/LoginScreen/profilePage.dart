@@ -38,7 +38,6 @@ class _ProfilePageState extends State<ProfilePage> with SingleTickerProviderStat
         .then((value) {
       setState(() {
         username = value.data["username"];
-        print(username);
         email = value.data["email"];
         city = value.data["city"];
         age = value.data["age"];

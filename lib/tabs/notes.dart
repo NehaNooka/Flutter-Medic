@@ -39,7 +39,10 @@ class _NotesState extends State<Notes> {
         home: new Scaffold(
 
           backgroundColor: Colors.white12,
+
+
           appBar: AppBar(
+            elevation:0.0,
             centerTitle: true,
             iconTheme: new IconThemeData(color: Colors.black),
             backgroundColor: appBarColor,
@@ -47,7 +50,7 @@ class _NotesState extends State<Notes> {
                 style: GoogleFonts.pacifico(
                     textStyle: TextStyle(
                         fontSize: 24.0,
-                        color: Colors.black,
+                        color: appBarTextColor,
                         fontWeight: FontWeight.bold,
                         letterSpacing: 2))),
           ),

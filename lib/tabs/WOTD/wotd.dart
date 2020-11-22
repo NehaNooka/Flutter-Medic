@@ -39,12 +39,13 @@ class _WotdState extends State<Wotd> with SingleTickerProviderStateMixin{
 
       appBar: AppBar(
         iconTheme: new IconThemeData(color: Colors.black),
+        elevation:0.0,
         centerTitle: true,
         title: Text("WORD OF THE DAY",
             style: GoogleFonts.pacifico(
                 textStyle: TextStyle(
                     fontSize: 22.0,
-                    color: Colors.black,
+                    color: appBarTextColor,
                     fontWeight: FontWeight.bold,
                     letterSpacing: 2))),
         actions: [

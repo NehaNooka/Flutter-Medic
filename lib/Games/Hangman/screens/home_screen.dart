@@ -22,11 +22,12 @@ class _HomeScreenState extends State<HomeScreen> {
     widget.hangmanWords.readWords();
     return Scaffold(
       appBar: AppBar(
+        elevation:0.0,
         iconTheme: new IconThemeData(color: Colors.black),
         centerTitle: true,
-        leading: IconButton(icon: Icon(Icons.arrow_back_ios, color: Colors.black,),
+        leading: IconButton(icon: Icon(Icons.arrow_back, color: Colors.black,),
           onPressed: ( () {
-            Navigator.push(
+            Navigator.pushReplacement(
               context,
               MaterialPageRoute(
                   builder: (context) => GameDashboard()),
@@ -38,7 +39,7 @@ class _HomeScreenState extends State<HomeScreen> {
             style: GoogleFonts.pacifico(
                 textStyle: TextStyle(
                     fontSize: 22.0,
-                    color: Colors.black,
+                    color: appBarTextColor,
                     fontWeight: FontWeight.bold,
                     letterSpacing: 2))),
         backgroundColor: appBarColor,
@@ -77,8 +78,8 @@ class _HomeScreenState extends State<HomeScreen> {
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: <Widget>[
                   Container(
-//                    width: 155,
-                    height: 64,
+                  width: 155,
+                    height: 54,
                     child: ActionButton(
                       buttonTitle: 'Start',
                       onPress: () {

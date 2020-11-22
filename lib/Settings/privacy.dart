@@ -11,13 +11,14 @@ class Privacy extends StatelessWidget {
    Scaffold(
 
           appBar: AppBar(
+            elevation:0.0,
             centerTitle: true,
             iconTheme: new IconThemeData(color: Colors.black),
             title: Text("PRIVACY POLICY",
                 style: GoogleFonts.pacifico(
                     textStyle: TextStyle(
                         fontSize: 22.0,
-                        color: Colors.black,
+                        color: appBarTextColor,
                         fontWeight: FontWeight.bold,
                         letterSpacing: 2))),
             backgroundColor: appBarColor,

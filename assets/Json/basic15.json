@@ -1,0 +1,88 @@
+[
+  {
+    "1": "What is a serious fatal allergic reaction known as?",
+    "2": "What is the term used for treatment given or action taken to prevent disease?",
+    "3": "What is Cyberphobia?",
+    "4": "What is Obesophobia?",
+    "5": "What is Arachnophobia?",
+    "6": "_____ is the presence of red blood cells in the urine?",
+    "7":  "WHat is another term used for fever?",
+    "8": "What is the term used for bluish discoloration of skin and mucous membrane?",
+    "9": "What is latrophobia?",
+    "10": "What id Androphobia?"
+  },
+  {
+    "1": {
+      "a": "Anaphylaxis",
+      "b": "Anaphase",
+      "c": "Anaplasia",
+      "d": "Anaphylaxis"
+    },
+    "2": {
+      "a": "Prophylaxis",
+      "b":  "Prognosis",
+      "c": "Peripherl",
+      "d": "Premature"
+    },
+    "3": {
+      "a": "Fear of speed",
+      "b": "Fear of mirrors",
+      "c": "Fear of technology",
+      "d": "Fear of computers"
+    },
+    "4": {
+      "a": "Fear of sleep",
+      "b": "Fear of germs",
+      "c": "Fear of gaining weight",
+      "d":"Fear of speaking in public"
+    },
+    "5": {
+      "a": "Fear of water",
+      "b": "Fear of spiders",
+      "c": "Fear or blushing",
+      "d": "Fear of flying"
+    },
+    "6": {
+      "a": "Hemangioma",
+      "b": "Hemarthrosis",
+      "c": "Hematemesis",
+      "d": "Hematuria"
+    },
+    "7": {
+      "a": "Aphasia",
+      "b": "Pyrexia",
+      "c": "Apnea",
+      "d": "Phobia"
+    },
+    "8": {
+      "a": "Ecchymosis",
+      "b": "Cyanosis",
+      "c": "Arythema",
+      "d": "Purpura"
+    },
+    "9": {
+      "a": "Fear of nurses",
+      "b": "Fear of doctors",
+      "c":"Fear of dentists",
+      "d": "Fear of children"
+    },
+    "10": {
+      "a": "Fear of children",
+      "b": "Fear of women",
+      "c": "Fear of doctor",
+      "d": "Fear of men"
+    }
+  },
+  {
+    "1": "Anaphylaxis",
+    "2":"Prophylaxis",
+    "3":"Fear of computers",
+    "4": "Fear of gaining weight",
+    "5": "Fear of spiders",
+    "6": "Hematuria",
+    "7": "Pyrexia",
+    "8": "Cyanosis",
+    "9": "Fear of doctors",
+    "10": "Fear of men"
+  }
+]

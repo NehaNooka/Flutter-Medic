@@ -4,15 +4,18 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:wallpaper/Dashboard/Games/gameDash.dart';
+import 'package:wallpaper/Dashboard/News/main.dart';
+import 'package:wallpaper/Dashboard/NewsA/main.dart';
 import 'package:wallpaper/Login/fadeAnimation.dart';
 import 'package:wallpaper/LoginScreen/profilePage.dart';
+import 'package:wallpaper/Quiz/main.dart';
+import 'package:wallpaper/main.dart';
 import 'package:wallpaper/Settings/about.dart';
 import 'package:wallpaper/Settings/faq.dart';
 import 'package:wallpaper/Settings/helpline.dart';
 import 'package:wallpaper/Settings/privacy.dart';
 import 'package:wallpaper/Settings/rate.dart';
 import 'package:wallpaper/constants.dart';
-import 'package:wallpaper/main.dart';
 import 'package:wallpaper/tabs/WOTD/wotd.dart';
 
 final Color backgroundColor = Colors.white;
@@ -43,6 +46,7 @@ class _MenuDashboardPageState extends State<MenuDashboardPage>
   );
   final databaseReference = Firestore.instance;
   String username=" ";
+  String image=" ";
   void getdata() async {
     var firebaseUser = await FirebaseAuth.instance.currentUser();
     databaseReference
@@ -52,6 +56,7 @@ class _MenuDashboardPageState extends State<MenuDashboardPage>
         .then((value) {
       setState(() {
         username = value.data["username"];
+        image = value.data["photourl"];
       });
     });
   }
@@ -248,13 +253,14 @@ class _MenuDashboardPageState extends State<MenuDashboardPage>
                               fontSize: 18.0,
                               fontWeight: FontWeight.bold),
                         ),
-                        onTap: () {
-                          Navigator.push(
+                        onTap: () {Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => ProfilePage()),
+                            builder: (context) => ProfilePage()),
+
                           );
-                        }),
+                        }
+                        ),
                     ListTile(
                       tileColor: backgroundColor,
                       leading: new IconButton(
@@ -343,20 +349,41 @@ class _MenuDashboardPageState extends State<MenuDashboardPage>
                             });
                           },
                         ),
+                        GestureDetector(
+                          onTap:
+                              () {Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => ProfilePage()),
+
+                          );
+                          },
+                          child: CircleAvatar(
+                              radius: 22,
+                              child: ClipOval(
+                                child: new SizedBox(
+                                    width: 45.0,
+                                    height: 45.0,
+                                    child:(image!=null)?Image.network(image,fit: BoxFit.fill,): new Image.asset("assets/login/man_avatar.png", fit:BoxFit.fill)
+                                ),
+                              ),
+                            ),
+                        ),
+
                       ]),
                   SafeArea(
                       child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: <Widget>[
                         SizedBox(
-                          height: MediaQuery.of(context).size.height * 0.03,
+                          height: MediaQuery.of(context).size.height * 0.01,
                         ),
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: <Widget>[
                             FadeAnimation(
                               2.4,
-                              Text("  Good " + greeting() + "‼",
+                              Text("| Good " + greeting() + "‼",
                                   style: TextStyle(
                                       fontFamily: "Blackcherry",
                                       color: Colors.deepOrange,
@@ -368,11 +395,11 @@ class _MenuDashboardPageState extends State<MenuDashboardPage>
                               children: [
                                 FadeAnimation(
                                   2.6,
-                                  Text("  " + username,
+                                  Text("| " + username,
                                       style: TextStyle(
                                           fontFamily: "Blackcherry",
                                           color: Colors.deepPurple,
-                                          fontSize: 60,
+                                          fontSize: 50,
                                           letterSpacing: 2.5,
                                           fontWeight: FontWeight.bold)),
                                 ),
@@ -441,7 +468,7 @@ class _MenuDashboardPageState extends State<MenuDashboardPage>
                                 Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                      builder: (context) => GameDashboard()),
+                                      builder: (context) => NewsA()),
                                 );
                               },
                               child: Container(
@@ -489,7 +516,7 @@ class _MenuDashboardPageState extends State<MenuDashboardPage>
                                 Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                      builder: (context) => Helpline()),
+                                      builder: (context) => Quiz()),
                                 );
                               },
                               child: Container(

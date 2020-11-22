@@ -250,6 +250,7 @@ class _GameScreenState extends State<GameScreen> {
       child: Scaffold(
         backgroundColor: Colors.brown[500],
         appBar: AppBar(
+          elevation:0.0,
           iconTheme: new IconThemeData(color: Colors.black),
           centerTitle: true,
           leading: IconButton(icon: Icon(Icons.arrow_back_ios, color: Colors.black,),
@@ -266,7 +267,7 @@ class _GameScreenState extends State<GameScreen> {
               style: GoogleFonts.pacifico(
                   textStyle: TextStyle(
                       fontSize: 22.0,
-                      color: Colors.black,
+                      color: appBarTextColor,
                       fontWeight: FontWeight.bold,
                       letterSpacing: 2))),
           backgroundColor: appBarColor,

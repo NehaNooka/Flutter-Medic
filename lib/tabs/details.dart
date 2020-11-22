@@ -39,7 +39,7 @@ class _DetailsState extends State<Details> {
             style: GoogleFonts.pacifico(
                 textStyle: TextStyle(
                     fontSize: 22.0,
-                    color: Colors.black,
+                    color: appBarTextColor,
                     fontWeight: FontWeight.bold,
                     letterSpacing: 2))),
         backgroundColor: appBarColor,

@@ -6,7 +6,6 @@ import 'package:wallpaper/constants.dart';
 import 'package:wallpaper/tabs/Meds.dart';
 import 'package:wallpaper/tabs/Diseases.dart';
 import 'package:wallpaper/tabs/dashboard.dart';
-import 'package:wallpaper/tabs/notes.dart';
 
 class Home extends StatelessWidget {
   final String title = "Medic";
@@ -47,7 +46,7 @@ class _Body1State extends State<Body1> {
       return Second();
     }
     if (index == 3) {
-      return Notes(uid:uid);
+      return NotesApp();
     }if (index == 4) {
       return BMIMain();
     }

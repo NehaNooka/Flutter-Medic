@@ -12,20 +12,24 @@ class AuthService {
     return (await _firebaseAuth.currentUser()).uid;
   }
 
+
   // GET CURRENT USER
   Future getCurrentUser() async {
     return await _firebaseAuth.currentUser();
   }
+
+
   // Email & Password Sign Up
   Future createUserWithEmailAndPassword(
       String email, String password, String name) async {
-  await _firebaseAuth.createUserWithEmailAndPassword(
+    AuthResult authResult =await _firebaseAuth.createUserWithEmailAndPassword(
       email: email,
       password: password,
     );
+  return authResult;
   }
   Future createUser(email, password, displayName) async {
-     await _firebaseAuth.createUserWithEmailAndPassword(
+    await _firebaseAuth.createUserWithEmailAndPassword(
       email: email,
       password: password,
     );
@@ -36,14 +40,17 @@ class AuthService {
     });
 return getCurrentUID();
   }
+
+
   // Email & Password Sign In
-  Future<String> signInWithEmailAndPassword(
-      String email, String password) async {
-
- await _firebaseAuth.signInWithEmailAndPassword(
-        email: email, password: password) ;
+  Future signInWithEmailAndPassword(String email, String password) async{
+    try{
+      AuthResult authResult =await _firebaseAuth.signInWithEmailAndPassword(email: email, password: password);
+      return authResult;
+    }catch(e){
+      print(e);
+    }
   }
-
   // Sign Out
   signOut() {
     return _firebaseAuth.signOut();

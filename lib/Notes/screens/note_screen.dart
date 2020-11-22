@@ -47,6 +47,7 @@ class _NoteScreenState extends State<NoteScreen> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
+        elevation:0.0,
         centerTitle: true,
         iconTheme: new IconThemeData(color: Colors.black),
         backgroundColor: appBarColor,
@@ -54,7 +55,7 @@ class _NoteScreenState extends State<NoteScreen> {
             style: GoogleFonts.pacifico(
                 textStyle: TextStyle(
                     fontSize: 20.0,
-                    color: Colors.black,
+                    color: appBarTextColor,
                     fontWeight: FontWeight.bold,
                     letterSpacing: 2))),
         actions: <Widget>[

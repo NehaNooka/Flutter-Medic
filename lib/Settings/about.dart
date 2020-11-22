@@ -9,13 +9,14 @@ class About extends StatelessWidget {
 backgroundColor: Colors.white,
         appBar: AppBar(
           centerTitle: true,
+          elevation:0.0,
           iconTheme: new IconThemeData(color: Colors.black),
           backgroundColor: appBarColor,
           title: Text("APP INFO",
               style: GoogleFonts.pacifico(
                   textStyle: TextStyle(
                       fontSize: 24.0,
-                      color: Colors.black,
+                      color: appBarTextColor,
                       fontWeight: FontWeight.bold,
                       letterSpacing: 2))),
         ),

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-
+import 'package:wallpaper/Dashboard/Games/gameDash.dart';
+import 'package:wallpaper/constants.dart';
+import 'package:google_fonts/google_fonts.dart';
 class HomePage extends StatefulWidget {
   @override
   _HomePageState createState() => _HomePageState();
@@ -50,7 +52,7 @@ class _HomePageState extends State<HomePage> {
     }
   }
 
-  //TODO: Reset game method
+
   resetGame() {
     setState(() {
       this.gameState = [
@@ -160,11 +162,29 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(
-        title: Text("Tic Tac Toe", style: TextStyle(
-          color: Colors.white,
-        ),),
-        backgroundColor: Color(0xFF192A56),
+        elevation:0.0,
+        iconTheme: new IconThemeData(color: Colors.black),
+        centerTitle: true,
+        leading: IconButton(icon: Icon(Icons.arrow_back, color: Colors.black,),
+          onPressed: ( () {
+            Navigator.pushReplacement(
+              context,
+              MaterialPageRoute(
+                  builder: (context) => GameDashboard()),
+            );
+          }
+          ),
+        ),
+        title: Text("Tic Tac Toe",
+            style: GoogleFonts.pacifico(
+                textStyle: TextStyle(
+                    fontSize: 22.0,
+                    color: appBarTextColor,
+                    fontWeight: FontWeight.bold,
+                    letterSpacing: 2))),
+        backgroundColor: appBarColor,
       ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.start,
@@ -203,31 +223,24 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
           ),
-          MaterialButton(
-            color: Color(0xFF0A3D62),
-            minWidth: 300.0,
-            height: 85.0,
-            child: Text(
-              "Reset Game",
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: 20.0,
-              ),
-            ),
-            onPressed: () {
-              this.resetGame();
-            },
-            shape: ContinuousRectangleBorder(
-              borderRadius: BorderRadius.circular(85.0),
-            ),
-          ),
-          Container(
-            padding: EdgeInsets.all(20.0),
-            child: Text(
-              "Developed by Sayan Mondal",
-              style: TextStyle(fontSize: 15.0),
-            ),
-          )
+    MaterialButton(
+    height: 50,
+    minWidth: 150,
+    shape: RoundedRectangleBorder(
+    borderRadius: BorderRadius.circular(30)),
+    color: Colors.green[600],
+    child: Text(
+    "Reset Game",
+    style: TextStyle(
+    fontSize:24.0,color: Colors.white),
+    ),
+    onPressed: () {
+    this.resetGame();
+    },
+    ),
+
+SizedBox(height:20)
+
         ],
       ),
     );

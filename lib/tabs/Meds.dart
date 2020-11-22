@@ -60,13 +60,14 @@ class _SecondState extends State<Second> {
 
         home: new Scaffold(
           appBar: AppBar(
+            elevation:0.0,
             iconTheme: new IconThemeData(color: Colors.black),
             centerTitle: true,
             title: Text("MEDICINES",
                 style: GoogleFonts.pacifico(
                     textStyle: TextStyle(
                         fontSize: 22.0,
-                        color: Colors.black,
+                        color: appBarTextColor,
                         fontWeight: FontWeight.bold,
                         letterSpacing: 2))),
             backgroundColor:appBarColor,

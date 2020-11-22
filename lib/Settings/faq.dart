@@ -16,12 +16,13 @@ class Faq extends StatelessWidget {
        
         appBar: AppBar(
           centerTitle: true,
+          elevation:0.0,
           iconTheme: new IconThemeData(color: Colors.black),
           title: Text("FAQs",
               style: GoogleFonts.pacifico(
                   textStyle: TextStyle(
                       fontSize: 22.0,
-                      color: Colors.black,
+                      color: appBarTextColor,
                       fontWeight: FontWeight.bold,
                       letterSpacing: 2))),
           backgroundColor: appBarColor,

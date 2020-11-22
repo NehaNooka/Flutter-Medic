@@ -1,0 +1,88 @@
+[
+  {
+    "1": "Listeria monocytogenes most frequently causes which of the following infections?",
+    "2": "Which of the following conditions does not cause secretory diarrhea?",
+    "3": "Which of the following anticonvulsants has been associated with dupuytren's contracture?",
+    "4": "Which of the following investigations is the most sensitive for detecting diabetic nepropathy?",
+    "5": "What is the mechanism of action of dipyridamole?",
+    "6": "What is the most common cause of pulseless electrical activity(PEA)?",
+    "7":  "Obese patients are at an increased risk for which of the following disorders?",
+    "8": "The most common cause of urinary incontinence in elderly patient is",
+    "9": "WHat is the most common positive finding in blood testing for those with SLE",
+    "10": "WHich of the following ocular signs would you find in patient with acne rosacea?"
+  },
+  {
+    "1": {
+      "a": "Endocarditis",
+      "b": "Pericarditis",
+      "c": "Meningitis",
+      "d": "Hepatitis"
+    },
+    "2": {
+      "a": "Zollinger-Ellison syndrome",
+      "b":  "Carcinoid tumor",
+      "c": "Somatostatinima",
+      "d": "Resection of the distal ileum"
+    },
+    "3": {
+      "a": "Phenytoin",
+      "b": "Carbamazepine",
+      "c": "Levetiracetam",
+      "d": "Lamotrigine"
+    },
+    "4": {
+      "a": "Creatinine clearance",
+      "b": "Urine albumin",
+      "c": "Renal ultrasound",
+      "d":"Urine albumin"
+    },
+    "5": {
+      "a": "ADP receptor blocker",
+      "b": "COX 2 inhibition",
+      "c": "Phosphodiesterase inhibitor",
+      "d": "COX 1 inhibition"
+    },
+    "6": {
+      "a": "Tension pnemothorax",
+      "b": "Pulmonary embolism",
+      "c": "Hypovolemia",
+      "d": "Acidosis"
+    },
+    "7": {
+      "a": "Hypothyroidism",
+      "b": "Central sleep apnea",
+      "c": "Cholelithiasis",
+      "d": "Type 1 DM"
+    },
+    "8": {
+      "a": "Detrusor overactivity",
+      "b": "Diuretics",
+      "c": "Cognitive impairment",
+      "d": "Stress incontinence"
+    },
+    "9": {
+      "a": "ANA",
+      "b": "Rheumatoid factor",
+      "c": "Low complement levels",
+      "d": "Anti double stranded DNA;p"
+    },
+    "10": {
+      "a": "Keratitis",
+      "b": "Ptosis",
+      "c": "Swollen optic disc",
+      "d": "Cataract"
+    }
+  },
+  {
+    "1": "Meningitis",
+    "2":"Somatostatinima",
+    "3": "Phenytoin",
+    "4": "Urine albumin",
+    "5": "Phosphodiesterase inhibitor",
+    "6": "Hypovolemia",
+    "7": "Cholelithiasis",
+    "8": "Detrusor overactivity",
+    "9": "ANA",
+    "10": "Keratitis"
+  }
+]

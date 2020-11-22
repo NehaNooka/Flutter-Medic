@@ -1,0 +1,88 @@
+[
+  {
+    "1": "Which of the following groups does not constitute HIGH RISK patients?",
+    "2": "What is the commonest cause of early postoperative shortness of breath?",
+    "3": "Which of the following is not a limitation of mineral access surgery?",
+    "4": "Which of the following is not a complication of massive blood transfusions?",
+    "5": "Which of the following is not associated  with hypovolaemia?",
+    "6": "Which of the following is not a natural barrier to infection?",
+    "7":  "What is the operation for congenital hypertrophic pyloric Stenosis called?",
+    "8": "Which of the following gases is most commonly used to provide pnemoperitoneum is laparoscopic surgery?",
+    "9": "Which of the following statements regarding hypovolaemic shock is true?",
+    "10": "When does primary brain injury occur?"
+  },
+  {
+    "1": {
+      "a": "Elderly",
+      "b": "Significant co-morbidities",
+      "c": "Complex major surgery",
+      "d": "Ethnic minority"
+    },
+    "2": {
+      "a": "Pulmonary embolism",
+      "b":  "Chest infection",
+      "c": "Myocardial infarction",
+      "d": "Atelectasis"
+    },
+    "3": {
+      "a": "Extraction of large specimens",
+      "b": "Poor vision",
+      "c": "Technically more demanding",
+      "d": "Difficulty with haemostasis"
+    },
+    "4": {
+      "a": "Hypercalcemia",
+      "b": "Coagulopathy",
+      "c": "Hyperkalameia",
+      "d":"Hypothermia"
+    },
+    "5": {
+      "a": "Decreased urinary sodium excretion",
+      "b": "Increased urine input",
+      "c": "Hypotension",
+      "d": "Tachycardia"
+    },
+    "6": {
+      "a": "Intact epithelial surface",
+      "b": "Macrophages",
+      "c": "High gastric PH",
+      "d": "Antibodies"
+    },
+    "7": {
+      "a": "Heller",
+      "b": "Hartmann",
+      "c":"Ramstedt",
+      "d": "Whipple"
+    },
+    "8": {
+      "a": "Helium",
+      "b":"Carbon dioxide",
+      "c": "Nitrous oxide",
+      "d": "Argon"
+    },
+    "9": {
+      "a":"Vascular resistance is high",
+      "b": "Associated with high cardiac output",
+      "c": "Mixed venous saturation is high",
+      "d": "Base deficit is low"
+    },
+    "10": {
+      "a": "In the first 4 hr after injury",
+      "b": "In the first hour after injury",
+      "c": "In the first 24 hr after injury",
+      "d": "At the moment of impact"
+    }
+  },
+  {
+    "1": "Ethnic minority",
+    "2":"Atelectasis",
+    "3":"Poor vision",
+    "4": "Hypercalcemia",
+    "5": "Increased urine input",
+    "6": "High gastric PH",
+    "7": "Ramstedt",
+    "8": "Carbon dioxide",
+    "9": "Vascular resistance is high",
+    "10": "At the moment of impact"
+  }
+]

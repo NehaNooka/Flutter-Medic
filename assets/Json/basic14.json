@@ -1,0 +1,88 @@
+[
+  {
+    "1": "Chewing gum makes you more",
+    "2": "What is the most used finger of your hand?",
+    "3": "What is the only benefits of tobbaco smoking?",
+    "4": "Big Eyes cause ___",
+    "5": "It's impossible to ____",
+    "6": "Why do people eat their boogers?",
+    "7":  "It's impossible to sneeze with your ____",
+    "8": "What is the surprising health benefits of being overweight",
+    "9": "_____ speeds wound healing",
+    "10": "An average human can go without foo for about maximum ___"
+  },
+  {
+    "1": {
+      "a": "Sleepy",
+      "b": "Sexy",
+      "c": "Talkative",
+      "d": "Alert"
+    },
+    "2": {
+      "a":"Thumb",
+      "b":  "Little finger",
+      "c": "Middle finger",
+      "d": "Index finger"
+    },
+    "3": {
+      "a": "Obstructive lung diseases",
+      "b": "Increased revenue from taxes",
+      "c": "Early death",
+      "d": "Lung cancer"
+    },
+    "4": {
+      "a": "Lazy eyes",
+      "b": "Far Sightedness",
+      "c": "Colour blindness",
+      "d":"Nearsightedness"
+    },
+    "5": {
+      "a":"Tickle yourself",
+      "b": "Jump for 5 ft",
+      "c": "Live up tp 122 years old",
+      "d": "Run at 45 km/hr"
+    },
+    "6": {
+      "a": "Improve taste sensation",
+      "b": "Boogers are salty",
+      "c": "Tongue exercise",
+      "d": "Finger exercise"
+    },
+    "7": {
+      "a": "Mouth open",
+      "b": "Legs open",
+      "c": "Eyes open",
+      "d": "Palms open"
+    },
+    "8": {
+      "a": "Stronger Immune system",
+      "b": "High risk of heart disease",
+      "c": "High risk of osteoarthritis",
+      "d": "Higher risk of cancer"
+    },
+    "9": {
+      "a": "Listen to music",
+      "b": "Sleeping",
+      "c": "Eating banana",
+      "d": "Licking your wounds"
+    },
+    "10": {
+      "a": "3 months",
+      "b": "3 weeks",
+      "c": "1 week",
+      "d": "1 year"
+    }
+  },
+  {
+    "1": "Alert",
+    "2":"Thumb",
+    "3":"Increased revenue from taxes",
+    "4": "Nearsightedness",
+    "5": "Tickle yourself",
+    "6": "Boogers are salty",
+    "7": "Eyes open",
+    "8": "Stronger Immune system",
+    "9": "Licking your wounds",
+    "10": "3 weeks"
+  }
+]

@@ -7,6 +7,8 @@ import 'package:wallpaper/Games/Memory/main.dart';
 import 'package:wallpaper/Games/TicTacToe/main.dart';
 import 'package:wallpaper/Login/fadeAnimation.dart';
 import 'package:wallpaper/constants.dart';
+import 'package:wallpaper/home.dart';
+
 
 class GameDashboard extends StatefulWidget {
   @override
@@ -18,13 +20,24 @@ class _GameDashboardState extends State<GameDashboard>{
   Widget build(BuildContext context) {
     return  Scaffold(
         appBar: AppBar(
+          elevation:0.0,
           iconTheme: new IconThemeData(color: Colors.black),
           centerTitle: true,
-          title: Text("Games",
+          leading: IconButton(icon: Icon(Icons.arrow_back, color: Colors.black,),
+            onPressed: ( () {
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => Home()),
+              );
+            }
+            ),
+          ),
+          title: Text("GAMES",
               style: GoogleFonts.pacifico(
                   textStyle: TextStyle(
                       fontSize: 22.0,
-                      color: Colors.black,
+                      color: appBarTextColor,
                       fontWeight: FontWeight.bold,
                       letterSpacing: 2))),
           backgroundColor: appBarColor,
@@ -44,8 +57,8 @@ class GameDashboard1 extends StatefulWidget {
 class _GameDashboard1State extends State<GameDashboard1> {
   Color cardColor= Colors.deepPurple[400];
   Items item1 = new Items(
-    title: "Snake",
-    img: "assets/icon/games/snake.png",
+    title: "2048",
+    img: "assets/icon/games/block.png",
   );
 
   Items item2 = new Items(

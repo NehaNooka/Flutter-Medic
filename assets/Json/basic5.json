@@ -1,0 +1,88 @@
+[
+  {
+    "1": "When can mother give her baby a bath?",
+    "2": "What is the average age when a baby get first tooth?",
+    "3": "How often should a mother feed her newborn baby ?",
+    "4": "When is the latest a mother should eliminate a pacifier from her baby's routine?",
+    "5": "How often should mother bathe her baby",
+    "6": "When can a mother introduce solid foods to her baby?",
+    "7":  "If a mother is breastfeeding,when can she give her baby a pacifier?",
+    "8": "When does a  baby's umbilical cord stump fall off?",
+    "9": "When do most babies take their first step?",
+    "10": "How should you position your baby for sleep?"
+  },
+  {
+    "1": {
+      "a": "Whenever baby cries",
+      "b": "Every 2-3 hour",
+      "c": "Every 5-6 hour",
+      "d": "Every hour"
+    },
+    "2": {
+      "a": "4 year old",
+      "b":  "1 year old",
+      "c": "2 year old",
+      "d": "3 year old"
+    },
+    "3": {
+      "a": "Max once a week",
+      "b": "Max twice a week",
+      "c": "Max thrice a week",
+      "d": "Everyday"
+    },
+    "4": {
+      "a": "4-6 months old",
+      "b": "1-3 months old",
+      "c": "7-9 months old",
+      "d":"12-15 months old"
+    },
+    "5": {
+      "a": "Max once a week",
+      "b": "Max twice a week",
+      "c": "Max thrice a week",
+      "d": "Everyday"
+    },
+    "6": {
+      "a": "4-6 months old",
+      "b": "1-3 months old",
+      "c": "7-9 months old",
+      "d": "12-16 months old"
+    },
+    "7": {
+      "a": "2-3 month old",
+      "b": "1-2 day old",
+      "c": "3-4 weks old",
+      "d": "1-2 weeks old"
+    },
+    "8": {
+      "a": "1-2 months after birth",
+      "b": "3-6 months after birth",
+      "c": "1-2 weeks after birth",
+      "d": "6-12 hours after birth"
+    },
+    "9": {
+      "a": "9-12 months old",
+      "b": "4-6 months old",
+      "c": "12-15 months old",
+      "d": "7-9 months old"
+    },
+    "10": {
+      "a": "On baby's stomach(prone)",
+      "b": "On baby's left",
+      "c": "On baby's back(Supine)",
+      "d": "On baby's right"
+    }
+  },
+  {
+    "1": "Every 2-3 hour",
+    "2":"4 year old",
+    "3":"Max thrice a week",
+    "4": "4-6 months old",
+    "5": "Max thrice a week",
+    "7": "3-4 weks old",
+    "6": "4-6 months old",
+    "8": "1-2 weeks after birth",
+    "9": "9-12 months old",
+    "10": "On baby's back(Supine)"
+  }
+]

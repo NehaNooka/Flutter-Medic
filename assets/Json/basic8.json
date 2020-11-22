@@ -1,0 +1,88 @@
+[
+  {
+    "1": " A rash that starts on the wrists and ankls=es is typical in cases of",
+    "2": "Which of the following is the most common organism isolated in spontaneous bacterial peritonitis(SBP)",
+    "3": "What is the most common cause of immediate postpartum  haemorrage",
+    "4": "Which of the following is adequately absorbed by activated charcoal",
+    "5": "Which of the following symptoms or findings best distinguishes patients with serotonin syndrome from patients with other drug or toxin related effects",
+    "6": "Which of the following is the most appropriate outpatient management for mechanical corneal abrasions",
+    "7":  "The most common etiology of an intracranial tumor is",
+    "8": "Which of the following is the most common cause of acute respiratory distress syndrome(ARDS)",
+    "9": "Which of the following personality disorders is seen in most patients with somatization disorder?",
+    "10": "What is the most reliable early indicator of shock in a pregnant patient after blunt abdominal trauma"
+  },
+  {
+    "1": {
+      "a": "Pityriasis rosea",
+      "b": "Henoch-Schonlein purpura(HSP)",
+      "c": "Meningococcemia",
+      "d": "Rubella"
+    },
+    "2": {
+      "a": "Klebsiella pneumoniae",
+      "b":  "Staphylococcus aureus",
+      "c": "Streptococcus pneumoniae",
+      "d":"Escherichia coli"
+    },
+    "3": {
+      "a": "Uterine atony",
+      "b": "Vaginal or vulvar tears",
+      "c": "Uterine rupture",
+      "d": "Placenta accrete"
+    },
+    "4": {
+      "a": "Toluene",
+      "b": "Lithium",
+      "c": "Acetaminophen",
+      "d":"Ethanol"
+    },
+    "5": {
+      "a": "Shivering",
+      "b": "Tachycardia",
+      "c": "Hyperthermia",
+      "d":"Clonus"
+    },
+    "6": {
+      "a": "Eye patching",
+      "b":"Topical antibiotics",
+      "c": "Topical steroids",
+      "d": "Topical anesthetic"
+    },
+    "7": {
+      "a": "Metastases",
+      "b": "Meningioma",
+      "c": "Medulloblastoma",
+      "d": "Astrocytoma"
+    },
+    "8": {
+      "a": "Sepsis",
+      "b": "Multiple blood transfusion",
+      "c": "Near drowing",
+      "d": "Acute pancreatitis"
+    },
+    "9": {
+      "a": "Schizoid",
+      "b": "Histrionic",
+      "c": "Schizotypal",
+      "d": "Antisocial"
+    },
+    "10": {
+      "a": "Hypotension",
+      "b": "Peritoneal signs on examination",
+      "c": "Elevated lactate",
+      "d": "Tachycardia"
+    }
+  },
+  {
+    "1": "Meningococcemia",
+    "2":"Escherichia coli",
+    "3":"Uterine atony",
+    "4": "Acetaminophen",
+    "5": "Clonus",
+    "6": "Topical antibiotics",
+    "7": "Metastases",
+    "8": "Sepsis",
+    "9": "Histrionic",
+    "10": "Elevated lactate"
+  }
+]

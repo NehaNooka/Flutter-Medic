@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_tts/flutter_tts.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:wallpaper/constants.dart';
 import 'package:wallpaper/tabs/details.dart';
 class Search extends StatefulWidget {
   final name;
@@ -62,7 +63,7 @@ class _SearchState extends State<Search> {
               title: Text(widget.name,
                   style: TextStyle(
                       fontSize: 20.0,
-                      color: Colors.black,
+                      color: appBarTextColor,
                       fontWeight: FontWeight.bold)),
               background: Opacity(
                 opacity: 0.5,

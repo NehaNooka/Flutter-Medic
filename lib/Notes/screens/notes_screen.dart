@@ -20,6 +20,7 @@ class _NotesScreenState extends State<NotesScreen> {
     return Scaffold(
       backgroundColor: Colors.white12,
       appBar: AppBar(
+        elevation:0.0,
         centerTitle: true,
         iconTheme: new IconThemeData(color: Colors.black),
         backgroundColor: appBarColor,
@@ -27,7 +28,7 @@ class _NotesScreenState extends State<NotesScreen> {
             style: GoogleFonts.pacifico(
                 textStyle: TextStyle(
                     fontSize: 24.0,
-                    color: Colors.black,
+                    color: appBarTextColor,
                     fontWeight: FontWeight.bold,
                     letterSpacing: 2))),
       ),
@@ -38,10 +39,10 @@ class _NotesScreenState extends State<NotesScreen> {
         onPressed: () {
           Navigator.pushNamed(context, NoteScreen.routeName);
         },
-        backgroundColor: Colors.blue[800],
+        backgroundColor: Colors.deepOrange[800],
         child: Icon(
           Icons.add,
-          color: Colors.black,
+          color: Colors.white,
         ),
       ),
     );

@@ -39,9 +39,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
   }
   Future signup(BuildContext context) async {
     try{
-      setState(() {
-        _loading = true;
-      });
+
       FirebaseUser user;
       AuthResult result = await FirebaseAuth.instance.createUserWithEmailAndPassword(email: emailcontroller.text, password: passwordcontroller.text);
       user = result.user;
@@ -55,9 +53,6 @@ class _SignUpScreenState extends State<SignUpScreen> {
         'photourl':null,
       });
       _showMyDialog();
-      setState(() {
-        _loading = false;
-      });
     }catch(e){
       print(e);
     }
@@ -76,7 +71,6 @@ class _SignUpScreenState extends State<SignUpScreen> {
     ? Container(
       color: Colors.white,
       child: new Center(
-
           child: SpinKitSquareCircle(
             color: Colors.black38,
 

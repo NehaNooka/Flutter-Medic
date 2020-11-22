@@ -1,0 +1,88 @@
+[
+  {
+    "1": "Retention of water by ADH is mediated by which aquaporin?",
+    "2": "Gap junctions are made of protein called?",
+    "3": "Which submit of G protein has intrinsic GTPase activity?",
+    "4": "Which of the following is under the control of the hypothalamus?",
+    "5": "Calcium is a major component of ____",
+    "6": "Which of the following is also called the pacemaker of the heart?",
+    "7":  "Which of the following concerning renal blood flow is true?",
+    "8": "The Papez circuit consist of?",
+    "9": "Which type of movement facilitates the passage of ova in the fallopian tubes",
+    "10": "Cyclic 3,5 - adenosine monophosphate(cAMP) activates the"
+  },
+  {
+    "1": {
+      "a": "AQP-2",
+      "b": "AQP-3",
+      "c": "AQp-4",
+      "d": "AQP-1"
+    },
+    "2": {
+      "a": "Calcineurin",
+      "b":  "Connexin",
+      "c": "Cadherin",
+      "d": "Clatherin"
+    },
+    "3": {
+      "a": "Alpha",
+      "b": "Beta",
+      "c": "Gamma",
+      "d": "Delta"
+    },
+    "4": {
+      "a": "Respiration",
+      "b": "Heart rate",
+      "c": "Blood pressure",
+      "d":"Body temperature"
+    },
+    "5": {
+      "a": "Bone",
+      "b": "Kidney",
+      "c": "Heart",
+      "d": "Brain"
+    },
+    "6": {
+      "a": "Bundle of Kent",
+      "b": "Sinoatrial node",
+      "c": "Purkinje fibre",
+      "d": "Bundle of His"
+    },
+    "7": {
+      "a": "Can be measured using the Fick principle",
+      "b": "40% of the cardaic output at rest",
+      "c": "Higher in the medulla than the cortex",
+      "d": "Decreased in response to hypoxia"
+    },
+    "8": {
+      "a": "Cingulate cortex",
+      "b": "Thalamus",
+      "c": "Hippocampus",
+      "d": "Hypothalamus"
+    },
+    "9": {
+      "a": "Muscular movement",
+      "b": "Amoeboid movement",
+      "c": "Circulatory movement",
+      "d": "Ciliary movement"
+    },
+    "10": {
+      "a": "Protein kinase C(PKC)",
+      "b": "Cyclin-dependent kinases(CDKs)",
+      "c": "Protein kinase A(PKA)",
+      "d": "Protein kinase G(PKG)"
+    }
+  },
+  {
+    "1": "AQP-2",
+    "2":"Connexin",
+    "3":"Alpha",
+    "4": "Body temperature",
+    "5": "Bone",
+    "6": "Sinoatrial node",
+    "7": "Can be measured using the Fick principle",
+    "8": "Hippocampus",
+    "9": "Ciliary movement",
+    "10": "Protein kinase A(PKA)"
+  }
+]

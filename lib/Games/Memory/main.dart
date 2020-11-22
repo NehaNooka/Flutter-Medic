@@ -12,17 +12,17 @@ class Memory extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Home(),
+      home: HomeM(),
     );
   }
 }
 
-class Home extends StatefulWidget {
+class HomeM extends StatefulWidget {
   @override
-  _HomeState createState() => _HomeState();
+  _HomeMState createState() => _HomeMState();
 }
 
-class _HomeState extends State<Home> {
+class _HomeMState extends State<HomeM> {
   List<TileModel> gridViewTiles = new List<TileModel>();
   List<TileModel> questionPairs = new List<TileModel>();
 
@@ -55,11 +55,12 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        elevation:0.0,
         iconTheme: new IconThemeData(color: Colors.black),
         centerTitle: true,
-        leading: IconButton(icon: Icon(Icons.arrow_back_ios, color: Colors.black,),
+        leading: IconButton(icon: Icon(Icons.arrow_back, color: Colors.black,),
           onPressed: ( () {
-            Navigator.push(
+            Navigator.pushReplacement(
               context,
               MaterialPageRoute(
                   builder: (context) => GameDashboard()),
@@ -71,7 +72,7 @@ class _HomeState extends State<Home> {
             style: GoogleFonts.pacifico(
                 textStyle: TextStyle(
                     fontSize: 22.0,
-                    color: Colors.black,
+                    color: appBarTextColor,
                     fontWeight: FontWeight.bold,
                     letterSpacing: 2))),
         backgroundColor: appBarColor,
@@ -185,7 +186,7 @@ class _HomeState extends State<Home> {
 class Tile extends StatefulWidget {
   String imagePathUrl;
   int tileIndex;
-  _HomeState parent;
+  _HomeMState parent;
 
   Tile({this.imagePathUrl, this.tileIndex, this.parent});
 

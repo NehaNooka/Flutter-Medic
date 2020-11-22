@@ -63,6 +63,7 @@ class _Home1State extends State<Home1> {
 
         home: new Scaffold(
           appBar: AppBar(
+            elevation:0.0,
             centerTitle: true,
             iconTheme: new IconThemeData(color: Colors.black),
             backgroundColor: appBarColor,
@@ -70,7 +71,7 @@ class _Home1State extends State<Home1> {
                 style: GoogleFonts.pacifico(
                     textStyle: TextStyle(
                         fontSize: 22.0,
-                        color: Colors.black,
+                        color: appBarTextColor,
                         fontWeight: FontWeight.bold,
                         letterSpacing: 2))),
 

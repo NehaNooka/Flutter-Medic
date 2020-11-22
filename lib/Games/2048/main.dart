@@ -1,16 +1,42 @@
 import 'package:flutter/material.dart';
 import 'package:wallpaper/Games/2048/models.dart';
 import 'package:wallpaper/Games/2048/utils.dart';
+import 'package:wallpaper/constants.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:wallpaper/Dashboard/Games/gameDash.dart';
 
 class Two extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: '2048',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
+
       home: Scaffold(
+        appBar: AppBar(
+          centerTitle: true,
+          elevation:0.0,
+          iconTheme: new IconThemeData(color: Colors.black),
+          backgroundColor: appBarColor,
+          leading: IconButton(icon: Icon(Icons.arrow_back, color: Colors.black,),
+            onPressed: ( () {
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => GameDashboard()),
+              );
+            }
+            ),
+          ),
+          title: Text("2048",
+              style: GoogleFonts.pacifico(
+                  textStyle: TextStyle(
+                      fontSize: 24.0,
+                      color: Colors.black,
+                      fontWeight: FontWeight.bold,
+                      letterSpacing: 2))),
+        ),
+
         body: BoardWidget(),
       ),
     );
@@ -119,18 +145,19 @@ class _BoardWidgetState extends State<BoardWidget> {
 
     return Column(
       children: <Widget>[
+        SizedBox(height:15.0),
         Container(
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: <Widget>[
               Container(
-                color: Colors.orange[100],
+                color: Colors.red[600],
                 width: 120.0,
                 height: 60.0,
                 child: Center(
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
-                      children: <Widget>[Text("Score: "), Text("${_board.score}")],
+                      children: <Widget>[Text("Score: ",style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold)), Text("${_board.score}",style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold))],
                     )),
               ),
               FlatButton(
@@ -139,9 +166,9 @@ class _BoardWidgetState extends State<BoardWidget> {
                   height: 60.0,
                   decoration: BoxDecoration(
                       border: Border.all(color: Colors.grey),
-                      color: Colors.orange[100]),
+                      color: Colors.green[600]),
                   child: Center(
-                    child: Text("New Game"),
+                    child: Text("New Game",style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold)),
                   ),
                 ),
                 onPressed: () {
@@ -306,7 +333,7 @@ class AnimatedTileWidget extends AnimatedWidget {
         color: tileColors.containsKey(tile.value)
             ? tileColors[tile.value]
             : Colors.orange[50],
-        text: Text('${tile.value}'),
+        text: Text('${tile.value}',style: TextStyle(fontSize: 30.0, fontWeight: FontWeight.bold)),
       );
     }
   }
@@ -344,6 +371,6 @@ class TileBox extends StatelessWidget {
         ),
       ),
     );
-    ;
+
   }
 }

@@ -4,7 +4,6 @@ import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:wallpaper/Login/auth_service.dart';
 import 'package:wallpaper/LoginScreen/signUpScreen.dart';
-
 import 'package:wallpaper/home.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -33,34 +32,13 @@ class _LoginScreenState extends State<LoginScreen> {
 
   Future signin(BuildContext context) async {
     try{
-      setState(() {
-        _loading = true;
-      });
       FirebaseUser user;
       AuthResult result = await FirebaseAuth.instance.signInWithEmailAndPassword(email: emailcontroller.text, password: passwordcontroller.text);
       user = result.user;
-
-      if(user.isEmailVerified) {
-        prefs = await SharedPreferences.getInstance();
-
-        await FirebaseAuth.instance.currentUser().then((FirebaseUser user) {
-          final userid = user.uid;
-          prefs.setString('userId', userid);
-          print("uid:- "+prefs.getString('userId'));
-          //print("set userId : " + prefs.getString('userId'));
-        });
-        setState(() {
-          _loading = false;
-        });
+        await FirebaseAuth.instance.currentUser();
         Navigator.pushReplacement(
           context, MaterialPageRoute(builder: (context) => Home()),);
-      }
-      else{
-        setState(() {
-          print("Verify your email first");
-                  SnackBar(content: Text("Verify your email first"),);
-        });
-      }
+
 
     }catch(e){
       print(e);
