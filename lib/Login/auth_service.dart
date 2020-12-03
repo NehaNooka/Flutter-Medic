@@ -4,25 +4,26 @@ import 'package:firebase_auth/firebase_auth.dart';
 class AuthService {
   final FirebaseAuth _firebaseAuth = FirebaseAuth.instance;
 
+  // ignore: deprecated_member_use
   Stream<String> get onAuthStateChanged => _firebaseAuth.onAuthStateChanged.map(
-        (FirebaseUser user) => user?.uid,
+        (User user) => user?.uid,
   );
 // GET UID
   Future<String> getCurrentUID() async {
-    return (await _firebaseAuth.currentUser()).uid;
+    return (await _firebaseAuth.currentUser).uid;
   }
 
 
   // GET CURRENT USER
   Future getCurrentUser() async {
-    return await _firebaseAuth.currentUser();
+    return await _firebaseAuth.currentUser;
   }
 
 
   // Email & Password Sign Up
   Future createUserWithEmailAndPassword(
       String email, String password, String name) async {
-    AuthResult authResult =await _firebaseAuth.createUserWithEmailAndPassword(
+    UserCredential authResult =await _firebaseAuth.createUserWithEmailAndPassword(
       email: email,
       password: password,
     );
@@ -33,7 +34,7 @@ class AuthService {
       email: email,
       password: password,
     );
-    Firestore.instance.collection('users').document().setData({
+    FirebaseFirestore.instance.collection('users').doc().set({
       'name': displayName,
       'email': email,
       'password':password
@@ -45,7 +46,7 @@ return getCurrentUID();
   // Email & Password Sign In
   Future signInWithEmailAndPassword(String email, String password) async{
     try{
-      AuthResult authResult =await _firebaseAuth.signInWithEmailAndPassword(email: email, password: password);
+      UserCredential authResult =await _firebaseAuth.signInWithEmailAndPassword(email: email, password: password);
       return authResult;
     }catch(e){
       print(e);

@@ -1,12 +1,12 @@
 import 'dart:async';
 import 'dart:convert';
-import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:wallpaper/Quiz/main.dart';
 import 'package:wallpaper/Quiz/resultpage.dart';
 import 'package:wallpaper/constants.dart';
+import 'package:random_string/random_string.dart';
 
 class getjson extends StatelessWidget {
 
@@ -87,7 +87,7 @@ class quizpage extends StatefulWidget {
 class _quizpageState extends State<quizpage> {
   final List mydata;
   _quizpageState(this.mydata);
-
+ var  _counter=0;
   Color colortoshow = Colors.indigoAccent;
   Color right = Colors.green;
   Color wrong = Colors.red;
@@ -111,11 +111,12 @@ class _quizpageState extends State<quizpage> {
 
   genrandomarray(){
     var distinctIds = [];
-    var rand = new Random();
-    for (int i = 0; ;) {
-      distinctIds.add(rand.nextInt(10));
+    var rand ;
+    for (int i = 1; ;) {
+      rand =  randomBetween(1,9);
+      distinctIds.add(rand);
       random_array = distinctIds.toSet().toList();
-      if(random_array.length < 10){
+      if(random_array.length < 9){
         continue;
       }else{
         break;
@@ -126,7 +127,7 @@ class _quizpageState extends State<quizpage> {
 
   @override
   void initState() {
-
+    _counter=1;
     starttimer();
     genrandomarray();
     super.initState();
@@ -159,8 +160,9 @@ class _quizpageState extends State<quizpage> {
   void nextquestion() {
     canceltimer = false;
     timer = 30;
+
     setState(() {
-      if (j < 10) {
+      if (j <9) {
         i = random_array[j];
         j++;
       } else {
@@ -188,6 +190,7 @@ class _quizpageState extends State<quizpage> {
       colortoshow = wrong;
     }
     setState(() {
+      _counter++;
       print(mydata[2][i.toString()] );
       tcVisibility[i] = true;
       btncolor[k] = colortoshow;
@@ -219,7 +222,7 @@ class _quizpageState extends State<quizpage> {
         color: btncolor[k],
         splashColor: Colors.indigo[700],
         highlightColor: Colors.indigo[700],
-        minWidth: 200.0,
+        minWidth: MediaQuery.of(context).size.width*0.70 ,
         height: 45.0,
         shape:
         RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.0)),
@@ -258,12 +261,12 @@ class _quizpageState extends State<quizpage> {
         body: Column(
           children: <Widget>[
             Expanded(
-              flex: 1,
+              flex: 2,
               child: Container(
                 padding: EdgeInsets.all(15.0),
                 alignment: Alignment.bottomLeft,
                 child: Text(
-                  mydata[0][i.toString()] ??  ' '  ,
+                  "Que $_counter: "+mydata[0][i.toString()] ??  ' '  ,
                   style: TextStyle(
                     fontSize: 19.0,
                     fontWeight: FontWeight.bold,

@@ -8,7 +8,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  //TODO: link up images
+
   AssetImage cross = AssetImage("assets/icon/memory/cross.png");
   AssetImage circle = AssetImage("assets/icon/memory/circle.png");
   AssetImage edit = AssetImage("assets/icon/memory/edit.png");
@@ -17,7 +17,6 @@ class _HomePageState extends State<HomePage> {
   String message;
   List<String> gameState;
 
-  //TODO: initiazlie the state of box with empty
   @override
   void initState() {
     super.initState();
@@ -37,14 +36,14 @@ class _HomePageState extends State<HomePage> {
     });
   }
 
-  //TODO: playGame method
+
   playGame(int index) {
     if (this.gameState[index] == "empty") {
       setState(() {
         if (this.isCross) {
-          this.gameState[index] = "cross";
+          this.gameState[index] = "Cross";
         } else {
-          this.gameState[index] = "circle";
+          this.gameState[index] = "Circle";
         }
         this.isCross = !this.isCross;
         this.checkWin();
@@ -70,16 +69,16 @@ class _HomePageState extends State<HomePage> {
     });
   }
 
-  //TODO: get image method
+
   AssetImage getImage(String value) {
     switch (value) {
       case ('empty'):
         return edit;
         break;
-      case ('cross'):
-        return cross;
+      case ('Cross'):
+        return  cross;
         break;
-      case ('circle'):
+      case ('Circle'):
         return circle;
         break;
     }
@@ -92,7 +91,7 @@ class _HomePageState extends State<HomePage> {
       });
     });
   }
-  //TODO: check for win logic
+
   checkWin() {
     if ((gameState[0] != 'empty') &&
         (gameState[0] == gameState[1]) &&
@@ -190,6 +189,7 @@ class _HomePageState extends State<HomePage> {
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
+          SizedBox(height:40),
           Expanded(
             child: GridView.builder(
               padding: EdgeInsets.all(20.0),
@@ -219,6 +219,7 @@ class _HomePageState extends State<HomePage> {
               this.message,
               style: TextStyle(
                 fontSize: 30.0,
+                color: Colors.red,
                 fontWeight: FontWeight.bold,
               ),
             ),
@@ -239,7 +240,7 @@ class _HomePageState extends State<HomePage> {
     },
     ),
 
-SizedBox(height:20)
+SizedBox(height:40)
 
         ],
       ),

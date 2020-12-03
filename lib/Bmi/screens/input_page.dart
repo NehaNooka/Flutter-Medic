@@ -521,7 +521,7 @@ class _HeightState extends State<Height> {
       opacity: !isCentSelected ? 1.0 : 0.0,
       child: Container(
 
-        height: 120.0,
+        height:  MediaQuery.of(context).size.height*0.19,
         padding: EdgeInsets.fromLTRB(10.0, 0.0, 10.0, 0.0),
         child: Column(
           children: <Widget>[
@@ -582,7 +582,7 @@ class _HeightState extends State<Height> {
     return AnimatedOpacity(
       opacity: isCentSelected ? 1.0 : 0.0,
       child: Container(
-        height: 140.0,
+        height:  MediaQuery.of(context).size.height*0.19,
         padding: EdgeInsets.fromLTRB(10.0, 0.0, 10.0, 0.0),
         child: Column(
           children: <Widget>[
@@ -715,7 +715,7 @@ class _GenderState extends State<Gender> {
     return Container(
       margin: EdgeInsets.fromLTRB(6.0, 5.0, 6.0, 0.0),
       child: SizedBox(
-        height: MediaQuery.of(context).size.height *0.25,
+        height: MediaQuery.of(context).size.height *0.22,
         width: MediaQuery.of(context).size.width *0.95,
         child: Card(
           elevation: 2.0,

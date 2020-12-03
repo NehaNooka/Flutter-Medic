@@ -18,7 +18,7 @@ class TopSection extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.only(top:8.0),
               child: Text(
-                'Yesterday',
+                'Last Week',
                 style: TextStyle(
                     fontSize: 25.0,
                     color: Colors.deepOrange,

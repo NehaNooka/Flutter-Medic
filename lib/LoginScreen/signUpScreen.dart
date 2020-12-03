@@ -11,7 +11,7 @@ class SignUpScreen extends StatefulWidget {
 }
 
 class _SignUpScreenState extends State<SignUpScreen> {
-  final databaseReference = Firestore.instance;
+  final databaseReference = FirebaseFirestore.instance;
   final usernamecontroller = new TextEditingController();
   final emailcontroller = new TextEditingController();
   final passwordcontroller = new TextEditingController();
@@ -39,14 +39,13 @@ class _SignUpScreenState extends State<SignUpScreen> {
   }
   Future signup(BuildContext context) async {
     try{
-
-      FirebaseUser user;
-      AuthResult result = await FirebaseAuth.instance.createUserWithEmailAndPassword(email: emailcontroller.text, password: passwordcontroller.text);
+      User user;
+      UserCredential result = await FirebaseAuth.instance.createUserWithEmailAndPassword(email: emailcontroller.text, password: passwordcontroller.text);
       user = result.user;
       await user.sendEmailVerification();
       await databaseReference.collection("User")
-          .document(user.uid)
-          .setData({
+          .doc(user.uid)
+          .set({
         'email':emailcontroller.text,
         'password':passwordcontroller.text,
         'username': usernamecontroller.text,
@@ -54,7 +53,22 @@ class _SignUpScreenState extends State<SignUpScreen> {
       });
       _showMyDialog();
     }catch(e){
-      print(e);
+      showDialog(
+          context: context,
+          builder: (BuildContext context) {
+            return AlertDialog(
+              title: Text("Error"),
+              content: Text(e.message),
+              actions: [
+                FlatButton(
+                  child: Text("Ok"),
+                  onPressed: () {
+                    Navigator.of(context).pop();
+                  },
+                )
+              ],
+            );
+          });
     }
   }
   final _formKey = GlobalKey<FormState>();
@@ -79,9 +93,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
     )
         :Form(
     key: _formKey,
-    child: Builder(
-              builder: (context)=>
-                  SingleChildScrollView(
+    child:   SingleChildScrollView(
                     child: Container(
                       height: MediaQuery.of(context).size.height,
                       width: MediaQuery.of(context).size.width,
@@ -117,8 +129,20 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                   Radius.circular(20),
                                 )
                             ),
-                            child: TextField(
+                            child: TextFormField(
                               onChanged: null,
+                              validator: (value) {
+                                if(value.isEmpty) {
+                                  return "Name can't be empty!";
+                                }
+                                else if(value.length < 2) {
+                                  return "Name must be at least 2 characters long!";
+                                }
+                                else if(value.length > 50) {
+                                  return "Name must be less than 50 characters long!";
+                                }
+                                return null;
+                              },
                               decoration: InputDecoration(
                                 icon: Icon(
                                   Icons.person,
@@ -139,8 +163,17 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                   Radius.circular(20),
                                 )
                             ),
-                            child: TextField(
+                            child: TextFormField(
                               onChanged: null,
+                              validator: (value) {
+                                if (value.isEmpty) {
+                                  return 'Enter Email Address';
+                                }
+                                else if(!value.contains('@')){
+                                  return 'Please enter a valid email address!';
+                                }
+                                return null;
+                              },
                               decoration: InputDecoration(
                                 icon: Icon(
                                   Icons.mail,
@@ -161,8 +194,16 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                   Radius.circular(20),
                                 )
                             ),
-                            child: TextField(
+                            child: TextFormField(
                               onChanged: null,
+                              validator: (value) {
+                                if (value.isEmpty) {
+                                  return 'Enter Password';
+                                } else if (value.length < 8) {
+                                  return 'Password must be atleast 8 characters!';
+                                }
+                                return null;
+                              },
                               obscureText: visible == false ? true : false,
                               decoration: InputDecoration(
                                 icon: Icon(
@@ -187,7 +228,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
                             ),
                             child: FlatButton(
                               onPressed: () async {
-
+                                if(_formKey.currentState.validate()){
+                                  _formKey.currentState.save();
+                                };
                                 signup(context);},
                               child: Text(
                                 "SIGNUP",
@@ -229,7 +272,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
             ),
           )
       ),
-    )));
+    ));
   }
 
   _visible() {

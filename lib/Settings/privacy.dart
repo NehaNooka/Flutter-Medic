@@ -40,8 +40,8 @@ class Privacy extends StatelessWidget {
                 ),
                 Container(
 
-                    child:Text("We built the Medical Dictionary app as a Free app. This SERVICE is provided by us and  is intended for use as it is.\n \nThis page is used to inform the visitors regarding our policies with the collection, use, and disclosure of Personal Information,if anyone decided to use our Service.If you choose to use my Service, then you agree to the collection and use of information in relation to this policy. The Personal Information that we collect is used for providing and improving the Service. We will not use or share your information with anyone except as described in this Privacy Policy. "
-                        " \n \n The terms used in this Privacy Policy have the same meanings as in our Terms and Conditions, which is accessible at Medical Dictionary App unless otherwise defined in this Privacy Policy. \n"
+                    child:Text("We built the Medic app as a Free app. This SERVICE is provided by us and  is intended for use as it is.\n \nThis page is used to inform the visitors regarding our policies with the collection, use, and disclosure of Personal Information,if anyone decided to use our Service.If you choose to use my Service, then you agree to the collection and use of information in relation to this policy. The Personal Information that we collect is used for providing and improving the Service. We will not use or share your information with anyone except as described in this Privacy Policy. "
+                        " \n \n The terms used in this Privacy Policy have the same meanings as in our Terms and Conditions, which is accessible at Medic App unless otherwise defined in this Privacy Policy. \n"
                       ,
                       textDirection: TextDirection.ltr,
                       style: TextStyle(

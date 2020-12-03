@@ -78,7 +78,7 @@ class _DetailsState extends State<Details> {
             child: Padding(
               padding: const EdgeInsets.all(25.0),
               child: Container(
-                color: Colors.grey[400],
+                color: Colors.teal[100],
                 child: Text(widget.symptoms,
                     style: TextStyle(
                       fontSize: 20.0,

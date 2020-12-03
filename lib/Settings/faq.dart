@@ -34,7 +34,7 @@ class Faq extends StatelessWidget {
       SimpleFoldingCell.create(
       key: _foldingCellKey1,
       frontWidget: _buildFrontWidget(_foldingCellKey1, "Who is this app for?"),
-      innerWidget: _buildInnerWidget(_foldingCellKey1,"For healthcare ,pharmaceuticals ,physicians ,hospital nurses ,medical students ,nursing professionals ,pharmacy,physician assistants and for students who work in clinical practice and dispensary.\n",),
+      innerWidget: _buildInnerWidget(_foldingCellKey1,"For normal peoples to healthcare ,pharmaceuticals ,physicians ,hospital nurses ,medical students ,nursing professionals ,pharmacy,physician assistants and for students who work in clinical practice and dispensary.\n",),
       cellSize: Size(MediaQuery.of(context).size.width, 140),
       padding: EdgeInsets.all(15),
       animationDuration: Duration(milliseconds: 300),
@@ -45,7 +45,7 @@ class Faq extends StatelessWidget {
       SimpleFoldingCell.create(
       key: _foldingCellKey2,
       frontWidget: _buildFrontWidget(_foldingCellKey2, "How is  this app  useful?"),
-      innerWidget: _buildInnerWidget(_foldingCellKey2,"With detailed information on 12000s of diseases and probable prescription drug info,this app is a free medical encyclopedia guide.\n",),
+      innerWidget: _buildInnerWidget(_foldingCellKey2,"With detailed information on 12000s of diseases and probable prescription drug info,this app is a free medical encyclopedia guide.Also there are additional features like Note Functionality,BMI calculator,Word of the day,Latest news,Quiz on medical fields and memory based games.\n",),
       cellSize: Size(MediaQuery.of(context).size.width, 125),
       padding: EdgeInsets.all(15),
       animationDuration: Duration(milliseconds: 300),
@@ -66,8 +66,8 @@ class Faq extends StatelessWidget {
         ),
         SimpleFoldingCell.create(
           key: _foldingCellKey4,
-          frontWidget: _buildFrontWidget(_foldingCellKey4, "How it is different from other medical dictionary app?"),
-          innerWidget: _buildInnerWidget(_foldingCellKey4,"Medic gives a detailed information about diseases,medicines.User can make personal notes for future uses. And also user can calculate Body Mass Index. And last thing ,User can get new word of the day daily.",),
+          frontWidget: _buildFrontWidget(_foldingCellKey4, "How it is different from other Medical app?"),
+          innerWidget: _buildInnerWidget(_foldingCellKey4,"Medic gives a detailed information about diseases,medicines.User can make personal notes for future uses. And also user can calculate Body Mass Index. And last thing ,User can get  additional features like Word of the day,LAtest news,Quiz on medical fields and memory based games..",),
           cellSize: Size(MediaQuery.of(context).size.width, 125),
           padding: EdgeInsets.all(15),
           animationDuration: Duration(milliseconds: 300),
@@ -106,7 +106,7 @@ class Faq extends StatelessWidget {
   Widget _buildFrontWidget(
       GlobalKey<SimpleFoldingCellState> key, String title) {
     return Container(
-      color: Color(0xFFffcd3c),
+      color: Colors.lightGreen,
       alignment: Alignment.center,
       child: Stack(
         children: <Widget>[
@@ -129,10 +129,10 @@ class Faq extends StatelessWidget {
               child: Text(
                 "ANSWER",
               ),
-              textColor: Colors.white,
-              color: Colors.deepPurple,
-              splashColor: Colors.white.withOpacity(0.5),
-            ),
+              textColor: Colors.black,
+              color: Colors.deepOrange[600],
+
+          ),
           )
         ],
       ),
@@ -141,7 +141,7 @@ class Faq extends StatelessWidget {
 
   Widget _buildInnerWidget(GlobalKey<SimpleFoldingCellState> key, String title) {
     return Container(
-      color: Colors.deepPurple[800],
+      color: Colors.deepPurple[200],
       padding: EdgeInsets.only(top: 10),
       child: Stack(
         children: [
@@ -149,14 +149,14 @@ class Faq extends StatelessWidget {
             alignment: Alignment.topCenter,
             child: Text(
              title,
-              style: GoogleFonts.aldrich(
-                color: Colors.white,
+              style:TextStyle(
+                color: Colors.black87,
                 fontSize: 18.0,
+                letterSpacing: 3.0,
                 fontWeight: FontWeight.bold,
               ),
             ),
           ),
-
           Positioned(
             right: 5,
             bottom: 0,

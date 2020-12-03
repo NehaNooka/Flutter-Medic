@@ -62,43 +62,45 @@ class _Home1State extends State<Home1> {
         debugShowCheckedModeBanner: false,
 
         home: new Scaffold(
-          appBar: AppBar(
-            elevation:0.0,
-            centerTitle: true,
-            iconTheme: new IconThemeData(color: Colors.black),
-            backgroundColor: appBarColor,
-            title: Text("DISEASES",
-                style: GoogleFonts.pacifico(
-                    textStyle: TextStyle(
-                        fontSize: 22.0,
-                        color: appBarTextColor,
-                        fontWeight: FontWeight.bold,
-                        letterSpacing: 2))),
+            resizeToAvoidBottomInset: false,
+            appBar: AppBar(
+              elevation:0.0,
+              centerTitle: true,
+              iconTheme: new IconThemeData(color: Colors.black),
+              backgroundColor: appBarColor,
+              title: Text("DISEASES",
+                  style: GoogleFonts.pacifico(
+                      textStyle: TextStyle(
+                          fontSize: 22.0,
+                          color: appBarTextColor,
+                          fontWeight: FontWeight.bold,
+                          letterSpacing: 2))),
 
-            actions: [
-              IconButton(
-                icon: Icon(Icons.search),
-                onPressed: () {
-                  showSearch(
-                      context: context,
-                      delegate: DataSearch(myAllData: myAllData1));
-                },
-              )
-            ],
-          ),
-
-          body: myAllData.length == 0
-              ? Container(
-                  color: Colors.white,
-                  child: new Center(
-
-                      child: SpinKitSquareCircle(
-                    color: Colors.black38,
-
-                    size: 100.0,
-                  )),
+              actions: [
+                IconButton(
+                  icon: Icon(Icons.search),
+                  onPressed: () {
+                    showSearch(
+                        context: context,
+                        delegate: DataSearch(myAllData: myAllData1));
+                  },
                 )
-              : showMyUI(),
+              ],
+            ),
+
+            body: myAllData.length == 0
+                ? Container(
+                    color: Colors.white,
+                    child: new Center(
+
+                        child: SpinKitSquareCircle(
+                      color: Colors.black38,
+
+                      size: 100.0,
+                    )),
+                  )
+                : showMyUI(),
+
         ));
   }
 
@@ -112,8 +114,8 @@ class _Home1State extends State<Home1> {
             return new Card(
               margin: EdgeInsets.all(8.0),
               elevation: 8.0,
-              color: Colors.white70,
-              shadowColor: Colors.grey,
+              color: (index%2==0) ? Colors.teal[100] : Colors.black12,
+              shadowColor:  (index%2==0) ? Colors.teal[400] : Colors.black12,
               child: ListTile(
                   leading: Icon(
                     Icons.whatshot,

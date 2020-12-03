@@ -80,25 +80,26 @@ class _HomeMState extends State<HomeM> {
       backgroundColor: Colors.white,
       body: SingleChildScrollView(
         child: Container(
-          padding: EdgeInsets.symmetric(horizontal: 20, vertical: 50),
+          padding: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
           child: Column(
             children: <Widget>[
               SizedBox(
-                height: 40,
+                height: 15,
               ),
               points != 800 ? Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: <Widget>[
                   Text(
-                    "$points/800",
-                    style: TextStyle(
-                        fontSize: 20, fontWeight: FontWeight.w500),
-                  ),
-                  Text(
                     "Points",
                     textAlign: TextAlign.start,
                     style: TextStyle(
-                        fontSize: 14, fontWeight: FontWeight.w300),
+                        fontSize: 30, color:Colors.green,fontWeight: FontWeight.w700),
+                  ),
+                  SizedBox(height: 9),
+                  Text(
+                    "$points/800",
+                    style: TextStyle(
+                        fontSize: 25, color:Colors.red,fontWeight: FontWeight.bold),
                   ),
                 ],
               ) : Container(),

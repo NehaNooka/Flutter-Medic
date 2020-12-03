@@ -19,29 +19,30 @@ class ProfilePage extends StatefulWidget {
 
 class _ProfilePageState extends State<ProfilePage> with SingleTickerProviderStateMixin {
   File _image;
-  final databaseReference = Firestore.instance;
+  final databaseReference = FirebaseFirestore.instance;
   double xOffset = 0;
   double yOffset = 0;
   double scaleFactor = 1;
+  String url;
   String username, email, city, age, image;
   final usernamecontroller = new TextEditingController();
   final agecontroller = new TextEditingController();
   final citycontroller = new TextEditingController();
   final emailcontroller = new TextEditingController();
-
+  final _formKey = GlobalKey<FormState>();
   void getdata() async {
-    var firebaseUser = await FirebaseAuth.instance.currentUser();
+    var firebaseUser = await FirebaseAuth.instance.currentUser;
     databaseReference
         .collection("User")
-        .document(firebaseUser.uid)
+        .doc(firebaseUser.uid)
         .get()
         .then((value) {
       setState(() {
-        username = value.data["username"];
-        email = value.data["email"];
-        city = value.data["city"];
-        age = value.data["age"];
-        image = value.data["photourl"];
+        username = value.data()["username"];
+        email = value.data()["email"];
+        city = value.data()["city"];
+        age = value.data()["age"];
+        image = value.data()["photourl"];
       });
     });
   }
@@ -70,22 +71,30 @@ class _ProfilePageState extends State<ProfilePage> with SingleTickerProviderStat
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
     Future uploadPic() async {
-      var firebaseUser = await FirebaseAuth.instance.currentUser();
+      String url;
+      var firebaseUser = await FirebaseAuth.instance.currentUser;
       String filName = p.basename(_image.path);
-      StorageReference reference =
+    Reference reference =
           FirebaseStorage.instance.ref().child(filName);
-      StorageUploadTask uploadTask = reference.putFile(_image);
-      StorageTaskSnapshot taskSnapshot = await uploadTask.onComplete;
+      UploadTask uploadTask = reference.putFile(_image);
+      uploadTask.whenComplete(() {
+        reference.getDownloadURL().then((val) {
       setState(() {
-        print("Image Uploaded");
-        SnackBar(content: Text("Image Uploaded"));
+      print("Image Uploaded");
+      SnackBar(content: Text("Image Uploaded"));
       });
-      final String url = await taskSnapshot.ref.getDownloadURL();
-      print("downloadurl $url");
+      print(val);
+      url = val; //Val here is Already String
+      });
+      }).catchError((onError) {
+        print(onError);
+      });
+
+
       databaseReference
           .collection("User")
-          .document(firebaseUser.uid)
-          .updateData({
+          .doc(firebaseUser.uid)
+          .update({
         'photourl': url,
         'age': agecontroller.text != ""
             ? agecontroller.text
@@ -137,14 +146,14 @@ class _ProfilePageState extends State<ProfilePage> with SingleTickerProviderStat
       );
     }
     Future updatedata() async {
-      var firebaseUser = await FirebaseAuth.instance.currentUser();
+      var firebaseUser = await FirebaseAuth.instance.currentUser;
       setState(() {
         _showMyDialog();
       });
       databaseReference
           .collection("User")
-          .document(firebaseUser.uid)
-          .updateData({
+          .doc(firebaseUser.uid)
+          .update({
         'age': agecontroller.text != ""
             ? agecontroller.text
             : age != null
@@ -163,236 +172,294 @@ class _ProfilePageState extends State<ProfilePage> with SingleTickerProviderStat
       });
     }
 
-    return Scaffold(
-      appBar: AppBar(
-        iconTheme: new IconThemeData(color: Colors.black),
-        centerTitle: true,
-        title: Text("MY ACCOUNT",
-            style: GoogleFonts.pacifico(
-                textStyle: TextStyle(
-                    fontSize: 22.0,
-                    color: Colors.black,
-                    fontWeight: FontWeight.bold,
-                    letterSpacing: 2))),
-        backgroundColor: appBarColor,
-      ),
-      body: SingleChildScrollView(
-        child:Stack(
-          children: [
-          AnimatedBuilder(
-          animation: _controller,
-          builder: (BuildContext context, Widget child) {
-            return ClipPath(
-              clipper: DrawClip(_controller.value),
-              child: Container(
-                height: size.height * 0.5,
-                decoration: BoxDecoration(
-                  gradient: LinearGradient(
-                      begin: Alignment.bottomLeft,
-                      end: Alignment.topRight,
-                      colors: [Colors.deepOrange[300], Colors.lightBlue[200]]),
-                ),
-              ),
-            );
-          },
-        ), Column(
-          children: [
-            SizedBox(
-              height: 40,
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: <Widget>[
-                SizedBox(
-                  width: 60,
-                ),
-                Align(
-                  alignment: Alignment.center,
-                  child: CircleAvatar(
-                    radius: 90,
-                    child: ClipOval(
-                      child: new SizedBox(
-                        width: 180.0,
-                        height: 180.0,
-                        child: (_image!=null)?Image.file(
-                          _image,
-                          fit: BoxFit.fill,
-                        ):(image!=null)?Image.network(image,fit: BoxFit.fill,): new Image.asset("assets/login/man_avatar.png", fit:BoxFit.fill)
-                      ),
-                    ),
-                  ),
-                ),
-                Padding(
-                  padding: EdgeInsets.only(top: 60.0, right: 30),
-                  child: IconButton(
-                    icon: Icon(
-                      FontAwesomeIcons.camera,
-                      color: Colors.black,
-                      size: 30.0,
-                    ),
-                    onPressed: () {
-                      getImage();
-                    },
-                  ),
-                ),
-              ],
-            ),
-            SizedBox(
-              height: 40,
-            ),
-            Container(
-              margin: EdgeInsets.only(left: 30, right: 30, bottom: 10),
-              padding: EdgeInsets.only(left: 20),
-              decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.all(
-                    Radius.circular(20),
-                  )),
-              child: TextField(
-                onChanged: null,
-                decoration: InputDecoration(
-                  icon: Icon(
-                    Icons.person,
-                    color: Colors.black,
-                  ),
-                  suffixIcon: Icon(
-                    Icons.edit,
-                    color: Colors.black,
-                  ),
-                  hintText: username != null ?  username : "Enter full name" ,
-                  border: InputBorder.none,
-                ),
-                controller: usernamecontroller,
-              ),
-            ),
-            Container(
-              margin: EdgeInsets.only(left: 30, right: 30, bottom: 10),
-              padding: EdgeInsets.only(left: 20),
-              decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.all(
-                    Radius.circular(20),
-                  )),
-              child: TextField(
-                onChanged: null,
-                decoration: InputDecoration(
-                  icon: Icon(
-                    Icons.email,
-                    color: Colors.black,
-                  ),
-                  suffixIcon: Icon(
-                    Icons.edit,
-                    color: Colors.black,
-                  ),
-                  hintText: email != null ? email : "Email",
-                  border: InputBorder.none,
-                ),
-                controller: emailcontroller,
-              ),
-            ),
-            Container(
-              margin: EdgeInsets.only(left: 30, right: 30,bottom: 10),
-              padding: EdgeInsets.only(left: 20),
-              decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.all(
-                    Radius.circular(20),
-                  )),
-              child: TextField(
-                onChanged: null,
-                decoration: InputDecoration(
-                  icon: Icon(
-                    FontAwesomeIcons.bolt,
-                    color: Colors.black,
-                  ),
-                  suffixIcon: Icon(
-                    Icons.edit,
-                    color: Colors.black,
-                  ),
-                  hintText: age != null ? age : "Age",
-                  border: InputBorder.none,
-                ),
-                controller: agecontroller,
-              ),
-            ),
-            Container(
-              margin: EdgeInsets.only(left: 30, right: 30, bottom: 10),
-              padding: EdgeInsets.only(left: 20),
-              decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.all(
-                    Radius.circular(20),
-                  )),
-              child: TextField(
-                onChanged: null,
-                decoration: InputDecoration(
-                  icon: Icon(
-                    FontAwesomeIcons.city,
-                    color: Colors.black,
-                  ),
-                  suffixIcon: Icon(
-                    Icons.edit,
-                    color: Colors.black,
-                  ),
-                  hintText: city != null ? city : "City",
-                  border: InputBorder.none,
-                ),
-                controller: citycontroller,
-              ),
-            ),
-
-
-            Column(
-              children: <Widget>[
-                Container(
-                  width: MediaQuery.of(context).size.width * 0.85,
-                  decoration: BoxDecoration(
-                      color: Colors.white12,
-                      borderRadius: BorderRadius.all(
-                        Radius.circular(20),
-                      )),
-                  child: FlatButton(
-                    onPressed: () {Navigator.push(context, MaterialPageRoute(builder: (context)=>ResetPassword()));},
-                    child: Text(
-                      "FORGOT PASSWORD??",
-                      style: TextStyle(
-                        color: Colors.black,
-                        fontWeight: FontWeight.bold,
-                        fontSize: 18,
-                        letterSpacing: 2,
-                      ),
-                    ),
-                  ),
-                ),
-                Container(
-                  margin: EdgeInsets.only(top: 10, bottom: 10),
-                  width: MediaQuery.of(context).size.width * 0.45,
-                  decoration: BoxDecoration(
-                      color: Colors.black,
-                      borderRadius: BorderRadius.all(
-                        Radius.circular(20),
-                      )),
-                  child: FlatButton(
-                    onPressed: () {
-                      updatedata();
-                    },
-                    child: Text(
-                      "SUBMIT",
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold,
-                        fontSize: 20,
-                        letterSpacing: 2,
-                      ),
-                    ),
-                  ),
-                ),
-
-              ],
-            ),
+    return Container(
+      decoration: BoxDecoration(
+        gradient: LinearGradient(
+          begin: Alignment.topRight,
+          end: Alignment(0.5, 0.3),
+          colors: [
+            Colors.red,
+            Colors.green,
           ],
-        ),])
+        ),
+      ),
+      child: Scaffold(
+        appBar: AppBar(
+          iconTheme: new IconThemeData(color: Colors.black),
+          centerTitle: true,
+          title: Text("MY ACCOUNT",
+              style: GoogleFonts.pacifico(
+                  textStyle: TextStyle(
+                      fontSize: 22.0,
+                      color: appBarTextColor,
+                      fontWeight: FontWeight.bold,
+                      letterSpacing: 2))),
+          backgroundColor: appBarColor,
+        ),
+        body: Stack(
+            children: [
+            AnimatedBuilder(
+            animation: _controller,
+            builder: (BuildContext context, Widget child) {
+              return ClipPath(
+                clipper: DrawClip(_controller.value),
+                child: Container(
+                  height: size.height * 0.5,
+                  decoration: BoxDecoration(
+                    gradient: LinearGradient(
+                        begin: Alignment.bottomLeft,
+                        end: Alignment.topRight,
+                        colors: [Colors.deepOrange[300], Colors.lightBlue[200]]),
+                  ),
+                ),
+              );
+            },
+          ), Form(
+                key: _formKey,
+            child: SingleChildScrollView(
+
+            child:Column(
+              children: [
+                SizedBox(
+                  height: 40,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: <Widget>[
+                    SizedBox(
+                      width: 60,
+                    ),
+                    Align(
+                      alignment: Alignment.center,
+                      child: CircleAvatar(
+                        radius: 90,
+                        child: ClipOval(
+                          child: new SizedBox(
+                            width: 180.0,
+                            height: 180.0,
+                            child: (_image!=null)?Image.file(
+                              _image,
+                              fit: BoxFit.fill,
+                            ):(image!=null)?Image.network(image,fit: BoxFit.fill,): new Image.asset("assets/login/man_avatar.png", fit:BoxFit.fill)
+                          ),
+                        ),
+                      ),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.only(top: 60.0, right: 30),
+                      child: IconButton(
+                        icon: Icon(
+                          FontAwesomeIcons.camera,
+                          color: Colors.black,
+                          size: 30.0,
+                        ),
+                        onPressed: () {
+                          getImage();
+                        },
+                      ),
+                    ),
+                  ],
+                ),
+                SizedBox(
+                  height: 40,
+                ),
+                Container(
+                  margin: EdgeInsets.only(left: 30, right: 30, bottom: 10),
+                  padding: EdgeInsets.only(left: 20),
+                  decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.all(
+                        Radius.circular(20),
+                      )),
+                  child: TextFormField(
+                    onChanged: null,
+                    validator: (value) {
+                      if(value.isEmpty) {
+                        return "Name can't be empty!";
+                      }
+                      else if(value.length < 2) {
+                        return "Name must be at least 2 characters long!";
+                      }
+                      else if(value.length > 50) {
+                        return "Name must be less than 50 characters long!";
+                      }
+                      return null;
+                    },
+                    decoration: InputDecoration(
+                      icon: Icon(
+                        Icons.person,
+                        color: Colors.black,
+                      ),
+                      suffixIcon: Icon(
+                        Icons.edit,
+                        color: Colors.black,
+                      ),
+                      hintText: username != null ?  username : "Enter full name" ,
+                      border: InputBorder.none,
+                    ),
+                    controller: usernamecontroller,
+                  ),
+                ),
+                Container(
+                  margin: EdgeInsets.only(left: 30, right: 30, bottom: 10),
+                  padding: EdgeInsets.only(left: 20),
+                  decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.all(
+                        Radius.circular(20),
+                      )),
+                  child: TextFormField(
+                    onChanged: null,
+                    validator: (value) {
+                      if (value.isEmpty) {
+                        return 'Enter Email Address';
+                      }
+                      else if(!value.contains('@')){
+                        return 'Please enter a valid email address!';
+                      }
+                      return null;
+                    },
+                    decoration: InputDecoration(
+                      icon: Icon(
+                        Icons.email,
+                        color: Colors.black,
+                      ),
+                      suffixIcon: Icon(
+                        Icons.edit,
+                        color: Colors.black,
+                      ),
+                      hintText: email != null ? email : "Email",
+                      border: InputBorder.none,
+                    ),
+                    controller: emailcontroller,
+                  ),
+                ),
+                Container(
+                  margin: EdgeInsets.only(left: 30, right: 30,bottom: 10),
+                  padding: EdgeInsets.only(left: 20),
+                  decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.all(
+                        Radius.circular(20),
+                      )),
+                  child: TextFormField(
+                    onChanged: null,
+                    validator: (value) {
+                      if(value.isEmpty) {
+                        return "Age can't be empty!";
+                      }
+                      return null;
+                    },
+                    decoration: InputDecoration(
+                      icon: Icon(
+                        FontAwesomeIcons.bolt,
+                        color: Colors.black,
+                      ),
+                      suffixIcon: Icon(
+                        Icons.edit,
+                        color: Colors.black,
+                      ),
+                      hintText: age != null ? age : "Age",
+                      border: InputBorder.none,
+                    ),
+                    controller: agecontroller,
+                  ),
+                ),
+                Container(
+                  margin: EdgeInsets.only(left: 30, right: 30, bottom: 10),
+                  padding: EdgeInsets.only(left: 20),
+                  decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.all(
+                        Radius.circular(20),
+                      )),
+                  child: TextFormField(
+                    onChanged: null,
+                    validator: (value) {
+                      if(value.isEmpty) {
+                        return "City can't be empty!";
+                      }
+                      else if(value.length < 2) {
+                        return "City must be at least 2 characters long!";
+                      }
+                      else if(value.length > 50) {
+                        return "City must be less than 50 characters long!";
+                      }
+                      return null;
+                    },
+                    decoration: InputDecoration(
+                      icon: Icon(
+                        FontAwesomeIcons.city,
+                        color: Colors.black,
+                      ),
+                      suffixIcon: Icon(
+                        Icons.edit,
+                        color: Colors.black,
+                      ),
+                      hintText: city != null ? city : "City",
+                      border: InputBorder.none,
+                    ),
+                    controller: citycontroller,
+                  ),
+                ),
+
+
+                Column(
+                  children: <Widget>[
+                    Container(
+                      width: MediaQuery.of(context).size.width * 0.85,
+                      decoration: BoxDecoration(
+                          color: Colors.white12,
+                          borderRadius: BorderRadius.all(
+                            Radius.circular(20),
+                          )),
+                      child: FlatButton(
+                        onPressed: () {Navigator.push(context, MaterialPageRoute(builder: (context)=>ResetPassword()));},
+                        child: Text(
+                          "FORGOT PASSWORD??",
+                          style: TextStyle(
+                            color: Colors.black,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 18,
+                            letterSpacing: 2,
+                          ),
+                        ),
+                      ),
+                    ),
+                    Container(
+                      margin: EdgeInsets.only(top: 10, bottom: 10),
+                      width: MediaQuery.of(context).size.width * 0.45,
+                      decoration: BoxDecoration(
+                          color: Colors.black,
+                          borderRadius: BorderRadius.all(
+                            Radius.circular(20),
+                          )),
+                      child: FlatButton(
+                        onPressed: () {
+                          if(_formKey.currentState.validate()){
+                            _formKey.currentState.save();
+                          };
+                          updatedata();
+                        },
+                        child: Text(
+                          "SUBMIT",
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 20,
+                            letterSpacing: 2,
+                          ),
+                        ),
+                      ),
+                    ),
+
+                  ],
+                ),
+              ],
+            ),
+            )),])
+
       ),
     );
   }

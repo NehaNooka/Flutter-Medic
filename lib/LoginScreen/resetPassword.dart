@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:wallpaper/Login/auth_service.dart';
 import 'package:wallpaper/LoginScreen/loginScreen.dart';
 
 class ResetPassword extends StatefulWidget {
@@ -13,7 +12,7 @@ class ResetPassword extends StatefulWidget {
 }
 
 class _ResetPasswordState extends State<ResetPassword> {
-  final databaseReference = Firestore.instance;
+  final databaseReference = FirebaseFirestore.instance;
    final emailcontroller = new TextEditingController();
    final FirebaseAuth _firebaseAuth = FirebaseAuth.instance;
    String email="";
@@ -42,11 +41,33 @@ class _ResetPasswordState extends State<ResetPassword> {
     setState(() {
       _loading = true;
     });
-    await _firebaseAuth.sendPasswordResetEmail(email: email);
-    _showMyDialog();
-    setState(() {
-      _loading = false;
-    });
+    try {
+      await _firebaseAuth.sendPasswordResetEmail(email: email);
+      _showMyDialog();
+      setState(() {
+        _loading = false;
+      });
+    }catch(e){
+      showDialog(
+          context: context,
+          builder: (BuildContext context) {
+            return AlertDialog(
+              title: Text("Error"),
+              content: Text(e.message),
+              actions: [
+                FlatButton(
+                  child: Text("Ok"),
+                  onPressed: () {
+                    Navigator.of(context).pop();
+                  },
+                )
+              ],
+            );
+          });
+      setState(() {
+        _loading = false;
+      });
+    }
   }
   final _formKey = GlobalKey<FormState>();
   bool _loading = false;
@@ -107,7 +128,15 @@ class _ResetPasswordState extends State<ResetPassword> {
                                 )
                             ),
                             child: TextFormField(
-                              validator: (val)=>EmailValidator.validate(val),
+                              validator: (value) {
+                                if (value.isEmpty) {
+                                  return 'Enter Email Address';
+                                }
+                                else if(!value.contains('@')){
+                                  return 'Please enter a valid email address!';
+                                }
+                                return null;
+                              },
                               onChanged: null,
                               decoration: InputDecoration(
                                 icon: Icon(
@@ -131,6 +160,9 @@ class _ResetPasswordState extends State<ResetPassword> {
                             ),
                             child: FlatButton(
                               onPressed: () async {
+                                if(_formKey.currentState.validate()){
+                                  _formKey.currentState.save();
+                                };
                                resetPassword(emailcontroller.text);},
                               child: Text(
                                 "RESET PASSWORD",

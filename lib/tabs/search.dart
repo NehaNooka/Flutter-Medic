@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_tts/flutter_tts.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:wallpaper/constants.dart';
 import 'package:wallpaper/tabs/details.dart';
 class Search extends StatefulWidget {
   final name;
@@ -48,6 +47,7 @@ class _SearchState extends State<Search> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        resizeToAvoidBottomInset: false,
         body: NestedScrollView(
       headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) {
         return <Widget>[
@@ -61,12 +61,13 @@ class _SearchState extends State<Search> {
             flexibleSpace: FlexibleSpaceBar(
 
               title: Text(widget.name,
+                  textAlign: TextAlign.start,
                   style: TextStyle(
                       fontSize: 20.0,
-                      color: appBarTextColor,
+                      color: Colors.black,
                       fontWeight: FontWeight.bold)),
               background: Opacity(
-                opacity: 0.5,
+                opacity: 0.7,
                 child: Image.network(
                   "https://images.pexels.com/photos/3992933/pexels-photo-3992933.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
                   fit: BoxFit.cover,
@@ -100,139 +101,146 @@ class _SearchState extends State<Search> {
 
               Padding(
                 padding: const EdgeInsets.all(12.0),
-                child: Container(
-                  color: Color(0xFFffcd3c),
-                  alignment: Alignment.center,
-                  height: 140.0,
-                  child: Stack(
-                    children: <Widget>[
-                      Align(
-                        alignment: Alignment.center,
-                        child: Text(
-                            "OVERVIEW",
-                          style: GoogleFonts.aldrich(
-                            color: Color(0xFF2e282a),
-                            fontSize: 20.0,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ),
-                      Positioned(
-                        right: 5,
-                        bottom: 0,
-                        child: FlatButton(
-                          onPressed:
-                              () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => Details(
-                                      name:name,
-                                      title:"OVERVIEW",
-                                      symptoms:overview,
-                                    )));
-                          },
+                child:ClipRRect(
+                  borderRadius: BorderRadius.circular(30.0),
+                  child: Container(
+                    color: Colors.deepPurple[400],
+                    alignment: Alignment.center,
+                    height: 100.0,
+                    child: Stack(
+                      children: <Widget>[
+                        Align(
+                          alignment: Alignment.center,
                           child: Text(
-                            "OPEN",
+                              "OVERVIEW",
+                            style: GoogleFonts.aldrich(
+                              color: Colors.white,
+                              fontSize: 20.0,
+                              fontWeight: FontWeight.bold,
+                            ),
                           ),
-                          textColor: Colors.white,
-                          color: Colors.indigoAccent,
-                          splashColor: Colors.white.withOpacity(0.5),
                         ),
-                      )
-                    ],
+                        Positioned(
+                          right: 5,
+                          bottom: 0,
+                          child: FlatButton(
+                            onPressed:
+                                () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => Details(
+                                        name:name,
+                                        title:"OVERVIEW",
+                                        symptoms:overview,
+                                      )));
+                            },
+                            child: Text(
+                              "OPEN",
+                            ),
+                            textColor: Colors.black87,
+                            color: Colors.yellow,
+                          ),
+                        )
+                      ],
+                    ),
                   ),
                 ),
               ),
               Padding(
                 padding: const EdgeInsets.all(12.0),
-                child: Container(
-                  color: Color(0xFFffcd3c),
-                  alignment: Alignment.center,
-                  height: 140.0,
-                  child: Stack(
-                    children: <Widget>[
-                      Align(
-                        alignment: Alignment.center,
-                        child: Text(
-                          "SYMPTOMS",
-                          style: GoogleFonts.aldrich(
-                            color: Color(0xFF2e282a),
-                            fontSize: 20.0,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ),
-                      Positioned(
-                        right: 5,
-                        bottom: 0,
-                        child: FlatButton(
-                          onPressed:
-                              () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => Details(
-                                      name:name,
-                                      title:"SYMPTOMS",
-                                      symptoms:symptoms,
-                                    )));
-                          },
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(30.0),
+                  child: Container(
+                    color: Color(0xFFffcd3c),
+                    alignment: Alignment.center,
+                    height: 100.0,
+                    child: Stack(
+                      children: <Widget>[
+                        Align(
+                          alignment: Alignment.center,
                           child: Text(
-                            "OPEN",
+                            "SYMPTOMS",
+                            style: GoogleFonts.aldrich(
+                              color: Color(0xFF2e282a),
+                              fontSize: 20.0,
+                              fontWeight: FontWeight.bold,
+                            ),
                           ),
-                          textColor: Colors.white,
-                          color: Colors.indigoAccent,
-                          splashColor: Colors.white.withOpacity(0.5),
                         ),
-                      )
-                    ],
+                        Positioned(
+                          right: 5,
+                          bottom: 0,
+                          child: FlatButton(
+                            onPressed:
+                                () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => Details(
+                                        name:name,
+                                        title:"SYMPTOMS",
+                                        symptoms:symptoms,
+                                      )));
+                            },
+                            child: Text(
+                              "OPEN",
+                            ),
+                            textColor: Colors.white,
+                            color: Colors.indigoAccent,
+
+                          ),
+                        )
+                      ],
+                    ),
                   ),
                 ),
               ),
               Padding(
                 padding: const EdgeInsets.all(12.0),
-                child: Container(
-                  color: Color(0xFFffcd3c),
-                  alignment: Alignment.center,
-                  height: 140.0,
-                  child: Stack(
-                    children: <Widget>[
-                      Align(
-                        alignment: Alignment.center,
-                        child: Text(
-                          "CAUSES",
-                          style: GoogleFonts.aldrich(
-                            color: Color(0xFF2e282a),
-                            fontSize: 20.0,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ),
-                      Positioned(
-                        right: 5,
-                        bottom: 0,
-                        child: FlatButton(
-                          onPressed:
-                              () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => Details(
-                                      name:name,
-                                      title:"CAUSES",
-                                      symptoms:causes,
-                                    )));
-                          },
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(30.0),
+                  child: Container(
+                    color: Colors.deepPurple[400],
+                    alignment: Alignment.center,
+                    height: 100.0,
+                    child: Stack(
+                      children: <Widget>[
+                        Align(
+                          alignment: Alignment.center,
                           child: Text(
-                            "OPEN",
+                            "CAUSES",
+                            style: GoogleFonts.aldrich(
+                              color: Colors.white,
+                              fontSize: 20.0,
+                              fontWeight: FontWeight.bold,
+                            ),
                           ),
-                          textColor: Colors.white,
-                          color: Colors.indigoAccent,
-                          splashColor: Colors.white.withOpacity(0.5),
                         ),
-                      )
-                    ],
+                        Positioned(
+                          right: 5,
+                          bottom: 0,
+                          child: FlatButton(
+                            onPressed:
+                                () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => Details(
+                                        name:name,
+                                        title:"CAUSES",
+                                        symptoms:causes,
+                                      )));
+                            },
+                            child: Text(
+                              "OPEN",
+                            ),
+                            textColor: Colors.black87,
+                            color: Colors.yellow,
+                          ),
+                        )
+                      ],
+                    ),
                   ),
                 ),
               ),

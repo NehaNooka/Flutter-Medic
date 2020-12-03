@@ -17,12 +17,12 @@ class _WotdState extends State<Wotd> with SingleTickerProviderStateMixin{
   TabController _tabController;
 
 
+
   @override
   void initState() {
     _tabController = new TabController(length: 2,vsync:this);
     super.initState();
   }
-
   PageController _controller = PageController(
       initialPage: 1,
       viewportFraction: 0.8

@@ -32,7 +32,7 @@ class Two extends StatelessWidget {
               style: GoogleFonts.pacifico(
                   textStyle: TextStyle(
                       fontSize: 24.0,
-                      color: Colors.black,
+                      color: appBarTextColor,
                       fontWeight: FontWeight.bold,
                       letterSpacing: 2))),
         ),

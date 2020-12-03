@@ -94,7 +94,7 @@ class _GameDashboard1State extends State<GameDashboard1> {
                       child: Container(
                         width: MediaQuery.of(context).size.width * 0.90,
 
-                          child: Text(" What will you like to play??",
+                          child: Text("| What would you like to play??",
                               style: TextStyle(
                                   fontFamily: "Blackcherry",
                                   color: Colors.deepPurple,

@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:wallpaper/Login/auth_service.dart';
 import 'package:wallpaper/LoginScreen/signUpScreen.dart';
 import 'package:wallpaper/home.dart';
 
@@ -16,12 +15,11 @@ class _LoginScreenState extends State<LoginScreen> {
   final emailcontroller = new TextEditingController();
   final passwordcontroller = new TextEditingController();
   SharedPreferences prefs;
-
+  final _formKey = GlobalKey<FormState>();
   void initState(){
     super.initState();
     FirebaseAuth.instance
-        .onAuthStateChanged
-        .listen((FirebaseUser user) {
+        .authStateChanges().listen((User user) {
       if (user == null) {
         print('User is currently signed out!');
       } else {
@@ -32,20 +30,33 @@ class _LoginScreenState extends State<LoginScreen> {
 
   Future signin(BuildContext context) async {
     try{
-      FirebaseUser user;
-      AuthResult result = await FirebaseAuth.instance.signInWithEmailAndPassword(email: emailcontroller.text, password: passwordcontroller.text);
+      User user;
+      UserCredential result = await FirebaseAuth.instance.signInWithEmailAndPassword(email: emailcontroller.text, password: passwordcontroller.text);
       user = result.user;
-        await FirebaseAuth.instance.currentUser();
+        await FirebaseAuth.instance.currentUser;
         Navigator.pushReplacement(
           context, MaterialPageRoute(builder: (context) => Home()),);
 
-
     }catch(e){
-      print(e);
+      showDialog(
+          context: context,
+          builder: (BuildContext context) {
+            return AlertDialog(
+              title: Text("Error"),
+              content: Text(e.message),
+              actions: [
+                FlatButton(
+                  child: Text("Ok"),
+                  onPressed: () {
+                    Navigator.of(context).pop();
+                  },
+                )
+              ],
+            );
+          });
     }
   }
   bool visible = false;
-  final _formKey = GlobalKey<FormState>();
   bool _loading = false;
   @override
   Widget build(BuildContext context) {
@@ -66,8 +77,7 @@ class _LoginScreenState extends State<LoginScreen> {
               )
                   :Form(
                   key: _formKey,
-            child: Builder(
-              builder: (context)=>
+            child:
                   SingleChildScrollView(
                     child: Container(
                       height: MediaQuery.of(context).size.height,
@@ -95,7 +105,7 @@ class _LoginScreenState extends State<LoginScreen> {
                               ),
                             ),
                           ),
-                          
+
                           Container(
                             margin: EdgeInsets.only(left: 30,right: 30,top: 20,bottom: 10),
                             padding: EdgeInsets.only(left: 20),
@@ -106,7 +116,15 @@ class _LoginScreenState extends State<LoginScreen> {
                                 )
                             ),
                             child: TextFormField(
-                              validator: (val)=>EmailValidator.validate(val),
+                              validator: (value) {
+                                if (value.isEmpty) {
+                                  return 'Enter Email Address';
+                                }
+                                else if(!value.contains('@')){
+                                  return 'Please enter a valid email address!';
+                                }
+                                return null;
+                              },
                               onChanged: null,
                               decoration: InputDecoration(
                                 icon: Icon(
@@ -129,7 +147,14 @@ class _LoginScreenState extends State<LoginScreen> {
                                 )
                             ),
                             child: TextFormField(
-                              validator: (val)=>PasswordValidator.validate(val),
+                              validator: (value) {
+                                if (value.isEmpty) {
+                                  return 'Enter Password';
+                                } else if (value.length < 8) {
+                                  return 'Password must be atleast 8 characters!';
+                                }
+                                return null;
+                              },
                               onChanged: null,
                               obscureText: visible == false ? true : false,
                               decoration: InputDecoration(
@@ -155,6 +180,9 @@ class _LoginScreenState extends State<LoginScreen> {
                             ),
                             child: FlatButton(
                               onPressed: (){
+                                if(_formKey.currentState.validate()){
+                                  _formKey.currentState.save();
+                                };
                                 signin(context);
                               },
                               child: Text(
@@ -194,7 +222,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           ),
                     ),
                   ),
-            ),
+
           )
       ),
     );

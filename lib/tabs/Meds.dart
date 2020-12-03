@@ -59,36 +59,37 @@ class _SecondState extends State<Second> {
         debugShowCheckedModeBanner: false,
 
         home: new Scaffold(
-          appBar: AppBar(
-            elevation:0.0,
-            iconTheme: new IconThemeData(color: Colors.black),
-            centerTitle: true,
-            title: Text("MEDICINES",
-                style: GoogleFonts.pacifico(
-                    textStyle: TextStyle(
-                        fontSize: 22.0,
-                        color: appBarTextColor,
-                        fontWeight: FontWeight.bold,
-                        letterSpacing: 2))),
-            backgroundColor:appBarColor,
-            actions: [
-              IconButton(
-                icon: Icon(Icons.search),
-                onPressed: () {
-                  showSearch(
-                      context: context,
-                      delegate: DataSearch(myAllData: myAllData1));
-                },
-              )
-            ],
-          ),
-          body: myAllData.length == 0
-              ? Container(
-            color: Colors.white,
-                child: new Center(
-                    child: SpinKitSquareCircle(color: Colors.black38,size:100.0,)),
-              )
-              : showMyUI(),
+            appBar: AppBar(
+              elevation:0.0,
+              iconTheme: new IconThemeData(color: Colors.black),
+              centerTitle: true,
+              title: Text("MEDICINES",
+                  style: GoogleFonts.pacifico(
+                      textStyle: TextStyle(
+                          fontSize: 22.0,
+                          color: appBarTextColor,
+                          fontWeight: FontWeight.bold,
+                          letterSpacing: 2))),
+              backgroundColor:appBarColor,
+              actions: [
+                IconButton(
+                  icon: Icon(Icons.search),
+                  onPressed: () {
+                    showSearch(
+                        context: context,
+                        delegate: DataSearch(myAllData: myAllData1));
+                  },
+                )
+              ],
+            ),
+            body: myAllData.length == 0
+                ? Container(
+              color: Colors.white,
+                  child: new Center(
+                      child: SpinKitSquareCircle(color: Colors.black38,size:100.0,)),
+                )
+                : showMyUI(),
+
         ));
   }
 
@@ -103,8 +104,8 @@ class _SecondState extends State<Second> {
             return new Card(
               margin: EdgeInsets.all(8.0),
               elevation: 8.0,
-              shadowColor: Colors.grey,
-              color: Colors.white70,
+              color: (index%2==0) ? Colors.teal[100] : Colors.black12,
+              shadowColor:  (index%2==0) ? Colors.teal[400] : Colors.black12,
               child: ListTile(
 
                 trailing: IconButton(
@@ -125,7 +126,7 @@ class _SecondState extends State<Second> {
                 subtitle: Text('${myAllData[index].condition}',
                     style: TextStyle(
                         fontSize: 20.0,
-                        color: Colors.blue[600],
+                        color: Colors.red[400],
                         fontWeight: FontWeight.w500)),
               ),
             );
@@ -189,7 +190,7 @@ class DataSearch extends SearchDelegate<myModel> {
             .toList();
     return myList.isEmpty
         ? Center(
-            child: Container(
+            child: SingleChildScrollView(
                 child:
                     Row(mainAxisAlignment: MainAxisAlignment.center, children: [
             Icon(
@@ -233,5 +234,7 @@ class DataSearch extends SearchDelegate<myModel> {
                 ),
               );
             });
+
+
   }
 }

@@ -25,7 +25,7 @@ var kSuccessAlertStyle = AlertStyle(
   isCloseButton: true,
   isOverlayTapDismiss: true,
   animationDuration: Duration(milliseconds: 500),
-  backgroundColor: Colors.black26,
+  backgroundColor: Colors.white,
   alertBorder: RoundedRectangleBorder(
     borderRadius: BorderRadius.circular(10.0),
   ),
@@ -41,18 +41,18 @@ var kExitAlertStyle = AlertStyle(
   isCloseButton: true,
   isOverlayTapDismiss: true,
   descStyle: TextStyle(
-    color: Colors.white,
+    color: Colors.black,
     fontWeight: FontWeight.bold,
     fontSize: 27.0,
     letterSpacing: 2.0,
   ),
   animationDuration: Duration(milliseconds: 500),
-  backgroundColor: Colors.black26,
+  backgroundColor: Colors.white,
   alertBorder: RoundedRectangleBorder(
     borderRadius: BorderRadius.circular(10.0),
   ),
   titleStyle: TextStyle(
-    color: Colors.white,
+    color: Colors.black,
     fontWeight: FontWeight.bold,
     fontSize: 27.0,
     letterSpacing: 2.0,
@@ -64,7 +64,7 @@ var kGameOverAlertStyle = AlertStyle(
   isCloseButton: true,
   isOverlayTapDismiss: true,
   animationDuration: Duration(milliseconds: 450),
-  backgroundColor: Colors.black26,
+  backgroundColor: Colors.white,
   alertBorder: RoundedRectangleBorder(
     borderRadius: BorderRadius.circular(10.0),
   ),
@@ -87,7 +87,7 @@ var kFailedAlertStyle = AlertStyle(
   isCloseButton: true,
   isOverlayTapDismiss: true,
   animationDuration: Duration(milliseconds: 450),
-  backgroundColor: Colors.black26,
+  backgroundColor: Colors.white,
   alertBorder: RoundedRectangleBorder(
     borderRadius: BorderRadius.circular(10.0),
   ),

@@ -4,11 +4,11 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:wallpaper/Dashboard/Games/gameDash.dart';
-import 'package:wallpaper/Dashboard/News/main.dart';
 import 'package:wallpaper/Dashboard/NewsA/main.dart';
 import 'package:wallpaper/Login/fadeAnimation.dart';
 import 'package:wallpaper/LoginScreen/profilePage.dart';
 import 'package:wallpaper/Quiz/main.dart';
+import 'package:wallpaper/home.dart';
 import 'package:wallpaper/main.dart';
 import 'package:wallpaper/Settings/about.dart';
 import 'package:wallpaper/Settings/faq.dart';
@@ -44,19 +44,19 @@ class _MenuDashboardPageState extends State<MenuDashboardPage>
     title: "Games",
     img: "assets/icon/dashboard/joystick.png",
   );
-  final databaseReference = Firestore.instance;
+  final databaseReference = FirebaseFirestore.instance;
   String username=" ";
   String image=" ";
   void getdata() async {
-    var firebaseUser = await FirebaseAuth.instance.currentUser();
+    var firebaseUser = await FirebaseAuth.instance.currentUser;
     databaseReference
         .collection("User")
-        .document(firebaseUser.uid)
+        .doc(firebaseUser.uid)
         .get()
         .then((value) {
       setState(() {
-        username = value.data["username"];
-        image = value.data["photourl"];
+        username = value.data()["username"];
+        image = value.data()["photourl"];
       });
     });
   }
@@ -140,6 +140,27 @@ class _MenuDashboardPageState extends State<MenuDashboardPage>
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
+
+                    ListTile(
+                        tileColor: backgroundColor,
+                        leading: new IconButton(
+                          icon: new Icon(Icons.arrow_forward_ios, color: Colors.black54 ),
+                          onPressed: () {},
+                        ),
+                        title: Text(
+                          'Back',
+                          style: TextStyle(
+                              color: Colors.black54,
+                              fontSize: 18.0,
+                              fontWeight: FontWeight.bold),
+                        ),
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => Home()),
+                          );
+                        }),
+                    SizedBox(height: 20,),
                     ListTile(
                         tileColor: backgroundColor,
                         leading: new IconButton(
@@ -294,7 +315,7 @@ class _MenuDashboardPageState extends State<MenuDashboardPage>
                             fontWeight: FontWeight.bold),
                       ),
                       subtitle: Text(
-                        '1.0.2',
+                        '1.0.4',
                         style: TextStyle(
                             color: Colors.red,
                             fontSize: 12.0,
@@ -383,10 +404,10 @@ class _MenuDashboardPageState extends State<MenuDashboardPage>
                           children: <Widget>[
                             FadeAnimation(
                               2.4,
-                              Text("| Good " + greeting() + "‼",
+                              Text("| Good " + greeting(),
                                   style: TextStyle(
                                       fontFamily: "Blackcherry",
-                                      color: Colors.deepOrange,
+                                      color: Colors.red,
                                       fontSize: 40,
                                       fontWeight: FontWeight.w600,
                                       letterSpacing: 2.5)),
@@ -399,13 +420,13 @@ class _MenuDashboardPageState extends State<MenuDashboardPage>
                                       style: TextStyle(
                                           fontFamily: "Blackcherry",
                                           color: Colors.deepPurple,
-                                          fontSize: 50,
+                                          fontSize: 40,
                                           letterSpacing: 2.5,
                                           fontWeight: FontWeight.bold)),
                                 ),
                                 FadeAnimation(
                                   2.6,
-                                  Text( " ❣",
+                                  Text( "❣",
                                       style: TextStyle(
                                           fontFamily: "Blackcherry",
                                           fontSize: 40,
@@ -435,7 +456,7 @@ class _MenuDashboardPageState extends State<MenuDashboardPage>
                                     MediaQuery.of(context).size.height * 0.20,
                                 decoration: BoxDecoration(
                                     color: cardColor,
-                                    borderRadius: BorderRadius.circular(10)),
+                                    borderRadius: BorderRadius.circular(20)),
                                 child: Column(
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: <Widget>[
@@ -477,7 +498,8 @@ class _MenuDashboardPageState extends State<MenuDashboardPage>
                                     MediaQuery.of(context).size.height * 0.20,
                                 decoration: BoxDecoration(
                                     color: cardColor,
-                                    borderRadius: BorderRadius.circular(10)),
+                                    borderRadius: BorderRadius.circular(20)),
+
                                 child: Column(
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: <Widget>[
@@ -525,7 +547,7 @@ class _MenuDashboardPageState extends State<MenuDashboardPage>
                                     MediaQuery.of(context).size.height * 0.20,
                                 decoration: BoxDecoration(
                                     color: cardColor,
-                                    borderRadius: BorderRadius.circular(10)),
+                                    borderRadius: BorderRadius.circular(20)),
                                 child: Column(
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: <Widget>[
@@ -567,7 +589,7 @@ class _MenuDashboardPageState extends State<MenuDashboardPage>
                                     MediaQuery.of(context).size.height * 0.20,
                                 decoration: BoxDecoration(
                                     color: cardColor,
-                                    borderRadius: BorderRadius.circular(10)),
+                                    borderRadius: BorderRadius.circular(20)),
                                 child: Column(
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: <Widget>[

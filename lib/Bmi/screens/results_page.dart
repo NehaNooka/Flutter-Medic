@@ -170,11 +170,7 @@ class ResultPage extends StatelessWidget {
                   child: new ListView(
                     children: <Widget>[
                       ListTile(
-                        leading: Icon(
-                          FontAwesomeIcons.solidCircle,
-                          color: Colors.transparent,
-                        ),
-                        title: Text('Weight Categories', style: listHeading),
+                        leading: Text('Weight Categories', style: listHeading),
                         trailing: Text("Index", style: listHeading),
                       ),
                       Divider(

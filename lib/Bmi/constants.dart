@@ -12,7 +12,7 @@ const kLabelTextStyle = TextStyle(
 );
 
 const listHeading =
-TextStyle(fontSize: 28.0, color: Colors.red, fontWeight: FontWeight.w900);
+TextStyle(fontSize: 24.0, color: Colors.red, fontWeight: FontWeight.w900);
 
 const listTitle = TextStyle(
     fontSize: 20.0, color: Colors.black, fontWeight: FontWeight.normal);

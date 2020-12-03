@@ -253,7 +253,7 @@ class _GameScreenState extends State<GameScreen> {
           elevation:0.0,
           iconTheme: new IconThemeData(color: Colors.black),
           centerTitle: true,
-          leading: IconButton(icon: Icon(Icons.arrow_back_ios, color: Colors.black,),
+          leading: IconButton(icon: Icon(Icons.arrow_back, color: Colors.black,),
             onPressed: ( () {
               Navigator.push(
                 context,
@@ -363,7 +363,7 @@ class _GameScreenState extends State<GameScreen> {
                           alignment: Alignment.bottomCenter,
                           child: FittedBox(
                             child: Image.asset(
-                              'assets/icon/memory/$hangState.png',
+                              'assets/icon/memory/Hangman/$hangState.png',
                               height: 1001,
                               width: 991,
                               gaplessPlayback: true,
