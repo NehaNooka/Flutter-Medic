@@ -101,7 +101,7 @@ class _BMIMainState extends State<BMIMain> with SingleTickerProviderStateMixin {
                           child: Text(
                             'Calculate'.toUpperCase(),
                             style: TextStyle(
-                                color: Color(0xFF013487),
+                                color: Colors.red,
                                 fontSize: 16.0,
                                 letterSpacing: 1),
                           ),
@@ -126,7 +126,7 @@ class _BMIMainState extends State<BMIMain> with SingleTickerProviderStateMixin {
                           style: TextStyle(
                               color: Colors.white, fontSize: 16.0, letterSpacing: 1),
                         ),
-                        color: Colors.lightBlue[900],
+                        color: Colors.black,
                         elevation: 2.0,
                         clipBehavior: Clip.antiAliasWithSaveLayer,
                         minWidth: 200.0,
@@ -211,7 +211,7 @@ class _MaleState extends State<Male> {
           width: MediaQuery.of(context).size.width *0.45,
           child: Container(
             decoration: BoxDecoration(
-                color: Colors.yellow[700], borderRadius: BorderRadius.circular(10)),
+                color: appBarTextColor,borderRadius: BorderRadius.circular(10)),
             padding: EdgeInsets.fromLTRB(10.0, 10.0, 10.0, 10.0),
 
               child: Column(
@@ -223,14 +223,14 @@ class _MaleState extends State<Male> {
                     style: TextStyle(
                       fontSize: 23.0,
                         fontWeight: FontWeight.w900,
-                        color: Colors.lightBlue[900]),
+                        color: Colors.white),
                   ),
                   Text(
                     age.toString(),
                     style: TextStyle(
                         fontSize: 40.0,
                         fontWeight: FontWeight.w900,
-                        color: Colors.black),
+                        color: Colors.black87 ),
                   ),
                   Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -344,7 +344,7 @@ class _FemaleState extends State<Female> {
             width: MediaQuery.of(context).size.width *0.45,
             child: Container(
               decoration: BoxDecoration(
-                  color: Colors.yellow[700], borderRadius: BorderRadius.circular(10)),
+                  color: appBarTextColor,borderRadius: BorderRadius.circular(10)),
               padding: EdgeInsets.fromLTRB(10.0, 10.0, 10.0, 10.0),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -355,14 +355,14 @@ class _FemaleState extends State<Female> {
                     style: TextStyle(
                         fontSize: 24.0,
                         fontWeight: FontWeight.w900,
-                        color: Colors.lightBlue[900]),
+                        color: Colors.white),
                   ),
                   Text(
                     weight.toString(),
                     style: TextStyle(
                         fontSize: 40.0,
                         fontWeight: FontWeight.w900,
-                        color: Colors.black),
+                        color: Colors.black87),
                   ),
                   Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -442,7 +442,7 @@ class _HeightState extends State<Height> {
           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
           child: Container(
               decoration: BoxDecoration(
-                  color: Colors.yellow[700], borderRadius: BorderRadius.circular(10)),
+                  color: appBarTextColor,borderRadius: BorderRadius.circular(10)),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
@@ -483,7 +483,7 @@ class _HeightState extends State<Height> {
                 fontSize: 14.0,
                 fontStyle: FontStyle.italic,
                 fontWeight: FontWeight.w900,
-                color: Colors.lightBlue[900]),
+                color: Colors.black87),
           ),
           Switch(
             value: isCentSelected,
@@ -499,7 +499,7 @@ class _HeightState extends State<Height> {
             inactiveTrackColor: Color.fromRGBO(209, 196, 233, 1),
             inactiveThumbColor: Colors.lightBlue[900],
             activeTrackColor: Color.fromRGBO(209, 196, 233, 1),
-            activeColor: Colors.lightBlue[900],
+            activeColor: Colors.black87,
             materialTapTargetSize: MaterialTapTargetSize.padded,
           ),
           Text(
@@ -508,7 +508,7 @@ class _HeightState extends State<Height> {
                 fontSize: 14.0,
                 fontStyle: FontStyle.italic,
                 fontWeight: FontWeight.w900,
-                color: Colors.lightBlue[900]),
+                color: Colors.black87),
           ),
         ],
       ),
@@ -530,7 +530,7 @@ class _HeightState extends State<Height> {
               style: TextStyle(
                   fontWeight: FontWeight.w900,
                   fontSize: 28.0,
-                  color: Colors.lightBlue[900]),
+                  color: Colors.white),
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -540,7 +540,7 @@ class _HeightState extends State<Height> {
                 Text(
                   heightCal.toString(),
                   style: TextStyle(
-                      color: Colors.black,
+                      color: Colors.black87,
                       fontSize: 40.0,
                       fontWeight: FontWeight.w900),
                 ),
@@ -554,7 +554,7 @@ class _HeightState extends State<Height> {
               data: SliderTheme.of(context).copyWith(
                 activeTrackColor: Colors.grey.shade300,
                 inactiveTrackColor: Colors.grey.shade300,
-                thumbColor: Colors.lightBlue[900],
+                thumbColor: Colors.black87,
                 overlayColor: Color(0x29EB1555),
                 thumbShape: RoundSliderThumbShape(enabledThumbRadius: 15.0),
                 overlayShape: RoundSliderOverlayShape(overlayRadius: 20.0),
@@ -591,7 +591,7 @@ class _HeightState extends State<Height> {
               style: TextStyle(
                   fontSize: 28.0,
                   fontWeight: FontWeight.w900,
-                  color: Colors.lightBlue[900]),
+                  color: Colors.white),
             ),
             Row(
               crossAxisAlignment: CrossAxisAlignment.center,
@@ -610,7 +610,7 @@ class _HeightState extends State<Height> {
                     hint: Text('ft'),
                     icon: Icon(
                       Icons.arrow_downward,
-                      color: Colors.lightBlue[900],
+                      color: Colors.black87,
                     ),
                     iconSize: 24,
                     elevation: 16,
@@ -618,7 +618,7 @@ class _HeightState extends State<Height> {
                     style: TextStyle(
                         fontSize: 25.0,
                         fontWeight: FontWeight.w900,
-                        color: Colors.black),
+                        color: Colors.black87),
                     underline: Container(
                       color: Colors.transparent,
                     ),
@@ -652,14 +652,14 @@ class _HeightState extends State<Height> {
                     hint: Text('in'),
                     icon: Icon(
                       Icons.arrow_downward,
-                      color: Colors.lightBlue[900],
+                      color: Colors.black87,
                     ),
                     iconSize: 24,
                     elevation: 16,
                     style: TextStyle(
                         fontSize: 20.0,
                         fontWeight: FontWeight.w900,
-                        color: Colors.black),
+                        color: Colors.black87),
                     underline: Container(
                       color: Colors.transparent,
                     ),
@@ -722,7 +722,7 @@ class _GenderState extends State<Gender> {
           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
           child: Container(
             decoration: BoxDecoration(
-                color: Colors.yellow[700], borderRadius: BorderRadius.circular(10)),
+                color: appBarTextColor,borderRadius: BorderRadius.circular(10)),
             padding: EdgeInsets.fromLTRB(20.0, 20.0, 20.0, 10.0),
             width: MediaQuery.of(context).size.height,
             height: Screen(MediaQuery.of(context).size).hp(20),
@@ -735,7 +735,7 @@ class _GenderState extends State<Gender> {
                   style: TextStyle(
                     fontSize: 28.0,
                       fontWeight: FontWeight.w900,
-                      color: Colors.lightBlue[900]),
+                      color: Colors.white),
                 ),
                 Row(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -745,14 +745,14 @@ class _GenderState extends State<Gender> {
                         style: TextStyle(
                             fontSize: 40.0,
                             fontWeight: FontWeight.w900,
-                            color: Colors.black),
+                            color: Colors.black87),
                       ),
                       Text(
                         'Female',
                         style: TextStyle(
                             fontSize: 20.0,
                             fontWeight: FontWeight.w900,
-                            color: Colors.black),
+                            color: Colors.black87),
                       ),
                       Switch(
                         value: isSwitched,
@@ -762,16 +762,16 @@ class _GenderState extends State<Gender> {
                           });
                         },
                         inactiveTrackColor: Colors.grey.shade300,
-                        inactiveThumbColor: Colors.lightBlue[900],
+                        inactiveThumbColor: Colors.black87,
                         activeTrackColor: Colors.grey.shade300,
-                        activeColor: Colors.lightBlue[900],
+                        activeColor: Colors.black87,
                       ),
                       Text(
                         'Male',
                         style: TextStyle(
                             fontSize: 20.0,
                             fontWeight: FontWeight.w900,
-                            color: Colors.black),
+                            color: Colors.black87),
                       ),
                     ])
               ],

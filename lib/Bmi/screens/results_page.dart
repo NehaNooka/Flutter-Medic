@@ -1,9 +1,10 @@
-
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:wallpaper/Bmi/components/reusable_card.dart';
 import 'package:wallpaper/Bmi/constants.dart';
+import 'package:wallpaper/Bmi/screens/choose.dart';
+import 'package:wallpaper/Bmi/screens/diet.dart';
 import 'package:wallpaper/constants.dart';
 
 class ResultPage extends StatelessWidget {
@@ -42,7 +43,7 @@ class ResultPage extends StatelessWidget {
           Expanded(
             flex: 2,
             child: ReusableCard(
-              color: Colors.yellow[700],
+              color:  Colors.lightBlue[900],
               cardChild: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -51,7 +52,7 @@ class ResultPage extends StatelessWidget {
                     'Your BMI index is',
                     style: TextStyle(
                       fontSize: 24.0,
-                      color: Colors.lightBlue[900],
+                      color: Colors.white,
                       fontWeight: FontWeight.w900,
                     ),
                   ),
@@ -85,7 +86,7 @@ class ResultPage extends StatelessWidget {
                     resultText,
                     textAlign: TextAlign.center,
                     style: TextStyle(
-                      color: Colors.red,
+                      color: Colors.white,
                       fontSize: 28.0,
                       fontWeight: FontWeight.bold,
                     ),
@@ -104,40 +105,93 @@ class ResultPage extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     verticalDirection: VerticalDirection.up,
                     children: <Widget>[
-                      Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: MaterialButton(
-                          height: 50,
-                          minWidth: 150,
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(30)),
-                          color: Colors.lightBlue[900],
-                          child: Text(
-                            "Re-Calculate".toUpperCase(),
-                            style: TextStyle(
-                                fontSize:24.0,
-                                color: Colors.white),
+                      Row(children: [
+
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: MaterialButton(
+                              height: 50,
+                              minWidth: MediaQuery.of(context).size.width*0.38,
+                              shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(30)),
+                              color: Colors.white,
+                              child: Text(
+                                "Diet Plan".toUpperCase(),
+                                style: TextStyle(
+                                    fontSize:20.0,color: Colors.black),
+                              ),
+                              onPressed: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(builder: (context) => Diet(postUrl: "https://www.healthifyme.com/blog/best-indian-diet-plan-weight-loss/",)),
+                                );
+                              }
                           ),
-                          onPressed: () {
-                            Navigator.pop(context);
-                          },
                         ),
-                      ),
-                      MaterialButton(
-                        height: 50,
-                        minWidth: 150,
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(30)),
-                        color: Colors.lightBlue[900],
-                        child: Text(
-                          "BMI Chart".toUpperCase(),
-                          style: TextStyle(
-                              fontSize:24.0,color: Colors.white),
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: MaterialButton(
+                            height: 50,
+                            minWidth: MediaQuery.of(context).size.width*0.38,
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(30)),
+                            color: Colors.white,
+                            child: Text(
+                              "Re-Calculate".toUpperCase(),
+                              style: TextStyle(
+                                  fontSize:20.0,
+                                  color: Colors.black),
+                            ),
+                            onPressed: () {
+                              Navigator.pop(context);
+                            },
+                          ),
                         ),
-                        onPressed: () {
-                          bmiChartBottomSheet(context);
-                        },
-                      ),
+
+                      ],),
+                      Row(children: [
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: MaterialButton(
+                            height: 50,
+                            minWidth: MediaQuery.of(context).size.width*0.38,
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(30)),
+                            color: Colors.white,
+                            child: Text(
+                              "BMI Chart".toUpperCase(),
+                              style: TextStyle(
+                                  fontSize:20.0,color: Colors.black),
+                            ),
+                            onPressed: () {
+                              bmiChartBottomSheet(context);
+                            },
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: MaterialButton(
+                              height: 50,
+                              minWidth: MediaQuery.of(context).size.width*0.38,
+                              shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(30)),
+                              color: Colors.white,
+                              child: Text(
+                                "Weight Chart".toUpperCase(),
+                                style: TextStyle(
+                                    fontSize:20.0,color: Colors.black),
+                              ),
+                              onPressed:  () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(builder: (context) => choose()),
+                                );
+                              }
+                          ),
+                        ),
+                      ],),
+
+
                     ],
                   ),
                 ],
@@ -154,7 +208,7 @@ class ResultPage extends StatelessWidget {
         context: context,
         builder: (BuildContext bc) {
           return new Container(
-            height:MediaQuery.of(context).size.height*0.8,
+            height:MediaQuery.of(context).size.height,
             margin: EdgeInsets.all(10),
             color: Colors.transparent, //could change this to Color(0xFF737373),
             //so you don't have to change MaterialApp canvasColor
@@ -248,4 +302,6 @@ class ResultPage extends StatelessWidget {
           );
         });
   }
+
+
 }

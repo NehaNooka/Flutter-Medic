@@ -18,7 +18,7 @@ const listTitle = TextStyle(
     fontSize: 20.0, color: Colors.black, fontWeight: FontWeight.normal);
 
 const listTrailing =
-TextStyle(fontSize: 20.0, color: Colors.teal, fontWeight: FontWeight.w900);
+TextStyle(fontSize: 20.0, color: Colors.blueAccent, fontWeight: FontWeight.w900);
 
 const kNumberTextStyle = TextStyle(
     color: Color.fromRGBO(86, 81, 104, 1),

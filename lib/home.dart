@@ -13,7 +13,7 @@ class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-    body: Body1());
+        body: Body1());
   }
 }
 
@@ -27,12 +27,12 @@ class _Body1State extends State<Body1> {
   var uid;
   @override
   void initState()  {
-  getCurrentUID();
+    getCurrentUID();
     super.initState();
   }
   void getCurrentUID() async {
     final User user = await _auth.currentUser;
-     uid = user.uid;  }
+    uid = user.uid;  }
 
   // ignore: missing_return
   Widget getPage(int index) {
@@ -68,8 +68,8 @@ class _Body1State extends State<Body1> {
       home: new Scaffold(
           body: Center(
               child: SafeArea(
-            child: getPage(_currentIndex),
-          )),
+                child: getPage(_currentIndex),
+              )),
           bottomNavigationBar: BottomNavigationBar(
             backgroundColor: appBarColor,
             unselectedItemColor: Colors.black54,

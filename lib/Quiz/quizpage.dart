@@ -5,11 +5,11 @@ import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:wallpaper/Quiz/main.dart';
 import 'package:wallpaper/Quiz/resultpage.dart';
-import 'package:wallpaper/constants.dart';
+import 'package:wallpaper/Quiz/constants.dart';
 import 'package:random_string/random_string.dart';
 
+// ignore: must_be_immutable, camel_case_types
 class getjson extends StatelessWidget {
-
 
   String langname;
   getjson(this.langname);
@@ -65,7 +65,7 @@ class getjson extends StatelessWidget {
         if (mydata == null) {
           return Scaffold(
             body: Center(
-              child: CircularProgressIndicator()
+                child: CircularProgressIndicator()
             ),
           );
         } else {
@@ -76,6 +76,7 @@ class getjson extends StatelessWidget {
   }
 }
 
+// ignore: camel_case_types
 class quizpage extends StatefulWidget {
   final List mydata;
 
@@ -84,10 +85,11 @@ class quizpage extends StatefulWidget {
   _quizpageState createState() => _quizpageState(mydata);
 }
 
+// ignore: camel_case_types
 class _quizpageState extends State<quizpage> {
   final List mydata;
   _quizpageState(this.mydata);
- var  _counter=0;
+  var  _counter=0;
   Color colortoshow = Colors.indigoAccent;
   Color right = Colors.green;
   Color wrong = Colors.red;
@@ -98,6 +100,7 @@ class _quizpageState extends State<quizpage> {
   int j = 1;
   int timer = 30;
   String showtimer = "30";
+  // ignore: non_constant_identifier_names
   var random_array;
   List  tcVisibility = [false,false,false,false,false,false,false,false,false,false];
   Map<String, Color> btncolor = {
@@ -112,6 +115,7 @@ class _quizpageState extends State<quizpage> {
   genrandomarray(){
     var distinctIds = [];
     var rand ;
+    // ignore: unused_local_variable
     for (int i = 1; ;) {
       rand =  randomBetween(1,9);
       distinctIds.add(rand);
@@ -220,8 +224,8 @@ class _quizpageState extends State<quizpage> {
           maxLines: 1,
         ),
         color: btncolor[k],
-        splashColor: Colors.indigo[700],
-        highlightColor: Colors.indigo[700],
+        splashColor: cardColor,
+        highlightColor: cardColor,
         minWidth: MediaQuery.of(context).size.width*0.70 ,
         height: 45.0,
         shape:
@@ -235,99 +239,99 @@ class _quizpageState extends State<quizpage> {
     SystemChrome.setPreferredOrientations(
         [DeviceOrientation.portraitDown, DeviceOrientation.portraitUp]);
     return  Scaffold(
-        appBar: AppBar(
-          elevation:0.0,
-          iconTheme: new IconThemeData(color: Colors.black),
-          centerTitle: true,
-          leading: IconButton(icon: Icon(Icons.arrow_back, color: Colors.black,),
-            onPressed: ( () {
-              Navigator.pushReplacement(
-                context,
-                MaterialPageRoute(
-                    builder: (context) => Quiz()),
-              );
-            }
+      appBar: AppBar(
+        elevation:0.0,
+        iconTheme: new IconThemeData(color: Colors.black),
+        centerTitle: true,
+        leading: IconButton(icon: Icon(Icons.arrow_back, color: Colors.black,),
+          onPressed: ( () {
+            Navigator.pushReplacement(
+              context,
+              MaterialPageRoute(
+                  builder: (context) => Quiz()),
+            );
+          }
+          ),
+        ),
+        title: Text("QUIZ",
+            style: GoogleFonts.pacifico(
+                textStyle: TextStyle(
+                    fontSize: 22.0,
+                    color: Colors.lightBlue[900],
+                    fontWeight: FontWeight.bold,
+                    letterSpacing: 2))),
+        backgroundColor: appBarColor,
+      ),
+      body: Column(
+        children: <Widget>[
+          Expanded(
+            flex: 2,
+            child: Container(
+              padding: EdgeInsets.all(15.0),
+              alignment: Alignment.bottomLeft,
+              child: Text(
+                "Que $_counter: "+mydata[0][i.toString()] ??  ' '  ,
+                style: TextStyle(
+                  fontSize: 19.0,
+                  fontWeight: FontWeight.bold,
+                  fontFamily: "Quando",
+                ),
+              ),
             ),
           ),
-          title: Text("QUIZ",
-              style: GoogleFonts.pacifico(
-                  textStyle: TextStyle(
-                      fontSize: 22.0,
-                      color: appBarTextColor,
-                      fontWeight: FontWeight.bold,
-                      letterSpacing: 2))),
-          backgroundColor: appBarColor,
-        ),
-        body: Column(
-          children: <Widget>[
-            Expanded(
-              flex: 2,
+          Expanded(
+            flex: 4,
+            child: AbsorbPointer(
+              absorbing: disableAnswer,
               child: Container(
-                padding: EdgeInsets.all(15.0),
-                alignment: Alignment.bottomLeft,
-                child: Text(
-                  "Que $_counter: "+mydata[0][i.toString()] ??  ' '  ,
-                  style: TextStyle(
-                    fontSize: 19.0,
-                    fontWeight: FontWeight.bold,
-                    fontFamily: "Quando",
-                  ),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    choicebutton('a'),
+                    choicebutton('b'),
+                    choicebutton('c'),
+                    choicebutton('d'),
+                  ],
                 ),
               ),
             ),
-            Expanded(
-              flex: 4,
-              child: AbsorbPointer(
-                absorbing: disableAnswer,
-                child: Container(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: <Widget>[
-                      choicebutton('a'),
-                      choicebutton('b'),
-                      choicebutton('c'),
-                      choicebutton('d'),
-                    ],
-                  ),
-                ),
-              ),
-            ),
-            Expanded(
+          ),
+          Expanded(
               flex: 1,
               child: Container(
-                      child: Visibility(
-                        visible: tcVisibility[i],
+                child: Visibility(
+                  visible: tcVisibility[i],
                   child: Text(
-                        mydata[2][i.toString()]?? ' ' ,
-                        style: TextStyle(
-                          fontSize: 22.0,
-                          color: Colors.red,
-                          fontWeight: FontWeight.w900,
-                          fontFamily: 'Times New Roman',
-                        ),
-                      ),
-                ),
-              )
-            ),
-            Expanded(
-              flex: 1,
-              child: Container(
-                color:Colors.green,
-                alignment: Alignment.topCenter,
-                child: Center(
-                  child: Text(
-                    showtimer,
+                    mydata[2][i.toString()]?? ' ' ,
                     style: TextStyle(
-                      fontSize: 35.0,
-                      fontWeight: FontWeight.w700,
+                      fontSize: 22.0,
+                      color: Colors.red,
+                      fontWeight: FontWeight.w900,
                       fontFamily: 'Times New Roman',
                     ),
                   ),
                 ),
+              )
+          ),
+          Expanded(
+            flex: 1,
+            child: Container(
+              color:Colors.green,
+              alignment: Alignment.topCenter,
+              child: Center(
+                child: Text(
+                  showtimer,
+                  style: TextStyle(
+                    fontSize: 35.0,
+                    fontWeight: FontWeight.w700,
+                    fontFamily: 'Times New Roman',
+                  ),
+                ),
               ),
             ),
-          ],
-        ),
+          ),
+        ],
+      ),
     );
   }
 }

@@ -31,15 +31,15 @@ backgroundColor: Colors.white,
                 padding: EdgeInsets.all(8),
                 alignment: Alignment.center,
                 decoration: BoxDecoration(
-                    color: Colors.teal[100],
+                    color: cardColor1,
                     border: Border.all(
-                        color: Colors.teal[800], // set border color
+                        color: cardColor1, // set border color
                         width: 2.0), // set border width
                     borderRadius: BorderRadius.all(
                         Radius.circular(20.0)), // set rounded corner radius
                     boxShadow: [
                       BoxShadow(
-                          blurRadius: 10, color: Colors.teal[800], offset: Offset(1, 3))
+                          blurRadius: 10, color: cardColor1, offset: Offset(1, 3))
                     ] // make rounded corner of border
                 ),
                 child: Text("ABOUT APP",
@@ -48,7 +48,7 @@ backgroundColor: Colors.white,
                       fontSize: 20.0,
                       fontFamily: 'Roboto',
                       fontWeight: FontWeight.w500,
-                      color: Colors.black87
+                      color: Colors.black,
                   ),
                 ),
               ),
@@ -59,9 +59,9 @@ backgroundColor: Colors.white,
                 padding: EdgeInsets.all(10),
                 alignment: Alignment.center,
                 decoration: BoxDecoration(
-                  color:  Colors.red[100],
+                  color:  cardColor1,
                   border: Border.all(
-                      color: Colors.red[100], // set border color
+                      color: cardColor1, // set border color
                       width: 3.0), // set border width
                   borderRadius: BorderRadius.all(
                       Radius.circular(30.0)), // set rounded corner radius
@@ -84,14 +84,14 @@ backgroundColor: Colors.white,
                 padding: EdgeInsets.all(10),
                 alignment: Alignment.center,
                 decoration: BoxDecoration(
-                  color: Colors.blue[100],
+                  color: cardColor1,
                   border: Border.all(
-                      color: Colors.blue[100], // set border color
+                      color: cardColor1, // set border color
                       width: 3.0), // set border width
                   borderRadius: BorderRadius.all(
                       Radius.circular(30.0)), // set rounded corner radius
                 ),
-                child: Text("App Features: \n* A FREE to download Medic on illness conditions and diseases. \n* A handy free pocket guide for physicians desk reference. \n* Find detailed information on illness,definitions,references and medical guideline for reading and research.\n* Also there are additional features like Note Functionality,BMI calculator,Word of the day,Latest news,Quiz on medical fields and memory based games.",
+                child: Text("App Features: \n* A FREE to download Medic on illness conditions and diseases. \n* A handy free pocket guide for physicians desk reference. \n* Find detailed information on illness,definitions,references and medical guideline for reading and research.\n* Also there are additional features like Note Functionality,BMI calculator,Word of the day,Latest news,Quiz on medical fields and medical facts.",
                   textDirection: TextDirection.ltr,
                   style: TextStyle(
                       decoration: TextDecoration.none,
@@ -110,9 +110,9 @@ Divider(),
                 padding: EdgeInsets.all(10),
                 alignment: Alignment.center,
                 decoration: BoxDecoration(
-                  color:  Colors.pink[100],
+                  color:  cardColor1,
                   border: Border.all(
-                      color: Colors.pink[100], // set border color
+                      color: cardColor1, // set border color
                       width: 3.0), // set border width
                   borderRadius: BorderRadius.all(
                       Radius.circular(30.0)), // set rounded corner radius
@@ -134,9 +134,9 @@ Divider(),
                 padding: EdgeInsets.all(10),
                 alignment: Alignment.center,
                 decoration: BoxDecoration(
-                  color: Colors.brown[100],
+                  color: cardColor1,
                   border: Border.all(
-                      color: Colors.brown[100], // set border color
+                      color: cardColor1, // set border color
                       width: 3.0), // set border width
                   borderRadius: BorderRadius.all(
                       Radius.circular(30.0)), // set rounded corner radius

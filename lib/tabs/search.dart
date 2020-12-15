@@ -67,7 +67,7 @@ class _SearchState extends State<Search> {
                       color: Colors.black,
                       fontWeight: FontWeight.bold)),
               background: Opacity(
-                opacity: 0.7,
+                opacity: 0.5,
                 child: Image.network(
                   "https://images.pexels.com/photos/3992933/pexels-photo-3992933.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
                   fit: BoxFit.cover,

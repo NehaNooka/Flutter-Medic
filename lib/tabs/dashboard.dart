@@ -3,7 +3,6 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:wallpaper/Dashboard/Games/gameDash.dart';
 import 'package:wallpaper/Dashboard/NewsA/main.dart';
 import 'package:wallpaper/Login/fadeAnimation.dart';
 import 'package:wallpaper/LoginScreen/profilePage.dart';
@@ -17,6 +16,7 @@ import 'package:wallpaper/Settings/privacy.dart';
 import 'package:wallpaper/Settings/rate.dart';
 import 'package:wallpaper/constants.dart';
 import 'package:wallpaper/tabs/WOTD/wotd.dart';
+import 'package:wallpaper/tabs/facts.dart';
 
 final Color backgroundColor = Colors.white;
 
@@ -41,8 +41,8 @@ class _MenuDashboardPageState extends State<MenuDashboardPage>
     img: "assets/icon/dashboard/choose.png",
   );
   Items item4 = new Items(
-    title: "Games",
-    img: "assets/icon/dashboard/joystick.png",
+    title: "Facts",
+    img: "assets/icon/dashboard/question.png",
   );
   final databaseReference = FirebaseFirestore.instance;
   String username=" ";
@@ -159,7 +159,8 @@ class _MenuDashboardPageState extends State<MenuDashboardPage>
                             context,
                             MaterialPageRoute(builder: (context) => Home()),
                           );
-                        }),
+                        }
+                        ),
                     SizedBox(height: 20,),
                     ListTile(
                         tileColor: backgroundColor,
@@ -580,7 +581,7 @@ class _MenuDashboardPageState extends State<MenuDashboardPage>
                                 Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                      builder: (context) => GameDashboard()),
+                                      builder: (context) => CarouselDemo()),
                                 );
                               },
                               child: Container(

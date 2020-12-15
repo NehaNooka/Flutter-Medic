@@ -1,88 +1,88 @@
 [
   {
-    "1": "Chewing gum makes you more",
-    "2": "What is the most used finger of your hand?",
-    "3": "What is the only benefits of tobbaco smoking?",
-    "4": "Big Eyes cause ___",
-    "5": "It's impossible to ____",
-    "6": "Why do people eat their boogers?",
-    "7":  "It's impossible to sneeze with your ____",
-    "8": "What is the surprising health benefits of being overweight",
-    "9": "_____ speeds wound healing",
-    "10": "An average human can go without foo for about maximum ___"
+    "1": "The word “psychology’ comes from:",
+    "2": "According to the text, the lower level of explanation corresponds to ______ processes.",
+    "3": "The scientific approach is more useful at answering questions about ______ than questions about ______.",
+    "4": "A psychologist exploring the impact of a new drug on activity in the brain is working on the ______ level of explanation.",
+    "5": " ______ is to nature as ______ is to nurture.",
+    "6": "The idea that you can assess someone’s personality by studying their face is called:",
+    "7": "Humanistic psychologists embraced the idea of:",
+    "8": "What is special about “knockout” mice?",
+    "9": "Monozygotic is to ________ twins as dizygotic is to ________ twins.",
+    "10": "Projective tests claim to reveal information about:"
   },
   {
     "1": {
-      "a": "Sleepy",
-      "b": "Sexy",
-      "c": "Talkative",
-      "d": "Alert"
+      "a": "Latin",
+      "b": "Spanish",
+      "c": "Greek",
+      "d": "Italian"
     },
     "2": {
-      "a":"Thumb",
-      "b":  "Little finger",
-      "c": "Middle finger",
-      "d": "Index finger"
+      "a":"social",
+      "b": "cultural",
+      "c": "biological",
+      "d": "interpersonal"
     },
     "3": {
-      "a": "Obstructive lung diseases",
-      "b": "Increased revenue from taxes",
-      "c": "Early death",
-      "d": "Lung cancer"
+      "a": "facts, values",
+      "b": "ideas, emotions",
+      "c": "values, facts",
+      "d": "emotions, facts"
     },
     "4": {
-      "a": "Lazy eyes",
-      "b": "Far Sightedness",
-      "c": "Colour blindness",
-      "d":"Nearsightedness"
+      "a": "lower",
+      "b": "middle",
+      "c": "upper",
+      "d": "all of the above"
     },
     "5": {
-      "a":"Tickle yourself",
-      "b": "Jump for 5 ft",
-      "c": "Live up tp 122 years old",
-      "d": "Run at 45 km/hr"
+      "a": "environment, genes",
+      "b": "conscious, unconscious",
+      "c": "inaccuracy, accuracy",
+      "d": "biology, experience"
     },
     "6": {
-      "a": "Improve taste sensation",
-      "b": "Boogers are salty",
-      "c": "Tongue exercise",
-      "d": "Finger exercise"
+      "a": "phrenology",
+      "b": "physiology",
+      "c": "somatology",
+      "d": "physiognomy"
     },
     "7": {
-      "a": "Mouth open",
-      "b": "Legs open",
-      "c": "Eyes open",
-      "d": "Palms open"
+      "a": "repression",
+      "b": "free will",
+      "c": "unconscious drives",
+      "d": "the id"
     },
     "8": {
-      "a": "Stronger Immune system",
-      "b": "High risk of heart disease",
-      "c": "High risk of osteoarthritis",
-      "d": "Higher risk of cancer"
+      "a": "they are very attractive",
+      "b": "their DNA has been modified",
+      "c": "they are easy to knock out",
+      "d": "they are unusually aggressive"
     },
     "9": {
-      "a": "Listen to music",
-      "b": "Sleeping",
-      "c": "Eating banana",
-      "d": "Licking your wounds"
+      "a": "male, female,",
+      "b": "female, male",
+      "c": "fraternal, identical",
+      "d": "identical, fraternal"
     },
     "10": {
-      "a": "3 months",
-      "b": "3 weeks",
-      "c": "1 week",
-      "d": "1 year"
+      "a": "career aptitude",
+      "b": "intellectual attainment",
+      "c": "unconscious processes",
+      "d": "parenting style"
     }
   },
   {
-    "1": "Alert",
-    "2":"Thumb",
-    "3":"Increased revenue from taxes",
-    "4": "Nearsightedness",
-    "5": "Tickle yourself",
-    "6": "Boogers are salty",
-    "7": "Eyes open",
-    "8": "Stronger Immune system",
-    "9": "Licking your wounds",
-    "10": "3 weeks"
+    "1": "Greek",
+    "2": "biological",
+    "3": "facts, values",
+    "4": "lower",
+    "5": "biology, experience",
+    "6": "physiognomy",
+    "7": "free will",
+    "8": "their DNA has been modified",
+    "9": "identical, fraternal",
+    "10": "unconscious processes"
   }
 ]

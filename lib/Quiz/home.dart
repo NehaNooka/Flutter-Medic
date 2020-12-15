@@ -2,33 +2,34 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:wallpaper/Quiz/quizpage.dart';
-import 'package:wallpaper/constants.dart';
+import 'package:wallpaper/Quiz/constants.dart';
 import 'package:wallpaper/home.dart';
 
-
+// ignore: camel_case_types
 class homepage extends StatefulWidget {
   @override
   _homepageState createState() => _homepageState();
 }
 
+// ignore: camel_case_types
 class _homepageState extends State<homepage> {
 
   List<String> images = [
-    "assets/icon/Quiz/medical-report.png",
-    "assets/icon/Quiz/doctor(1).png",
-    "assets/icon/Quiz/first-aid-kit.png",
-    "assets/icon/Quiz/stethoscope.png",
-    "assets/icon/Quiz/doctor.png",
-    "assets/icon/Quiz/medical-report.png",
-    "assets/icon/Quiz/doctor(1).png",
-    "assets/icon/Quiz/first-aid-kit.png",
-    "assets/icon/Quiz/stethoscope.png",
-    "assets/icon/Quiz/doctor.png",
-    "assets/icon/Quiz/medical-report.png",
-    "assets/icon/Quiz/doctor(1).png",
-    "assets/icon/Quiz/first-aid-kit.png",
-    "assets/icon/Quiz/stethoscope.png",
-    "assets/icon/Quiz/doctor.png",
+    "assets/icon/Quiz/basic2.jpg",
+    "assets/icon/Quiz/human_body.png",
+    "assets/icon/Quiz/human1.jpg",
+    "assets/icon/Quiz/nutri1.png",
+    "assets/icon/Quiz/gy1.jpg",
+    "assets/icon/Quiz/dental1.png",
+    "assets/icon/Quiz/phy1.jpg",
+    "assets/icon/Quiz/emer_med.jpg",
+    "assets/icon/Quiz/clinic1.png",
+    "assets/icon/Quiz/gy3.png",
+    "assets/icon/Quiz/int_med.jpg",
+    "assets/icon/Quiz/pharma1.jpg",
+    "assets/icon/Quiz/surgery.png",
+    "assets/icon/Quiz/phycho.jpg",
+    "assets/icon/Quiz/m.jpg",
   ];
 
   List<String> des = [
@@ -45,7 +46,7 @@ class _homepageState extends State<homepage> {
     "This quiz contains 10 questions of Internal medicine.",
     "This quiz contains 10 questions on Pharmacology.",
     "This Quiz contains 10 questions on  Surgery.",
-    "This Quiz contains 10 questions on Funny Facts",
+    "This Quiz contains 10 questions on Phychology.",
     "This Quiz contains 10 questions on Miscellanous type !",
   ];
 
@@ -63,7 +64,7 @@ class _homepageState extends State<homepage> {
           ));
         },
         child: Material(
-          color: Colors.deepOrange[500],
+          color: cardColor,
           elevation: 10.0,
           borderRadius: BorderRadius.circular(25.0),
           child: Container(
@@ -107,14 +108,14 @@ class _homepageState extends State<homepage> {
                   child: Text(
                     des,
                     style: TextStyle(
-                      fontSize: 18.0,
-                      color: Colors.white,
-                      fontFamily: "Alike"
+                        fontSize: 18.0,
+                        color: Colors.white,
+                        fontFamily: "Alike"
                     ),
                     maxLines: 5,
                     textAlign: TextAlign.justify,
                   ),
-                  
+
                 ),
               ],
             ),
@@ -149,7 +150,7 @@ class _homepageState extends State<homepage> {
             style: GoogleFonts.pacifico(
                 textStyle: TextStyle(
                     fontSize: 24.0,
-                    color: appBarTextColor,
+                    color: Colors.lightBlue[900],
                     fontWeight: FontWeight.bold,
                     letterSpacing: 2))),
       ),
@@ -167,8 +168,9 @@ class _homepageState extends State<homepage> {
           customcard("Gynaecology", images[9], des[9]),
           customcard("Internal medicine", images[10], des[10]),
           customcard("Pharmacology", images[11], des[11]),
-          customcard("Surgery", images[12], des[12]),
-          customcard("Funny", images[13], des[13]),
+          customcard("Surgery", images[
+          12], des[12]),
+          customcard("Phychology", images[13], des[13]),
           customcard("Miscellanous", images[14], des[14]),
         ],
       ),

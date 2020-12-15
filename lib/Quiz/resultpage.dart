@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:wallpaper/Quiz/home.dart';
-import 'package:wallpaper/constants.dart';
+import 'package:wallpaper/Quiz/constants.dart';
 
+// ignore: must_be_immutable, camel_case_types
 class resultpage extends StatefulWidget {
   int marks;
   resultpage({Key key , @required this.marks}) : super(key : key);
@@ -10,6 +11,7 @@ class resultpage extends StatefulWidget {
   _resultpageState createState() => _resultpageState(marks);
 }
 
+// ignore: camel_case_types
 class _resultpageState extends State<resultpage> {
 
   List<String> images = [
@@ -77,25 +79,25 @@ class _resultpageState extends State<resultpage> {
                       ),
                     ),
                     Padding(
-                      padding: EdgeInsets.symmetric(
-                        vertical: 5.0,
-                        horizontal: 15.0,
-                      ),
-                      child: Center(
-                      child: Text(
-                        message,
-                        style: TextStyle(
-                          fontSize: 18.0,
-                          fontWeight:FontWeight.w900,
-                          fontFamily: "Quando",
+                        padding: EdgeInsets.symmetric(
+                          vertical: 5.0,
+                          horizontal: 15.0,
                         ),
-                      ),
-                    )
+                        child: Center(
+                          child: Text(
+                            message,
+                            style: TextStyle(
+                              fontSize: 18.0,
+                              fontWeight:FontWeight.w900,
+                              fontFamily: "Quando",
+                            ),
+                          ),
+                        )
                     ),
                   ],
                 ),
               ),
-            ),            
+            ),
           ),
           Expanded(
             flex: 4,
@@ -119,7 +121,7 @@ class _resultpageState extends State<resultpage> {
                     horizontal: 25.0,
                   ),
                   borderSide: BorderSide(width: 3.0, color: Colors.black),
-                  splashColor: Colors.indigoAccent,
+                  splashColor: cardColor
                 )
               ],
             ),

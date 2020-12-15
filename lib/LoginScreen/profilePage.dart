@@ -70,44 +70,40 @@ class _ProfilePageState extends State<ProfilePage> with SingleTickerProviderStat
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
-    Future uploadPic() async {
-      String url;
+    Future uploadPic() async{
       var firebaseUser = await FirebaseAuth.instance.currentUser;
       String filName = p.basename(_image.path);
-    Reference reference =
-          FirebaseStorage.instance.ref().child(filName);
+      Reference reference = FirebaseStorage.instance.ref().child(
+          filName);
       UploadTask uploadTask = reference.putFile(_image);
-      uploadTask.whenComplete(() {
+
+    uploadTask.whenComplete(() {
         reference.getDownloadURL().then((val) {
-      setState(() {
-      print("Image Uploaded");
-      SnackBar(content: Text("Image Uploaded"));
-      });
-      print(val);
-      url = val; //Val here is Already String
-      });
+          setState(() {
+            print("Image Uploaded");
+            SnackBar(content: Text("Image Uploaded"));
+            print(val);
+            url = val;
+          });
+    });
       }).catchError((onError) {
         print(onError);
       });
 
-
-      databaseReference
-          .collection("User")
-          .doc(firebaseUser.uid)
-          .update({
+      databaseReference.collection("User").doc(firebaseUser.uid).update({
         'photourl': url,
         'age': agecontroller.text != ""
             ? agecontroller.text
             : age != null
-                ? age
-                : "AGE",
+            ? age
+            : "AGE",
         'city': citycontroller.text != ""
             ? citycontroller.text
             : city != null
-                ? city
-                : "CITY",
+            ? city
+            : "CITY",
         'username':
-            usernamecontroller.text != "" ? usernamecontroller.text : username,
+        usernamecontroller.text != "" ? usernamecontroller.text : username,
         'email': emailcontroller.text != "" ? emailcontroller.text : email,
       }).then((_) {
         print("success!");
@@ -154,6 +150,7 @@ class _ProfilePageState extends State<ProfilePage> with SingleTickerProviderStat
           .collection("User")
           .doc(firebaseUser.uid)
           .update({
+        'photourl': url,
         'age': agecontroller.text != ""
             ? agecontroller.text
             : age != null
@@ -273,18 +270,10 @@ class _ProfilePageState extends State<ProfilePage> with SingleTickerProviderStat
                         Radius.circular(20),
                       )),
                   child: TextFormField(
+                     keyboardType: TextInputType.name,
                     onChanged: null,
                     validator: (value) {
-                      if(value.isEmpty) {
-                        return "Name can't be empty!";
-                      }
-                      else if(value.length < 2) {
-                        return "Name must be at least 2 characters long!";
-                      }
-                      else if(value.length > 50) {
-                        return "Name must be less than 50 characters long!";
-                      }
-                      return null;
+                     return null;
                     },
                     decoration: InputDecoration(
                       icon: Icon(
@@ -310,15 +299,10 @@ class _ProfilePageState extends State<ProfilePage> with SingleTickerProviderStat
                         Radius.circular(20),
                       )),
                   child: TextFormField(
+                    keyboardType: TextInputType.emailAddress,
                     onChanged: null,
                     validator: (value) {
-                      if (value.isEmpty) {
-                        return 'Enter Email Address';
-                      }
-                      else if(!value.contains('@')){
-                        return 'Please enter a valid email address!';
-                      }
-                      return null;
+                       return null;
                     },
                     decoration: InputDecoration(
                       icon: Icon(
@@ -344,10 +328,14 @@ class _ProfilePageState extends State<ProfilePage> with SingleTickerProviderStat
                         Radius.circular(20),
                       )),
                   child: TextFormField(
+                    keyboardType: TextInputType.number,
                     onChanged: null,
                     validator: (value) {
-                      if(value.isEmpty) {
-                        return "Age can't be empty!";
+                      if(int.parse(value)< 1){
+                        return "Age can't be negative!";
+                      }
+                      else if(int.parse(value) > 140){
+                        return "Please enter a valid Age!";
                       }
                       return null;
                     },
@@ -375,16 +363,11 @@ class _ProfilePageState extends State<ProfilePage> with SingleTickerProviderStat
                         Radius.circular(20),
                       )),
                   child: TextFormField(
+                    keyboardType: TextInputType.text ,
                     onChanged: null,
                     validator: (value) {
-                      if(value.isEmpty) {
-                        return "City can't be empty!";
-                      }
-                      else if(value.length < 2) {
-                        return "City must be at least 2 characters long!";
-                      }
-                      else if(value.length > 50) {
-                        return "City must be less than 50 characters long!";
+                      if(value.contains("[0-9]")){
+                        return "City must be characters only!";
                       }
                       return null;
                     },
@@ -439,8 +422,9 @@ class _ProfilePageState extends State<ProfilePage> with SingleTickerProviderStat
                         onPressed: () {
                           if(_formKey.currentState.validate()){
                             _formKey.currentState.save();
+                            updatedata();
                           };
-                          updatedata();
+
                         },
                         child: Text(
                           "SUBMIT",

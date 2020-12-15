@@ -57,7 +57,7 @@ class _RateState extends State<Rate> {
                   borderRadius: BorderRadius.circular(24.0),
                   shadowColor: Color(0x802196F3),
                   child: Container(
-                      color: Colors.teal[200],
+                      color: cardColor1,
                       width: 350.0,
                       height: 450.0,
 
@@ -65,7 +65,7 @@ class _RateState extends State<Rate> {
                         Padding(
                           padding: const EdgeInsets.all(16.0),
                           child: Container(child: Text(myFeedbackText,
-                            style: TextStyle(color: Colors.deepOrange[900],
+                            style: TextStyle(color: Colors.black,
                                 fontWeight: FontWeight.bold,
                                 fontSize: 26.0),)),
                         ),
@@ -82,34 +82,34 @@ class _RateState extends State<Rate> {
                               max: 5,
                               divisions: 5,
                               value: sliderValue,
-                              activeColor: Colors.deepOrange[900],
+                              activeColor: Colors.black,
                               inactiveColor: Colors.blueGrey,
                               onChanged: (newValue) {
                                 setState(() {
                                   sliderValue = newValue;
                                   if (sliderValue > 0 && sliderValue <= 1) {
                                     myFeedback = FontAwesomeIcons.sadTear;
-                                    myFeedbackColor = Colors.blueGrey;
-                                    myFeedbackText = "COULD BE MUCH BETTER";
+                                    myFeedbackColor = Colors.white;
+                                    myFeedbackText = "COULD BE  BETTER";
                                   }
                                   if (sliderValue >= 1.1 && sliderValue <= 2) {
                                     myFeedback = FontAwesomeIcons.frown;
-                                    myFeedbackColor = Colors.red[800];
+                                    myFeedbackColor = Colors.white;
                                     myFeedbackText = "BELOW AVERAGE";
                                   }
                                   if (sliderValue >= 2.1 && sliderValue <= 3) {
                                     myFeedback = FontAwesomeIcons.meh;
-                                    myFeedbackColor = Colors.pink[800];
+                                    myFeedbackColor = Colors.white;
                                     myFeedbackText = "AVERAGE";
                                   }
                                   if (sliderValue >= 3.1 && sliderValue <= 4) {
                                     myFeedback = FontAwesomeIcons.smile;
-                                    myFeedbackColor = Colors.lightBlue[900];
+                                    myFeedbackColor = Colors.white;
                                     myFeedbackText = "GOOD";
                                   }
                                   if (sliderValue >= 4.1 && sliderValue <= 5) {
                                     myFeedback = FontAwesomeIcons.laugh;
-                                    myFeedbackColor = Colors.orange[900];
+                                    myFeedbackColor = Colors.white;
                                     myFeedbackText = "EXCELLENT";
                                   }
                                 });
@@ -132,11 +132,11 @@ class _RateState extends State<Rate> {
                               shape: RoundedRectangleBorder(
                                   borderRadius: new BorderRadius.circular(
                                       35.0)),
-                              color: Colors.pink,
+                              color: Colors.white,
                               padding: EdgeInsets.all(15.0),
                               child: Text('Submit',
                                 style: TextStyle(
-                                    fontSize: 25.0, color: Colors.white),),
+                                    fontSize: 25.0, color: Colors.black),),
                               onPressed: () {
                                 bookFlight(context,);
                               },

@@ -45,7 +45,7 @@ class Faq extends StatelessWidget {
       SimpleFoldingCell.create(
       key: _foldingCellKey2,
       frontWidget: _buildFrontWidget(_foldingCellKey2, "How is  this app  useful?"),
-      innerWidget: _buildInnerWidget(_foldingCellKey2,"With detailed information on 12000s of diseases and probable prescription drug info,this app is a free medical encyclopedia guide.Also there are additional features like Note Functionality,BMI calculator,Word of the day,Latest news,Quiz on medical fields and memory based games.\n",),
+      innerWidget: _buildInnerWidget(_foldingCellKey2,"With detailed information on 12000s of diseases and probable prescription drug info,this app is a free medical encyclopedia guide.Also there are additional features like Note Functionality,BMI calculator,Word of the day,Latest news,Quiz on medical fields and medical facts.\n",),
       cellSize: Size(MediaQuery.of(context).size.width, 125),
       padding: EdgeInsets.all(15),
       animationDuration: Duration(milliseconds: 300),
@@ -67,7 +67,7 @@ class Faq extends StatelessWidget {
         SimpleFoldingCell.create(
           key: _foldingCellKey4,
           frontWidget: _buildFrontWidget(_foldingCellKey4, "How it is different from other Medical app?"),
-          innerWidget: _buildInnerWidget(_foldingCellKey4,"Medic gives a detailed information about diseases,medicines.User can make personal notes for future uses. And also user can calculate Body Mass Index. And last thing ,User can get  additional features like Word of the day,LAtest news,Quiz on medical fields and memory based games..",),
+          innerWidget: _buildInnerWidget(_foldingCellKey4,"Medic gives a detailed information about diseases,medicines.User can make personal notes for future uses. And also user can calculate Body Mass Index. And last thing ,User can get  additional features like Word of the day,Latest news,Quiz on medical fields and medical facts.",),
           cellSize: Size(MediaQuery.of(context).size.width, 125),
           padding: EdgeInsets.all(15),
           animationDuration: Duration(milliseconds: 300),
@@ -106,7 +106,7 @@ class Faq extends StatelessWidget {
   Widget _buildFrontWidget(
       GlobalKey<SimpleFoldingCellState> key, String title) {
     return Container(
-      color: Colors.lightGreen,
+      color: cardColor1,
       alignment: Alignment.center,
       child: Stack(
         children: <Widget>[
@@ -130,7 +130,7 @@ class Faq extends StatelessWidget {
                 "ANSWER",
               ),
               textColor: Colors.black,
-              color: Colors.deepOrange[600],
+              color: Colors.white,
 
           ),
           )
@@ -166,7 +166,7 @@ class Faq extends StatelessWidget {
                 "Close",
               ),
               textColor: Colors.black,
-              color: Colors.yellow,
+              color: Colors.white,
               splashColor: Colors.white.withOpacity(0.5),
             ),
           ),
