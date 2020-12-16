@@ -40,11 +40,11 @@ class _chooseState extends State<choose> {
                     minWidth: 150,
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(30)),
-                    color: Colors.blue[900],
+                    color: cardColor1,
                         child: Text(
                         "WEIGHT CHART(MEN)".toUpperCase(),
-                        style: TextStyle(
-                            fontSize:25.0,color: Colors.white),
+                        style: GoogleFonts.aldrich(
+                            fontSize:22.0,color: Colors.white),
                         ),
                     onPressed:  () {
                       Navigator.push(
@@ -61,11 +61,11 @@ class _chooseState extends State<choose> {
                     minWidth: 150,
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(30)),
-                    color: Colors.blue[900],
+                    color: cardColor1,
                       child: Text(
                         "WEIGHT CHART (WOMEN)".toUpperCase(),
-                        style: TextStyle(
-                            fontSize:25.0,color: Colors.white),
+                        style: GoogleFonts.aldrich(
+                            fontSize:22.0,color: Colors.white),
                           ),
                     onPressed:  () {
                       Navigator.push(

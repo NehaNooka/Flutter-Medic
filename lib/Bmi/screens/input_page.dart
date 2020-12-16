@@ -100,7 +100,7 @@ class _BMIMainState extends State<BMIMain> with SingleTickerProviderStateMixin {
                         child: MaterialButton(
                           child: Text(
                             'Calculate'.toUpperCase(),
-                            style: TextStyle(
+                            style: GoogleFonts.aldrich(
                                 color: Colors.red,
                                 fontSize: 16.0,
                                 letterSpacing: 1),
@@ -123,7 +123,7 @@ class _BMIMainState extends State<BMIMain> with SingleTickerProviderStateMixin {
                       child: MaterialButton(
                         child: Text(
                           'Calculate'.toUpperCase(),
-                          style: TextStyle(
+                          style: GoogleFonts.aldrich(
                               color: Colors.white, fontSize: 16.0, letterSpacing: 1),
                         ),
                         color: Colors.black,
@@ -219,15 +219,15 @@ class _MaleState extends State<Male> {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: <Widget>[
                   Text(
-                    'Age (In Year)',
-                    style: TextStyle(
+                    'Age(Year)',
+                    style: GoogleFonts.aldrich(
                       fontSize: 23.0,
                         fontWeight: FontWeight.w900,
                         color: Colors.white),
                   ),
                   Text(
                     age.toString(),
-                    style: TextStyle(
+                    style: GoogleFonts.aldrich(
                         fontSize: 40.0,
                         fontWeight: FontWeight.w900,
                         color: Colors.black87 ),
@@ -250,7 +250,7 @@ class _MaleState extends State<Male> {
                                   }
                                 });
                               },
-                              color: Colors.lightBlue[900],
+                              color: cardColor1,
                             ),
                           ),
                           onLongPressStart: (details) {
@@ -273,7 +273,7 @@ class _MaleState extends State<Male> {
                                   age++;
                                 });
                               },
-                              color: Colors.lightBlue[900],
+                              color: cardColor1,
                             ),
                           ),
                           onLongPressStart: (details) {
@@ -352,14 +352,14 @@ class _FemaleState extends State<Female> {
                 children: <Widget>[
                   Text(
                     'Weight (Kg)',
-                    style: TextStyle(
+                    style: GoogleFonts.aldrich(
                         fontSize: 24.0,
                         fontWeight: FontWeight.w900,
                         color: Colors.white),
                   ),
                   Text(
                     weight.toString(),
-                    style: TextStyle(
+                    style: GoogleFonts.aldrich(
                         fontSize: 40.0,
                         fontWeight: FontWeight.w900,
                         color: Colors.black87),
@@ -381,7 +381,7 @@ class _FemaleState extends State<Female> {
                                   }
                                 });
                               },
-                              color: Colors.lightBlue[900],
+                              color: cardColor1,
                             ),
                           ),
                           onLongPressStart: (details) {
@@ -404,7 +404,7 @@ class _FemaleState extends State<Female> {
                                   weight++;
                                 });
                               },
-                              color: Colors.lightBlue[900],
+                              color: cardColor1,
                             ),
                           ),
                           onLongPressStart: (details) {
@@ -479,7 +479,7 @@ class _HeightState extends State<Height> {
         children: <Widget>[
           Text(
             'cm',
-            style: TextStyle(
+            style: GoogleFonts.aldrich(
                 fontSize: 14.0,
                 fontStyle: FontStyle.italic,
                 fontWeight: FontWeight.w900,
@@ -497,14 +497,14 @@ class _HeightState extends State<Height> {
               });
             },
             inactiveTrackColor: Color.fromRGBO(209, 196, 233, 1),
-            inactiveThumbColor: Colors.lightBlue[900],
-            activeTrackColor: Color.fromRGBO(209, 196, 233, 1),
+            inactiveThumbColor: Colors.black87,
+            activeTrackColor: Colors.blueGrey,
             activeColor: Colors.black87,
             materialTapTargetSize: MaterialTapTargetSize.padded,
           ),
           Text(
             'ft',
-            style: TextStyle(
+            style: GoogleFonts.aldrich(
                 fontSize: 14.0,
                 fontStyle: FontStyle.italic,
                 fontWeight: FontWeight.w900,
@@ -525,9 +525,10 @@ class _HeightState extends State<Height> {
         padding: EdgeInsets.fromLTRB(10.0, 0.0, 10.0, 0.0),
         child: Column(
           children: <Widget>[
+            SizedBox(height: 8,),
             Text(
               'Height(cm)',
-              style: TextStyle(
+              style: GoogleFonts.aldrich(
                   fontWeight: FontWeight.w900,
                   fontSize: 28.0,
                   color: Colors.white),
@@ -539,7 +540,7 @@ class _HeightState extends State<Height> {
               children: <Widget>[
                 Text(
                   heightCal.toString(),
-                  style: TextStyle(
+                  style: GoogleFonts.aldrich(
                       color: Colors.black87,
                       fontSize: 40.0,
                       fontWeight: FontWeight.w900),
@@ -588,7 +589,7 @@ class _HeightState extends State<Height> {
           children: <Widget>[
             Text(
               'Height(ft)\n',
-              style: TextStyle(
+              style: GoogleFonts.aldrich(
                   fontSize: 28.0,
                   fontWeight: FontWeight.w900,
                   color: Colors.white),
@@ -615,7 +616,7 @@ class _HeightState extends State<Height> {
                     iconSize: 24,
                     elevation: 16,
                     // isExpanded: true,
-                    style: TextStyle(
+                    style: GoogleFonts.aldrich(
                         fontSize: 25.0,
                         fontWeight: FontWeight.w900,
                         color: Colors.black87),
@@ -633,7 +634,7 @@ class _HeightState extends State<Height> {
                         value: value,
                         child: Text(
                           value.toString(),
-                          style: TextStyle(fontSize: 20.0),
+                          style: GoogleFonts.aldrich(fontSize: 20.0),
                         ),
                       );
                     }).toList(),
@@ -656,7 +657,7 @@ class _HeightState extends State<Height> {
                     ),
                     iconSize: 24,
                     elevation: 16,
-                    style: TextStyle(
+                    style: GoogleFonts.aldrich(
                         fontSize: 20.0,
                         fontWeight: FontWeight.w900,
                         color: Colors.black87),
@@ -687,7 +688,7 @@ class _HeightState extends State<Height> {
                         value: value,
                         child: Text(
                           value,
-                          style: TextStyle(fontSize: 20.0),
+                          style: GoogleFonts.aldrich(fontSize: 20.0),
                         ),
                       );
                     }).toList(),
@@ -732,7 +733,7 @@ class _GenderState extends State<Gender> {
               children: <Widget>[
                 Text(
                   'Gender',
-                  style: TextStyle(
+                  style: GoogleFonts.aldrich(
                     fontSize: 28.0,
                       fontWeight: FontWeight.w900,
                       color: Colors.white),
@@ -742,14 +743,14 @@ class _GenderState extends State<Gender> {
                     children: <Widget>[
                       Text(
                         'I\'m',
-                        style: TextStyle(
+                        style: GoogleFonts.aldrich(
                             fontSize: 40.0,
                             fontWeight: FontWeight.w900,
                             color: Colors.black87),
                       ),
                       Text(
                         'Female',
-                        style: TextStyle(
+                        style: GoogleFonts.aldrich(
                             fontSize: 20.0,
                             fontWeight: FontWeight.w900,
                             color: Colors.black87),
@@ -763,12 +764,12 @@ class _GenderState extends State<Gender> {
                         },
                         inactiveTrackColor: Colors.grey.shade300,
                         inactiveThumbColor: Colors.black87,
-                        activeTrackColor: Colors.grey.shade300,
+                        activeTrackColor: Colors.blueGrey,
                         activeColor: Colors.black87,
                       ),
                       Text(
                         'Male',
-                        style: TextStyle(
+                        style: GoogleFonts.aldrich(
                             fontSize: 20.0,
                             fontWeight: FontWeight.w900,
                             color: Colors.black87),

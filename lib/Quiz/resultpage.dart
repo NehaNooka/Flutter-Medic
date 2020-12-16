@@ -86,11 +86,10 @@ class _resultpageState extends State<resultpage> {
                         child: Center(
                           child: Text(
                             message,
-                            style: TextStyle(
+                            style: GoogleFonts.aldrich(
                               fontSize: 18.0,
                               fontWeight:FontWeight.w900,
-                              fontFamily: "Quando",
-                            ),
+                                ),
                           ),
                         )
                     ),
@@ -112,7 +111,7 @@ class _resultpageState extends State<resultpage> {
                   },
                   child: Text(
                     "Continue",
-                    style: TextStyle(
+                    style: GoogleFonts.aldrich(
                       fontSize: 18.0,
                     ),
                   ),

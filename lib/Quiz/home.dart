@@ -64,7 +64,7 @@ class _homepageState extends State<homepage> {
           ));
         },
         child: Material(
-          color: cardColor,
+          color: Colors.indigoAccent,
           elevation: 10.0,
           borderRadius: BorderRadius.circular(25.0),
           child: Container(
@@ -95,10 +95,10 @@ class _homepageState extends State<homepage> {
                 Center(
                   child: Text(
                     langname,
-                    style: TextStyle(
+                    style: GoogleFonts.aldrich(
                       fontSize: 20.0,
                       color: Colors.white,
-                      fontFamily: "Quando",
+
                       fontWeight: FontWeight.w700,
                     ),
                   ),
@@ -107,10 +107,10 @@ class _homepageState extends State<homepage> {
                   padding: EdgeInsets.all(20.0),
                   child: Text(
                     des,
-                    style: TextStyle(
+                    style: GoogleFonts.aldrich(
                         fontSize: 18.0,
                         color: Colors.white,
-                        fontFamily: "Alike"
+
                     ),
                     maxLines: 5,
                     textAlign: TextAlign.justify,

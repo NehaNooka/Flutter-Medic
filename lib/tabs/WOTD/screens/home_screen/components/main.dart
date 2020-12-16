@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_tts/flutter_tts.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:http/http.dart' as http;
 import 'package:intl/intl.dart';
 import 'package:wallpaper/tabs/WOTD/key.dart';
@@ -76,9 +77,8 @@ class _MainState extends State<Main> {
                           children: [
                             Text(
                               '${snapshot.data.word[0].toUpperCase()}${snapshot.data.word.substring(1)}',
-                              style: TextStyle(
-                                fontSize: 45,
-                                fontFamily: 'Roboto',
+                              style: GoogleFonts.aldrich(
+                                fontSize: 40,
                                 fontWeight: FontWeight.w800,
                                 color: Colors.deepPurple,
                               ),
@@ -93,8 +93,7 @@ class _MainState extends State<Main> {
                         ),
                         Text(
                           snapshot.data.definitions[0].partOfSpeech,
-                          style: TextStyle(
-                            fontFamily: 'Roboto',
+                          style: GoogleFonts.aldrich(
                             fontSize: 18,
                             color: Colors.black45,
                             fontStyle: FontStyle.italic,
@@ -105,8 +104,7 @@ class _MainState extends State<Main> {
                         ),
                         Text(
                           snapshot.data.definitions[0].text,
-                          style: TextStyle(
-                            fontFamily: 'Roboto',
+                          style: GoogleFonts.aldrich(
                             fontSize: 20,
                             color: Colors.black,
                             fontWeight: FontWeight.w300,

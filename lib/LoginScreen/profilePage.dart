@@ -401,7 +401,7 @@ class _ProfilePageState extends State<ProfilePage> with SingleTickerProviderStat
                         onPressed: () {Navigator.push(context, MaterialPageRoute(builder: (context)=>ResetPassword()));},
                         child: Text(
                           "FORGOT PASSWORD??",
-                          style: TextStyle(
+                          style: GoogleFonts.aldrich(
                             color: Colors.black,
                             fontWeight: FontWeight.bold,
                             fontSize: 18,
@@ -428,7 +428,7 @@ class _ProfilePageState extends State<ProfilePage> with SingleTickerProviderStat
                         },
                         child: Text(
                           "SUBMIT",
-                          style: TextStyle(
+                          style: GoogleFonts.aldrich(
                             color: Colors.white,
                             fontWeight: FontWeight.bold,
                             fontSize: 20,

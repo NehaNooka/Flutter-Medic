@@ -34,7 +34,7 @@ class Faq extends StatelessWidget {
       SimpleFoldingCell.create(
       key: _foldingCellKey1,
       frontWidget: _buildFrontWidget(_foldingCellKey1, "Who is this app for?"),
-      innerWidget: _buildInnerWidget(_foldingCellKey1,"For normal peoples to healthcare ,pharmaceuticals ,physicians ,hospital nurses ,medical students ,nursing professionals ,pharmacy,physician assistants and for students who work in clinical practice and dispensary.\n",),
+      innerWidget: _buildInnerWidget(_foldingCellKey1,"For normal peoples to healthcare , pharmaceuticals , physicians , hospital nurses , medical students , nursing professionals , pharmacy, physician assistants and for students who work in clinical practice and dispensary.\n",),
       cellSize: Size(MediaQuery.of(context).size.width, 140),
       padding: EdgeInsets.all(15),
       animationDuration: Duration(milliseconds: 300),
@@ -45,7 +45,7 @@ class Faq extends StatelessWidget {
       SimpleFoldingCell.create(
       key: _foldingCellKey2,
       frontWidget: _buildFrontWidget(_foldingCellKey2, "How is  this app  useful?"),
-      innerWidget: _buildInnerWidget(_foldingCellKey2,"With detailed information on 12000s of diseases and probable prescription drug info,this app is a free medical encyclopedia guide.Also there are additional features like Note Functionality,BMI calculator,Word of the day,Latest news,Quiz on medical fields and medical facts.\n",),
+      innerWidget: _buildInnerWidget(_foldingCellKey2,"With detailed information on 12000s of diseases and probable prescription drug info, this app is a free medical encyclopedia guide. Also there are additional features like Note Functionality, BMI calculator, Word of the day ,Latest news, Quiz on medical fields and medical facts.\n",),
       cellSize: Size(MediaQuery.of(context).size.width, 125),
       padding: EdgeInsets.all(15),
       animationDuration: Duration(milliseconds: 300),
@@ -67,7 +67,7 @@ class Faq extends StatelessWidget {
         SimpleFoldingCell.create(
           key: _foldingCellKey4,
           frontWidget: _buildFrontWidget(_foldingCellKey4, "How it is different from other Medical app?"),
-          innerWidget: _buildInnerWidget(_foldingCellKey4,"Medic gives a detailed information about diseases,medicines.User can make personal notes for future uses. And also user can calculate Body Mass Index. And last thing ,User can get  additional features like Word of the day,Latest news,Quiz on medical fields and medical facts.",),
+          innerWidget: _buildInnerWidget(_foldingCellKey4,"Medic gives a detailed information about diseases,medicines. User can make personal notes for future uses. And also user can calculate Body Mass Index. And last thing ,User can get  additional features like Word of the day,Latest news,Quiz on medical fields and medical facts.",),
           cellSize: Size(MediaQuery.of(context).size.width, 125),
           padding: EdgeInsets.all(15),
           animationDuration: Duration(milliseconds: 300),
@@ -78,7 +78,7 @@ class Faq extends StatelessWidget {
         SimpleFoldingCell.create(
           key: _foldingCellKey5,
           frontWidget: _buildFrontWidget(_foldingCellKey5, "Why can't I hear the audio pronunciations?"),
-          innerWidget: _buildInnerWidget(_foldingCellKey5,"First, please check that your device is not muted..Also, please make sure that you are connected to the Internet, a network connection is required to access, audio pronunciations.\n",),
+          innerWidget: _buildInnerWidget(_foldingCellKey5,"First, please check that your device is not muted. Also, please make sure that you are connected to the Internet, a network connection is required to access, audio pronunciations.\n",),
           cellSize: Size(MediaQuery.of(context).size.width, 125),
           padding: EdgeInsets.all(15),
           animationDuration: Duration(milliseconds: 300),
@@ -89,7 +89,7 @@ class Faq extends StatelessWidget {
         SimpleFoldingCell.create(
           key: _foldingCellKey6,
           frontWidget: _buildFrontWidget(_foldingCellKey6, "Why use this app when I can use Google?"),
-          innerWidget: _buildInnerWidget(_foldingCellKey6,"It’s quite likely that a lot of the information available via Google search.But there are many reasons why this app is beneficial. Some are Ease of use, Saves time, Detailed Info, Convenient",),
+          innerWidget: _buildInnerWidget(_foldingCellKey6,"It’s quite likely that a lot of the information available via Google search.But there are many reasons why this app is beneficial. Some are Ease of use, Saves time, Detailed Info, Convenient to use whenever you get time",),
           cellSize: Size(MediaQuery.of(context).size.width, 125),
           padding: EdgeInsets.all(15),
           animationDuration: Duration(milliseconds: 300),
@@ -141,7 +141,7 @@ class Faq extends StatelessWidget {
 
   Widget _buildInnerWidget(GlobalKey<SimpleFoldingCellState> key, String title) {
     return Container(
-      color: Colors.deepPurple[200],
+
       padding: EdgeInsets.only(top: 10),
       child: Stack(
         children: [
@@ -149,10 +149,9 @@ class Faq extends StatelessWidget {
             alignment: Alignment.topCenter,
             child: Text(
              title,
-              style:TextStyle(
+              style:GoogleFonts.aldrich(
                 color: Colors.black87,
                 fontSize: 18.0,
-                letterSpacing: 3.0,
                 fontWeight: FontWeight.bold,
               ),
             ),
@@ -165,8 +164,8 @@ class Faq extends StatelessWidget {
               child: Text(
                 "Close",
               ),
-              textColor: Colors.black,
-              color: Colors.white,
+              textColor: Colors.white,
+              color: Colors.black,
               splashColor: Colors.white.withOpacity(0.5),
             ),
           ),

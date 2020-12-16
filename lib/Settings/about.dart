@@ -10,7 +10,7 @@ backgroundColor: Colors.white,
         appBar: AppBar(
           centerTitle: true,
           elevation:0.0,
-          iconTheme: new IconThemeData(color: Colors.black),
+          iconTheme: new IconThemeData(color: Colors.black87),
           backgroundColor: appBarColor,
           title: Text("APP INFO",
               style: GoogleFonts.pacifico(
@@ -43,12 +43,11 @@ backgroundColor: Colors.white,
                     ] // make rounded corner of border
                 ),
                 child: Text("ABOUT APP",
-                  style: TextStyle(
+                  style: GoogleFonts.aldrich(
                       decoration: TextDecoration.none,
                       fontSize: 20.0,
-                      fontFamily: 'Roboto',
-                      fontWeight: FontWeight.w500,
-                      color: Colors.black,
+                    fontWeight: FontWeight.w800,
+                      color: Colors.black87,
                   ),
                 ),
               ),
@@ -66,14 +65,13 @@ backgroundColor: Colors.white,
                   borderRadius: BorderRadius.all(
                       Radius.circular(30.0)), // set rounded corner radius
                 ),
-                child: Text("A free Medical App on medical diseases, medicines, news, quiz and discover detailed definitions,signs and symptoms,diagnosis,causes.With detailed information on over 14000  diseases and probable prescription drug info,this app is free medical encyclopedia guide.An  disease dictionary with medical conditions ranging from ebola to acne.",
+                child: Text("A free Medical App on medical diseases, medicines, news, quiz and discover detailed definitions, signs and symptoms, diagnosis, causes. With detailed information on over 14000  diseases and probable prescription drug info,this app is free medical encyclopedia guide.An  disease dictionary with medical conditions ranging from ebola to acne.",
                   textDirection: TextDirection.ltr,
-                  style: TextStyle(
+                  style: GoogleFonts.aldrich(
                       decoration: TextDecoration.none,
                       fontSize: 18.0,
-                      fontFamily: 'Raleway',
                       fontWeight: FontWeight.w500,
-                      color: Colors.black
+                      color: Colors.white
                   ),
                 ),
               ),
@@ -91,14 +89,13 @@ backgroundColor: Colors.white,
                   borderRadius: BorderRadius.all(
                       Radius.circular(30.0)), // set rounded corner radius
                 ),
-                child: Text("App Features: \n* A FREE to download Medic on illness conditions and diseases. \n* A handy free pocket guide for physicians desk reference. \n* Find detailed information on illness,definitions,references and medical guideline for reading and research.\n* Also there are additional features like Note Functionality,BMI calculator,Word of the day,Latest news,Quiz on medical fields and medical facts.",
+                child: Text("App Features: \n* A FREE to download Medic on illness conditions and diseases. \n* A handy free pocket guide for physicians desk reference. \n* Find detailed information on illness, definitions, references and medical guideline for reading and research.\n* Also there are additional features like Note Functionality, BMI calculator, Word of the day, Latest news, Quiz on medical fields and medical facts.",
                   textDirection: TextDirection.ltr,
-                  style: TextStyle(
+                  style: GoogleFonts.aldrich(
                       decoration: TextDecoration.none,
                       fontSize: 18.0,
-                      fontFamily: 'Raleway',
-                      fontWeight: FontWeight.w500,
-                      color: Colors.black
+
+                      color: Colors.white,
                   ),
                 ),
 
@@ -117,14 +114,13 @@ Divider(),
                   borderRadius: BorderRadius.all(
                       Radius.circular(30.0)), // set rounded corner radius
                 ),
-                child: Text("Who can use this free Medic: \n \n For Normal person to healthcare,pharmaceuticals,physicians,hospital nurses,medical students,nursing professionals,pharmacy,physician assistants and for students who work in clinical practice and dispensary.",
+                child: Text("Who can use this free Medic: \n \n For Normal person to healthcare, pharmaceuticals, physicians, hospital nurses, medical students, nursing professionals, pharmacy, physician assistants and for students who work in clinical practice and dispensary.",
                   textDirection: TextDirection.ltr,
-                  style: TextStyle(
+                  style: GoogleFonts.aldrich(
                       decoration: TextDecoration.none,
                       fontSize: 18.0,
-                      fontFamily: 'Raleway',
-                      fontWeight: FontWeight.w500,
-                      color: Colors.black
+
+                      color: Colors.white
                   ),
                 ),
 
@@ -141,14 +137,13 @@ Divider(),
                   borderRadius: BorderRadius.all(
                       Radius.circular(30.0)), // set rounded corner radius
                 ),
-                child: Text("DISCLAIMER: \nThis app cannot and should not replace a pharmacist or a doctor consultation.The app content is for pocket reference and educational purpose only.Consult a doctor before using any of the information from this app.",
+                child: Text("DISCLAIMER: \nThis app cannot and should not replace a pharmacist or a doctor consultation.The app content is for pocket reference and educational purpose only. Consult a doctor before using any of the information from this app.",
                   textDirection: TextDirection.ltr,
-                  style: TextStyle(
+                  style: GoogleFonts.aldrich(
                       decoration: TextDecoration.none,
                       fontSize: 18.0,
-                      fontFamily: 'Raleway',
-                      fontWeight: FontWeight.w500,
-                      color: Colors.black
+
+                      color: Colors.white
                   ),
                 ),
 

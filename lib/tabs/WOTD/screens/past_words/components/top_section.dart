@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
 
 var now = new DateTime.now().add(Duration(days: -1));
@@ -19,7 +20,7 @@ class TopSection extends StatelessWidget {
               padding: const EdgeInsets.only(top:8.0),
               child: Text(
                 'Last Week',
-                style: TextStyle(
+                style: GoogleFonts.aldrich(
                     fontSize: 25.0,
                     color: Colors.deepOrange,
                     fontWeight: FontWeight.bold

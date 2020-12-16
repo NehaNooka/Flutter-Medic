@@ -13,7 +13,7 @@ class _RateState extends State<Rate> {
   var myFeedbackText = "NO FEEDBACK";
   var sliderValue = 5.0;
   IconData myFeedback = FontAwesomeIcons.laugh;
-  Color myFeedbackColor = Colors.green;
+  Color myFeedbackColor = Colors.white;
   var _counter=1;
   @override
   Widget build(BuildContext context) {
@@ -43,7 +43,7 @@ class _RateState extends State<Rate> {
               padding: const EdgeInsets.all(16.0),
               child: Container(child: Center(
                 child: Text("Do you  want to rate our App?",
-                  style: TextStyle(color: Colors.black,
+                  style: GoogleFonts.aldrich(color: Colors.black,
                       fontSize: 28.0,
                       fontWeight: FontWeight.bold),),
               )),
@@ -65,7 +65,7 @@ class _RateState extends State<Rate> {
                         Padding(
                           padding: const EdgeInsets.all(16.0),
                           child: Container(child: Text(myFeedbackText,
-                            style: TextStyle(color: Colors.black,
+                            style: GoogleFonts.aldrich(color: Colors.black,
                                 fontWeight: FontWeight.bold,
                                 fontSize: 26.0),)),
                         ),
@@ -120,7 +120,7 @@ class _RateState extends State<Rate> {
                           padding: const EdgeInsets.all(16.0),
                           child: Container(child: Text(
                             "Your Rating: $sliderValue",
-                            style: TextStyle(color: Colors.black,
+                            style: GoogleFonts.aldrich(color: Colors.black,
                                 fontSize: 22.0,
                                 fontWeight: FontWeight.bold),)),
                         ),
@@ -135,7 +135,7 @@ class _RateState extends State<Rate> {
                               color: Colors.white,
                               padding: EdgeInsets.all(15.0),
                               child: Text('Submit',
-                                style: TextStyle(
+                                style: GoogleFonts.aldrich(
                                     fontSize: 25.0, color: Colors.black),),
                               onPressed: () {
                                 bookFlight(context,);

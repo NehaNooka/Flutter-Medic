@@ -216,9 +216,8 @@ class _quizpageState extends State<quizpage> {
         onPressed: () => checkanswer(k),
         child: Text(
           mydata[1][i.toString()][k] ??  ' ',
-          style: TextStyle(
+          style: GoogleFonts.aldrich(
             color: Colors.white,
-            fontFamily: "Alike",
             fontSize: 16.0,
           ),
           maxLines: 1,
@@ -271,11 +270,10 @@ class _quizpageState extends State<quizpage> {
               alignment: Alignment.bottomLeft,
               child: Text(
                 "Que $_counter: "+mydata[0][i.toString()] ??  ' '  ,
-                style: TextStyle(
+                style: GoogleFonts.aldrich(
                   fontSize: 19.0,
                   fontWeight: FontWeight.bold,
-                  fontFamily: "Quando",
-                ),
+                 ),
               ),
             ),
           ),
@@ -303,11 +301,10 @@ class _quizpageState extends State<quizpage> {
                   visible: tcVisibility[i],
                   child: Text(
                     mydata[2][i.toString()]?? ' ' ,
-                    style: TextStyle(
+                    style: GoogleFonts.aldrich(
                       fontSize: 22.0,
                       color: Colors.red,
                       fontWeight: FontWeight.w900,
-                      fontFamily: 'Times New Roman',
                     ),
                   ),
                 ),
@@ -321,10 +318,9 @@ class _quizpageState extends State<quizpage> {
               child: Center(
                 child: Text(
                   showtimer,
-                  style: TextStyle(
+                  style: GoogleFonts.aldrich(
                     fontSize: 35.0,
                     fontWeight: FontWeight.w700,
-                    fontFamily: 'Times New Roman',
                   ),
                 ),
               ),

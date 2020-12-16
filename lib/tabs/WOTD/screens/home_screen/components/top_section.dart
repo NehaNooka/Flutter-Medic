@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
 
 var now = new DateTime.now();
@@ -18,7 +19,7 @@ class TopSection extends StatelessWidget {
               padding: const EdgeInsets.only(top:8.0),
               child: Text(
                 'Today',
-                style: TextStyle(
+                style: GoogleFonts.aldrich(
                   fontSize: 25.0,
                     color: Colors.deepOrange,
                     fontWeight: FontWeight.bold

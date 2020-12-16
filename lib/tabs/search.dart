@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_tts/flutter_tts.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:wallpaper/tabs/details.dart';
+
+import '../constants.dart';
 class Search extends StatefulWidget {
   final name;
   final symptoms;
@@ -104,7 +106,7 @@ class _SearchState extends State<Search> {
                 child:ClipRRect(
                   borderRadius: BorderRadius.circular(30.0),
                   child: Container(
-                    color: Colors.deepPurple[400],
+                    color: cardColor1,
                     alignment: Alignment.center,
                     height: 100.0,
                     child: Stack(
@@ -138,8 +140,8 @@ class _SearchState extends State<Search> {
                             child: Text(
                               "OPEN",
                             ),
-                            textColor: Colors.black87,
-                            color: Colors.yellow,
+                            textColor: Colors.white,
+                            color: Colors.black87,
                           ),
                         )
                       ],
@@ -152,7 +154,7 @@ class _SearchState extends State<Search> {
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(30.0),
                   child: Container(
-                    color: Color(0xFFffcd3c),
+                    color: cardColor1,
                     alignment: Alignment.center,
                     height: 100.0,
                     child: Stack(
@@ -162,7 +164,7 @@ class _SearchState extends State<Search> {
                           child: Text(
                             "SYMPTOMS",
                             style: GoogleFonts.aldrich(
-                              color: Color(0xFF2e282a),
+                              color: Colors.white,
                               fontSize: 20.0,
                               fontWeight: FontWeight.bold,
                             ),
@@ -187,7 +189,7 @@ class _SearchState extends State<Search> {
                               "OPEN",
                             ),
                             textColor: Colors.white,
-                            color: Colors.indigoAccent,
+                            color: Colors.black87,
 
                           ),
                         )
@@ -201,7 +203,7 @@ class _SearchState extends State<Search> {
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(30.0),
                   child: Container(
-                    color: Colors.deepPurple[400],
+                    color: cardColor1,
                     alignment: Alignment.center,
                     height: 100.0,
                     child: Stack(
@@ -235,8 +237,8 @@ class _SearchState extends State<Search> {
                             child: Text(
                               "OPEN",
                             ),
-                            textColor: Colors.black87,
-                            color: Colors.yellow,
+                            textColor: Colors.white,
+                            color: Colors.black87,
                           ),
                         )
                       ],

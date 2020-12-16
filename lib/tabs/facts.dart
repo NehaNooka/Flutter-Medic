@@ -37,7 +37,6 @@ class CarouselDemoState extends State<CarouselDemo> {
     'https://i.pinimg.com/474x/48/d1/81/48d1814bc7964517c307aeea97580e7f.jpg',
     'https://i.pinimg.com/474x/61/00/0a/61000a5a065062a198500cc645731fb3.jpg',
 'https://i.pinimg.com/474x/5a/15/f5/5a15f5c89260cda9c182cd258bf2a966.jpg',
-    'https://i.pinimg.com/474x/6b/fe/0d/6bfe0d7ba6c04c617fc2b9404ecdc6bd.jpg',
     'https://i.pinimg.com/474x/76/32/a6/7632a6441017f86f460597fc5f675102.jpg',
     'https://i.pinimg.com/474x/b6/59/a0/b659a01b4df6e5f5b07d0d310c8af4ef.jpg',
     'https://i.pinimg.com/474x/28/73/64/28736444fa2022192177d3cde432477f.jpg',

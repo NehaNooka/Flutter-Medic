@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_tts/flutter_tts.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:wallpaper/constants.dart';
-
+import 'package:google_fonts/google_fonts.dart';
 class Details extends StatefulWidget {
   final name;
   final title;
@@ -78,16 +78,17 @@ class _DetailsState extends State<Details> {
             child: Padding(
               padding: const EdgeInsets.all(25.0),
               child: Container(
-                color: Colors.lightBlue[400],
+
                 child: Align(
                   alignment: Alignment.center,
                   child: Text(widget.symptoms,
-                      style: TextStyle(
-                        fontSize: 20.0,
-                        color: Colors.black,
-                        wordSpacing: 3.0,
-                        fontWeight: FontWeight.bold,
-                      )),
+                      style: GoogleFonts.aldrich(
+                            color: Color(0xFF2e282a),
+                            fontSize: 20.0,
+                            wordSpacing: 3.0,
+                            fontWeight: FontWeight.bold,
+                            ),
+                        ),
                 ),
               ),
             ),

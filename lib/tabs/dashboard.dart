@@ -149,7 +149,7 @@ class _MenuDashboardPageState extends State<MenuDashboardPage>
                         ),
                         title: Text(
                           'Back',
-                          style: TextStyle(
+                          style: GoogleFonts.aldrich(
                               color: Colors.black54,
                               fontSize: 18.0,
                               fontWeight: FontWeight.bold),
@@ -160,18 +160,18 @@ class _MenuDashboardPageState extends State<MenuDashboardPage>
                             MaterialPageRoute(builder: (context) => Home()),
                           );
                         }
-                        ),
+                    ),
                     SizedBox(height: 20,),
                     ListTile(
                         tileColor: backgroundColor,
                         leading: new IconButton(
-                          icon: new Icon(Icons.phone, color: Colors.teal),
+                          icon: new Icon(Icons.phone, color: Colors.red),
                           onPressed: () {},
                         ),
                         title: Text(
                           ' HelpLine',
-                          style: TextStyle(
-                              color: Colors.teal,
+                          style: GoogleFonts.aldrich(
+                              color: Colors.red,
                               fontSize: 18.0,
                               fontWeight: FontWeight.bold),
                         ),
@@ -185,12 +185,12 @@ class _MenuDashboardPageState extends State<MenuDashboardPage>
                         tileColor: backgroundColor,
                         leading: new IconButton(
                           icon:
-                              new Icon(Icons.info_outline, color: Colors.brown),
+                          new Icon(Icons.info_outline, color: Colors.brown),
                           onPressed: () {},
                         ),
                         title: Text(
                           'App Info',
-                          style: TextStyle(
+                          style: GoogleFonts.aldrich(
                               color: Colors.brown,
                               fontSize: 18.0,
                               fontWeight: FontWeight.bold),
@@ -210,7 +210,7 @@ class _MenuDashboardPageState extends State<MenuDashboardPage>
                         ),
                         title: Text(
                           'FAQs',
-                          style: TextStyle(
+                          style: GoogleFonts.aldrich(
                               color: Colors.pink,
                               fontSize: 18.0,
                               fontWeight: FontWeight.bold),
@@ -230,7 +230,7 @@ class _MenuDashboardPageState extends State<MenuDashboardPage>
                         ),
                         title: Text(
                           'Rate Us!',
-                          style: TextStyle(
+                          style: GoogleFonts.aldrich(
                               color: Colors.deepPurple,
                               fontSize: 18.0,
                               fontWeight: FontWeight.bold),
@@ -250,7 +250,7 @@ class _MenuDashboardPageState extends State<MenuDashboardPage>
                         ),
                         title: Text(
                           'Privacy Policy',
-                          style: TextStyle(
+                          style: GoogleFonts.aldrich(
                               color: Colors.deepOrange,
                               fontSize: 18.0,
                               fontWeight: FontWeight.bold),
@@ -270,19 +270,19 @@ class _MenuDashboardPageState extends State<MenuDashboardPage>
                         ),
                         title: Text(
                           'My Account',
-                          style: TextStyle(
+                          style: GoogleFonts.aldrich(
                               color: Colors.blue,
                               fontSize: 18.0,
                               fontWeight: FontWeight.bold),
                         ),
                         onTap: () {Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                            builder: (context) => ProfilePage()),
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => ProfilePage()),
 
-                          );
+                        );
                         }
-                        ),
+                    ),
                     ListTile(
                       tileColor: backgroundColor,
                       leading: new IconButton(
@@ -291,7 +291,7 @@ class _MenuDashboardPageState extends State<MenuDashboardPage>
                       ),
                       title: Text(
                         'LogOut',
-                        style: TextStyle(
+                        style: GoogleFonts.aldrich(
                             color: Colors.green,
                             fontSize: 18.0,
                             fontWeight: FontWeight.bold),
@@ -310,15 +310,15 @@ class _MenuDashboardPageState extends State<MenuDashboardPage>
                       tileColor: backgroundColor,
                       title: Text(
                         'Version',
-                        style: TextStyle(
-                            color: Colors.red,
+                        style: GoogleFonts.aldrich(
+                            color: Colors.black54,
                             fontSize: 18.0,
                             fontWeight: FontWeight.bold),
                       ),
                       subtitle: Text(
                         '1.0.4',
-                        style: TextStyle(
-                            color: Colors.red,
+                        style: GoogleFonts.aldrich(
+                            color: Colors.black54,
                             fontSize: 12.0,
                             fontWeight: FontWeight.bold),
                       ),
@@ -331,6 +331,7 @@ class _MenuDashboardPageState extends State<MenuDashboardPage>
           ])),
     );
   }
+
 
   Widget dashboard(context) {
     return AnimatedPositioned(
@@ -472,7 +473,7 @@ class _MenuDashboardPageState extends State<MenuDashboardPage>
                                       child: Text(
                                         item1.title,
                                         style: GoogleFonts.openSans(
-                                            textStyle: TextStyle(
+                                            textStyle: GoogleFonts.aldrich(
                                                 color: Colors.white,
                                                 fontSize: 25,
                                                 fontWeight: FontWeight.w600)),
@@ -515,7 +516,7 @@ class _MenuDashboardPageState extends State<MenuDashboardPage>
                                       child: Text(
                                         item2.title,
                                         style: GoogleFonts.openSans(
-                                            textStyle: TextStyle(
+                                            textStyle: GoogleFonts.aldrich(
                                                 color: Colors.white,
                                                 fontSize: 25,
                                                 fontWeight: FontWeight.w600)),
@@ -563,7 +564,7 @@ class _MenuDashboardPageState extends State<MenuDashboardPage>
                                       child: Text(
                                         item3.title,
                                         style: GoogleFonts.openSans(
-                                            textStyle: TextStyle(
+                                            textStyle: GoogleFonts.aldrich(
                                                 color: Colors.white,
                                                 fontSize: 25,
                                                 fontWeight: FontWeight.w600)),
@@ -605,7 +606,7 @@ class _MenuDashboardPageState extends State<MenuDashboardPage>
                                       child: Text(
                                         item4.title,
                                         style: GoogleFonts.openSans(
-                                            textStyle: TextStyle(
+                                            textStyle: GoogleFonts.aldrich(
                                                 color: Colors.white,
                                                 fontSize: 25,
                                                 fontWeight: FontWeight.w600)),

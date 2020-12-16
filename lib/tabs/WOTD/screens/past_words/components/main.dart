@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:http/http.dart' as http;
 import 'package:intl/intl.dart';
 import 'package:wallpaper/tabs/WOTD/key.dart';
@@ -111,7 +112,7 @@ class _MainState extends State<Main> {
                     children: [
                       Text(
                         '${word.word[0].toUpperCase()}${word.word.substring(1)}',
-                        style: TextStyle(
+                        style: GoogleFonts.aldrich(
                           fontSize: 25.0,
                           color:Colors.deepPurple,
                           fontWeight: FontWeight.w700
@@ -125,8 +126,7 @@ class _MainState extends State<Main> {
               ),
               Text(
                 word.definitions[0].partOfSpeech,
-                style: TextStyle(
-                  fontFamily: 'Roboto',
+                style: GoogleFonts.aldrich(
                   fontSize: 16,
                   color: Colors.black45,
                   fontStyle: FontStyle.italic,
@@ -137,7 +137,7 @@ class _MainState extends State<Main> {
               ),
               Text(
                 word.definitions[0].text,
-                style: TextStyle(
+                style: GoogleFonts.aldrich(
                   fontSize: 18.0,
                 ),
               ),

@@ -130,7 +130,7 @@ class _Home1State extends State<Home1> {
                       ),
                       onPressed: ()=> speak(' ${myAllData[index].name}')),
                   title: Text(' ${myAllData[index].name}',
-                      style: TextStyle(fontSize: 28.0, color: Colors.blue[900])),
+                      style: GoogleFonts.aldrich(fontSize: 28.0, color: Colors.blue[900])),
                   onTap: () {
                     Navigator.push(
                         context,
@@ -215,7 +215,7 @@ class DataSearch extends SearchDelegate<myModel> {
     final myList = query.isEmpty
         ? myAllData
         : myAllData
-            .where((p) => p.name.toLowerCase().contains(query.toLowerCase()))
+            .where((p) => (p.name.toLowerCase().contains(query.toLowerCase()) || p.symptoms.toLowerCase().contains(query.toLowerCase()) ))
             .toList();
     return myList.isEmpty
         ? Center(
@@ -227,7 +227,7 @@ class DataSearch extends SearchDelegate<myModel> {
               color: Colors.red,
             ),
             Text("  No Results Found",
-                style: TextStyle(
+                style: GoogleFonts.aldrich(
                     fontSize: 24.0,
                     color: Colors.red,
                     fontWeight: FontWeight.bold)),
@@ -265,11 +265,11 @@ class DataSearch extends SearchDelegate<myModel> {
                   SubstringHighlight(
                     text: listItem.name,
                     term: query,
-                    textStyle: TextStyle(                       // non-highlight style
+                    textStyle: GoogleFonts.aldrich(                       // non-highlight style
                       color: Colors.black,
                       fontSize:18.0
                     ),
-                    textStyleHighlight: TextStyle(              // highlight style
+                    textStyleHighlight: GoogleFonts.aldrich(              // highlight style
                       color: Colors.blue,
                       fontWeight: FontWeight.bold,
                         fontSize: 20.0

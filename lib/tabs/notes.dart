@@ -42,8 +42,8 @@ class _NotesState extends State<Notes> {
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(10)),
               title: Center(
-              child:Text("$T",style: TextStyle(fontSize: 25, color: Colors.red,fontWeight: FontWeight.bold),),),
-              content: Text("$D",style: TextStyle(fontSize: 20, fontWeight: FontWeight.w500),),
+              child:Text("$T",style: GoogleFonts.aldrich(fontSize: 25, color: Colors.red,fontWeight: FontWeight.bold),),),
+              content: Text("$D",style: GoogleFonts.aldrich(fontSize: 20, fontWeight: FontWeight.w500),),
               actions: [
                 FlatButton(
                   onPressed: () {
@@ -51,7 +51,7 @@ class _NotesState extends State<Notes> {
                   },
                   child: Text(
                     "Cancel",
-                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                    style: GoogleFonts.aldrich(fontSize: 20, fontWeight: FontWeight.bold),
                   ),
                 )
               ],
@@ -109,9 +109,9 @@ class _NotesState extends State<Notes> {
                             Navigator.of(context).pop();
 
                           },
-                          child: Text("Add" ,style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),),
+                          child: Text("Add" ,style: GoogleFonts.aldrich(fontSize: 20, fontWeight: FontWeight.bold),),
                         ),
-                        FlatButton(onPressed:(){ Navigator.of(context).pop();}, child:  Text("Cancel",style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),),)
+                        FlatButton(onPressed:(){ Navigator.of(context).pop();}, child:  Text("Cancel",style: GoogleFonts.aldrich(fontSize: 20, fontWeight: FontWeight.bold),),)
                       ],
                     );
                   });
@@ -124,7 +124,7 @@ class _NotesState extends State<Notes> {
           StreamBuilder(
             stream: FirebaseFirestore.instance.collection(uid).snapshots(),
             builder: (context,snapshots){
-              if(snapshots.data == null) return Center(child: Text("No notes", style: TextStyle(color: Colors.grey),));
+              if(snapshots.data == null) return Center(child: Text("No notes", style: GoogleFonts.aldrich(color: Colors.grey),));
               return  ListView.builder(
                   shrinkWrap:true,
                   itemCount: snapshots.data.documents.length,
@@ -145,7 +145,7 @@ class _NotesState extends State<Notes> {
                             onTap: () {
                               modifyTodos(documentSnapshot["todoTitle"]);
                             },
-                            title: Text(documentSnapshot["todoTitle"],style: TextStyle(fontSize: 22.0),),
+                            title: Text(documentSnapshot["todoTitle"],style: GoogleFonts.aldrich(fontSize: 22.0),),
                             trailing: IconButton(icon: Icon(Icons.delete, color: Colors.red,),
                               onPressed: (){
                                 deleteTodos(documentSnapshot["todoTitle"]);

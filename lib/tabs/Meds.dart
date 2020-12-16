@@ -122,9 +122,9 @@ class _SecondState extends State<Second> {
                   color: Colors.redAccent,
                 ),
                 title: Text('${myAllData[index].drug}',
-                    style: TextStyle(fontSize: 28.0, color: Colors.blue[900])),
+                    style: GoogleFonts.aldrich(fontSize: 28.0, color: Colors.blue[900])),
                 subtitle: Text('${myAllData[index].condition}',
-                    style: TextStyle(
+                    style: GoogleFonts.aldrich(
                         fontSize: 20.0,
                         color: Colors.red[400],
                         fontWeight: FontWeight.w500)),
@@ -186,7 +186,7 @@ class DataSearch extends SearchDelegate<myModel> {
     final myList = query.isEmpty
         ? myAllData
         : myAllData
-            .where((p) => p.drug.toLowerCase().contains(query.toLowerCase()))
+            .where((p) => (p.drug.toLowerCase().contains(query.toLowerCase()) || p.condition.toLowerCase().contains(query.toLowerCase())))
             .toList();
     return myList.isEmpty
         ? Center(
@@ -198,7 +198,7 @@ class DataSearch extends SearchDelegate<myModel> {
               color: Colors.red,
             ),
             Text("  No Results Found",
-                style: TextStyle(
+                style: GoogleFonts.aldrich(
                     fontSize: 24.0,
                     color: Colors.red,
                     fontWeight: FontWeight.bold)),
@@ -218,11 +218,11 @@ class DataSearch extends SearchDelegate<myModel> {
                   title:  SubstringHighlight(
                     text: listItem.drug,
                     term: query,
-                    textStyle: TextStyle(                       // non-highlight style
+                    textStyle: GoogleFonts.aldrich(                       // non-highlight style
                         color: Colors.black,
                         fontSize:18.0
                     ),
-                    textStyleHighlight: TextStyle(              // highlight style
+                    textStyleHighlight: GoogleFonts.aldrich(              // highlight style
                         color: Colors.blue,
                         fontWeight: FontWeight.bold,
                         fontSize: 20.0
