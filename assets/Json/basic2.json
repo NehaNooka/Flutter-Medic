@@ -1,0 +1,88 @@
+[
+    {
+        "1": "What are blood cells shaped like? ",
+        "2": "What is the largest bone in the body?  ",
+        "3": "How many bones do babies have when they are born? ",
+        "4": "What is the largest organ in the human body? ",
+        "5": "Which of the following is NOT a type of diabetes? ",
+        "6": "How many weeks is the average human pregnancy? ",
+        "7": "What is the only bone in the body not attached to another bone? ",
+        "8": "Which type of cell is found in the brain? ",
+        "9": "What is the average human body temperature? ",
+        "10": "What is the only part of the body that can't heal and repair on its own? "
+    },
+    {
+        "1": {
+            "a": "Doughnuts",
+            "b": "Eggs",
+            "c": "Tubes",
+            "d": "Almond"
+        },
+        "2": {
+            "a": "Femur",
+            "b": "Scapula",
+            "c": "Tarsal",
+            "d": "Neosa"
+        },
+        "3": {
+            "a": "00-150",
+            "b": "150-270",
+            "c": "270-350",
+            "d": "130-150"
+        },
+        "4": {
+            "a": "Liver",
+            "b": "Skin",
+            "c": "Heart",
+            "d": "Lungs"
+        },
+        "5": {
+            "a": "Type 1 diabetes",
+            "b": "tType 2 diabetes",
+            "c": "Senior's diabetes",
+            "d": "fJuvenile diabetes"
+        },
+        "6":{
+            "a": "44 weeks",
+            "b": "40 weeks",
+            "c": "48 weeks",
+            "d": "38 weeks"
+        },
+        "7": {
+            "a": "Pelvis",
+            "b": "Clavicle",
+            "c": "Hyoid",
+            "d": "Nualic"
+        },
+        "8": {
+            "a": "Epithelial ",
+            "b": "Neurons",
+            "c": "lymphatic cells",
+            "d": "white blood cells"
+        },
+        "9": {
+            "a": "96.8 degree F",
+            "b": "86.9 degree F",
+            "c": "89.6 degree F",
+            "d": "98.6 degree F"
+        },
+        "10": {
+            "a": "Kidney",
+            "b": "Heart",
+            "c": "Kidney",
+            "d": "Earlobe"
+        }
+    },
+    {
+        "1": "Doughnuts",
+        "2": "Femur",
+        "3": "270-350",
+        "4": "Skin",
+        "5": "Senior's diabetes",
+        "6": "40 weeks",
+        "7": "Hyoid",
+        "8": "Neurons",
+        "9": "98.6 degree F",
+        "10": "Tooth"
+    }
+]

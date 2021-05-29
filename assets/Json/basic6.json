@@ -1,0 +1,88 @@
+[
+  {
+    "1": "The plague accumulation is favored by the ",
+    "2": "How much floss should pull out when you first start flossing?",
+    "3": "When is the best time of the day to floss",
+    "4": "How many times a day should you brush?",
+    "5": "What is halitosis?",
+    "6": "How often should a toothbrush be changes?",
+    "7":  "How many teeth exist in the normal adult mouth?",
+    "8": "How much should your brush your teeth for?",
+    "9": "Wisdom tooth is also known as",
+    "10": "What  is the main purpose of flossing?"
+  },
+  {
+    "1": {
+      "a": "Regular flossing",
+      "b":"Presence of irregular surfaces",
+      "c": "Regular scaling",
+      "d": "Regular toothbrushing"
+    },
+    "2": {
+      "a": "6-8 feet",
+      "b":  "2-4 feet",
+      "c": "4-6 feet",
+      "d": "6-8 feet"
+    },
+    "3": {
+      "a": "Night",
+      "b": "Afternoon",
+      "c": "Morning",
+      "d": "Evening"
+    },
+    "4": {
+      "a": "1",
+      "b": "4",
+      "c": "3",
+      "d":"2"
+    },
+    "5": {
+      "a": "Tartar formation",
+      "b": "Gingival bleeding",
+      "c": "Bad breath",
+      "d": "Toothache"
+    },
+    "6": {
+      "a": "Every month",
+      "b": "Once every 6 month",
+      "c": "Once every year",
+      "d": "Once every 3 month"
+    },
+    "7": {
+      "a": "32",
+      "b": "28",
+      "c": "24",
+      "d": "34"
+    },
+    "8": {
+      "a":  "2 minutes",
+      "b":  "4 minutes",
+      "c": "8 minutes",
+      "d":  "5 minutes"
+    },
+    "9": {
+      "a": "Third molar tooth",
+      "b": "First molar tooth",
+      "c": "Premolar",
+      "d": "Second molar tooth"
+    },
+    "10": {
+      "a": "For tooth whitening",
+      "b": "To substitute for brushing",
+      "c": "To loosen plaque on the sides of teeth",
+      "d": "To remove food from between teeth"
+    }
+  },
+  {
+    "1": "Presence of irregular surfaces",
+    "2":"1-2 feet",
+    "3":"Night",
+    "4": "2",
+    "5": "Bad breath",
+    "6": "Once every 3 month",
+    "7": "32",
+    "8": "2 minutes",
+    "9": "Third molar tooth",
+    "10": "To loosen plaque on the sides of teeth"
+  }
+]

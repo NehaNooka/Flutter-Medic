@@ -1,0 +1,88 @@
+[
+  {
+    "1": "At 12 weeks gestation where would youexpect to feel the uterine fundus?",
+    "2": "Woman complaining of milky whitish discharge with fishy odour.No history of itching.Most likely diagnsis is?",
+    "3": "Serum prolactin levels are highest during?",
+    "4": "What is WHO criterion for minimum sperm count per millimeter in normal semen?",
+    "5": "Most common cause for rectovaginal fistula is?",
+    "6": "Which of the following is thought to be a cause of hypermesis gravidarum",
+    "7":  "Mean age of menopause?",
+    "8": "What is the most common cause of postpartum haemorrhage?",
+    "9": "Main uterine support is",
+    "10": "Which hormone stimulates ovulation? "
+  },
+  {
+    "1": {
+      "a": "Xiphisternum",
+      "b": "Halfway between umbilicus and xiphisternum",
+      "c":"Symphysis pubis",
+      "d": "Umbilicus"
+    },
+    "2": {
+      "a": "Bacterial vaginosis",
+      "b":  "Candidiasis",
+      "c": "Trichomoniasis",
+      "d": "Urinary tract infection"
+    },
+    "3": {
+      "a": "Parturation",
+      "b": "Menopause",
+      "c": "Ovulation",
+      "d": "Sleep"
+    },
+    "4": {
+      "a": "40 million",
+      "b": "10 million",
+      "c": "20 million",
+      "d":"30 million"
+    },
+    "5": {
+      "a": "Carcinoma",
+      "b": "Endometriosis",
+      "c":"Obstetrical",
+      "d": "Pelvis irradiiation"
+    },
+    "6": {
+      "a": "Psychological",
+      "b": "Low levels of circulating hCG",
+      "c": "Over eating",
+      "d": "High levels of circulating hCG"
+    },
+    "7": {
+      "a": "58",
+      "b": "48",
+      "c": "51",
+      "d": "54"
+    },
+    "8": {
+      "a": "Uterine rupture",
+      "b": "Uterine atony",
+      "c": "Retained placenta",
+      "d": "Vulval or vaginal lacerations"
+    },
+    "9": {
+      "a": "Transverse cervical ligament",
+      "b": "Broad ligaments",
+      "c": "Uterosacral ligaments",
+      "d": "Round ligaments"
+    },
+    "10": {
+      "a": "Progesterone",
+      "b": "LH",
+      "c": "Estrogem",
+      "d": "FSH"
+    }
+  },
+  {
+    "1": "Symphysis pubis",
+    "2":"Bacterial vaginosis",
+    "3":"Parturation",
+    "4": "20 million",
+    "5": "Obstetrical",
+    "6": "High levels of circulating hCG",
+    "7": "51",
+    "8": "Uterine atony",
+    "9": "Transverse cervical ligament",
+    "10": "LH"
+  }
+]

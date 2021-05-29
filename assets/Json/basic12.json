@@ -1,0 +1,88 @@
+[
+  {
+    "1": "Oral therapy with which of the following may cause galactorrhoea",
+    "2": "Low molecular weight heparins do not normally require to be monitored.However if required how can LMWH be monitored?",
+    "3": "Which of the following is the most appropriate regime for neutropenic sepsis?",
+    "4": "WHich drug belongs to glycopeptides?",
+    "5": "Which class of antibiotics inhibit the bacterial protein syntheses?",
+    "6": "Tamoxifen is",
+    "7":  "What does OTC drug stands for?",
+    "8": "Which of the following drugs is most likely to have precipitated urinary retention in patient with BPH?",
+    "9": "If furosemide is given as an IV bolus, what side effect can occur?",
+    "10": "A primary source of histamine released during inflammatory conditions are"
+  },
+  {
+    "1": {
+      "a": "Bromocriptine",
+      "b": "Domperidone",
+      "c": "Cimetidine",
+      "d": "Cabergoline"
+    },
+    "2": {
+      "a": "INR",
+      "b":  "aPTT",
+      "c": "PT",
+      "d": "Anti factor Xa assay"
+    },
+    "3": {
+      "a": "Coamoxiclav and clarithromycin",
+      "b": "Coamoxiclav",
+      "c": "Tazocin and gentamicin",
+      "d": "Vancomycin"
+    },
+    "4": {
+      "a": "Erythromycin",
+      "b": "Neomycin",
+      "c":"Vancomycin",
+      "d":"Carbenicillin"
+    },
+    "5": {
+      "a": "Fluoroquinolones",
+      "b": "Pencillins",
+      "c": "Macrolides",
+      "d": "Sulfonamides"
+    },
+    "6": {
+      "a": "Androgen",
+      "b": "Antiandrogen",
+      "c": "Antiestrogen",
+      "d": "Antiprogestin"
+    },
+    "7": {
+      "a": "Over the counter",
+      "b": "Oxytetracycline",
+      "c": "Organic Toxic Compound",
+      "d": "Ornithine Transcarbamlyase"
+    },
+    "8": {
+      "a": "Venlafaxine",
+      "b": "Diazepam",
+      "c": "Amitriptyline",
+      "d": "Fluoxetine"
+    },
+    "9": {
+      "a": "Headache",
+      "b": "Ototoxicity",
+      "c": "Thrombophlebitis",
+      "d": "Renal failure"
+    },
+    "10": {
+      "a": "T lymphocytes",
+      "b": "Enterochromaffin like cells",
+      "c": "B cells",
+      "d": "Mast cells"
+    }
+  },
+  {
+    "1": "Domperidone",
+    "2":"Anti factor Xa assay",
+    "3":"Tazocin and gentamicin",
+    "4": "Vancomycin",
+    "5": "Macrolides",
+    "6": "Antiestrogen",
+    "7":  "Over the counter",
+    "8": "Amitriptyline",
+    "9": "Ototoxicity",
+    "10": "Mast cells"
+  }
+]

@@ -1,51 +1,45 @@
-import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-
+import 'package:wallpaper/Login/auth_service.dart';
+import 'package:wallpaper/Login/homeScreen.dart';
+import 'package:wallpaper/Login/provider_widget.dart';
 import 'package:wallpaper/home.dart';
-import 'package:wallpaper/Auth/sign_up.dart';
 
-void main() {
-  runApp(
-    MyApp(),
-  );
+
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: IntroScreen(),
+    return Provider(
+      auth: AuthService(),
+      child: MaterialApp(
+        title: "Medic",
+        debugShowCheckedModeBanner: false,
+        home: HomeController(),
+
+      ),
     );
   }
 }
 
-class IntroScreen extends StatefulWidget {
-  @override
-  _IntroScreenState createState() => _IntroScreenState();
-}
-
-class _IntroScreenState extends State<IntroScreen> {
-  @override
-  void initState() {
-    super.initState();
-    FirebaseAuth.instance.currentUser().then((res) {
-      if (res != null) {
-        Navigator.pushReplacement(
-          context,
-          MaterialPageRoute(builder: (context) => Home(uid: res.uid)),
-        );
-      } else {
-        Navigator.pushReplacement(
-          context,
-          MaterialPageRoute(builder: (context) => SignUp()),
-        );
-      }
-    });
-  }
-
+class HomeController extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return new Container();
+    final AuthService auth = Provider.of(context).auth;
+    return StreamBuilder<String>(
+      stream: auth.onAuthStateChanged,
+      builder: (context, AsyncSnapshot<String> snapshot) {
+        if (snapshot.connectionState == ConnectionState.active) {
+          final bool signedIn = snapshot.hasData;
+          return signedIn ? Home() : HomeScreen();
+        }
+        return CircularProgressIndicator();
+      },
+    );
   }
 }

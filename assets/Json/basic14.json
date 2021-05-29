@@ -1,0 +1,88 @@
+[
+  {
+    "1": "The word “psychology’ comes from:",
+    "2": "According to the text, the lower level of explanation corresponds to ______ processes.",
+    "3": "The scientific approach is more useful at answering questions about ______ than questions about ______.",
+    "4": "A psychologist exploring the impact of a new drug on activity in the brain is working on the ______ level of explanation.",
+    "5": " ______ is to nature as ______ is to nurture.",
+    "6": "The idea that you can assess someone’s personality by studying their face is called:",
+    "7": "Humanistic psychologists embraced the idea of:",
+    "8": "What is special about “knockout” mice?",
+    "9": "Monozygotic is to ________ twins as dizygotic is to ________ twins.",
+    "10": "Projective tests claim to reveal information about:"
+  },
+  {
+    "1": {
+      "a": "Latin",
+      "b": "Spanish",
+      "c": "Greek",
+      "d": "Italian"
+    },
+    "2": {
+      "a":"social",
+      "b": "cultural",
+      "c": "biological",
+      "d": "interpersonal"
+    },
+    "3": {
+      "a": "facts, values",
+      "b": "ideas, emotions",
+      "c": "values, facts",
+      "d": "emotions, facts"
+    },
+    "4": {
+      "a": "lower",
+      "b": "middle",
+      "c": "upper",
+      "d": "all of the above"
+    },
+    "5": {
+      "a": "environment, genes",
+      "b": "conscious, unconscious",
+      "c": "inaccuracy, accuracy",
+      "d": "biology, experience"
+    },
+    "6": {
+      "a": "phrenology",
+      "b": "physiology",
+      "c": "somatology",
+      "d": "physiognomy"
+    },
+    "7": {
+      "a": "repression",
+      "b": "free will",
+      "c": "unconscious drives",
+      "d": "the id"
+    },
+    "8": {
+      "a": "they are very attractive",
+      "b": "their DNA has been modified",
+      "c": "they are easy to knock out",
+      "d": "they are unusually aggressive"
+    },
+    "9": {
+      "a": "male, female,",
+      "b": "female, male",
+      "c": "fraternal, identical",
+      "d": "identical, fraternal"
+    },
+    "10": {
+      "a": "career aptitude",
+      "b": "intellectual attainment",
+      "c": "unconscious processes",
+      "d": "parenting style"
+    }
+  },
+  {
+    "1": "Greek",
+    "2": "biological",
+    "3": "facts, values",
+    "4": "lower",
+    "5": "biology, experience",
+    "6": "physiognomy",
+    "7": "free will",
+    "8": "their DNA has been modified",
+    "9": "identical, fraternal",
+    "10": "unconscious processes"
+  }
+]

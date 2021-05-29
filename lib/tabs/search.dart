@@ -1,10 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_tts/flutter_tts.dart';
-class Search extends StatelessWidget {
+import 'package:google_fonts/google_fonts.dart';
+import 'package:wallpaper/tabs/details.dart';
+
+import '../constants.dart';
+class Search extends StatefulWidget {
   final name;
   final symptoms;
   final causes;
   final overview;
+
 
   Search({
     Key key,
@@ -14,141 +19,243 @@ class Search extends StatelessWidget {
     this.overview,
   }) : super(key: key);
 
-  final FlutterTts flutterTts = FlutterTts();
-speak(String text) async{
-await flutterTts.setVolume(1.0);
-  await flutterTts.setLanguage("hi-IN");
-  await flutterTts.speak(text);
+  @override
+  _SearchState createState() => _SearchState(name:name,
+  symptoms: symptoms,
+  causes: causes,
+  overview: overview);
 }
+
+class _SearchState extends State<Search> {
+  final name;
+  final symptoms;
+  final causes;
+  final overview;
+  _SearchState({
+   this.name,
+    this.symptoms,
+    this.causes,
+    this.overview
+});
+
+  final FlutterTts flutterTts = FlutterTts();
+
+  speak(String text) async {
+    await flutterTts.setVolume(1.0);
+    await flutterTts.setLanguage("hi-IN");
+    await flutterTts.speak(text);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFF0A0E21),
-        appBar: AppBar(
-          backgroundColor: Color(0xFF0A0E21),
-          title: Text(
-            "Medic",
-            style: TextStyle(color: Colors.white),
-          ),
-        ),
-        body: Container(
-          constraints: BoxConstraints.expand(),
+        resizeToAvoidBottomInset: false,
+        body: NestedScrollView(
+      headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) {
+        return <Widget>[
+          SliverAppBar(
+            backgroundColor: Colors.white,
+            iconTheme: new IconThemeData(color: Colors.black),
+            expandedHeight: 200.0,
+            floating: false,
+            pinned: true,
+            actionsIconTheme: IconThemeData(opacity: 0.5),
+            flexibleSpace: FlexibleSpaceBar(
 
-          child: SingleChildScrollView(
-            scrollDirection: Axis.vertical,
-            child: Container(
-              child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
-                  children: [
-                    Column(
-                      children: [
-                        Center(
-                          child: Padding(
-                            padding: const EdgeInsets.all(20.0),
-                            child: Text(name,
-                                style: TextStyle(
-                                    fontSize: 30.0, color: Colors.red,fontWeight: FontWeight.bold)),
+              title: Text(widget.name,
+                  textAlign: TextAlign.start,
+                  style: TextStyle(
+                      fontSize: 20.0,
+                      color: Colors.black,
+                      fontWeight: FontWeight.bold)),
+              background: Opacity(
+                opacity: 0.5,
+                child: Image.network(
+                  "https://images.pexels.com/photos/3992933/pexels-photo-3992933.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
+                  fit: BoxFit.cover,
+                ),
+              ),
+            ),
+          )
+        ];
+      },
+      body: Container(
+        constraints: BoxConstraints.expand(),
+        child: SingleChildScrollView(
+          scrollDirection: Axis.vertical,
+          child: Container(
+            child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                      Align(
+                        alignment: Alignment.topCenter,
+                        child: new FloatingActionButton(
+                          onPressed: () {},
+                          child: IconButton(
+                              icon: Icon(
+                                Icons.volume_up,
+                                color: Colors.black,
+                              ),
+                              onPressed: () => speak(widget.name)),
+                        ),
+                      ),
+
+              Padding(
+                padding: const EdgeInsets.all(12.0),
+                child:ClipRRect(
+                  borderRadius: BorderRadius.circular(30.0),
+                  child: Container(
+                    color: cardColor1,
+                    alignment: Alignment.center,
+                    height: 100.0,
+                    child: Stack(
+                      children: <Widget>[
+                        Align(
+                          alignment: Alignment.center,
+                          child: Text(
+                              "OVERVIEW",
+                            style: GoogleFonts.aldrich(
+                              color: Colors.white,
+                              fontSize: 20.0,
+                              fontWeight: FontWeight.bold,
+                            ),
                           ),
                         ),
-                        Align(
-                          alignment: Alignment.topCenter,
-                          child: new FloatingActionButton(
-                            onPressed: () {},
-                            child: IconButton(
-
-                                icon: Icon(
-                                  Icons.volume_up,
-                                  color: Colors.white,
-
-                                ),
-                                onPressed: ()=> speak(name)),
+                        Positioned(
+                          right: 5,
+                          bottom: 0,
+                          child: FlatButton(
+                            onPressed:
+                                () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => Details(
+                                        name:name,
+                                        title:"OVERVIEW",
+                                        symptoms:overview,
+                                      )));
+                            },
+                            child: Text(
+                              "OPEN",
+                            ),
+                            textColor: Colors.white,
+                            color: Colors.black87,
                           ),
                         )
                       ],
                     ),
-                    Container(
-                      color: Colors.white,
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Icon(Icons.ac_unit,color: Colors.red,),
-                          Text("  Overview:",
-                              style: TextStyle(
-                                  fontSize: 30.0,
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.red)),
-                        ],
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.all(15.0),
-                      child: Container(
-                        padding: EdgeInsets.only(top: 10.0, bottom: 10.0),
-                        child: Text(overview,
-                            style: TextStyle(
-                              fontSize: 20.0,
-                              fontWeight: FontWeight.normal,
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(12.0),
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(30.0),
+                  child: Container(
+                    color: cardColor1,
+                    alignment: Alignment.center,
+                    height: 100.0,
+                    child: Stack(
+                      children: <Widget>[
+                        Align(
+                          alignment: Alignment.center,
+                          child: Text(
+                            "SYMPTOMS",
+                            style: GoogleFonts.aldrich(
                               color: Colors.white,
-                            )),
-                      ),
-                    ),
-                    Container(
-                      color: Colors.white,
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Icon(Icons.ac_unit,color: Colors.red,),
-                          Text("  Symptoms :",
-                              style: TextStyle(
-                                  fontSize: 30.0,
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.red)),
-                        ],
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.all(15.0),
-                      child: Container(
-                        padding: EdgeInsets.only(top: 10.0, bottom: 10.0),
-                        child: Text(symptoms,
-                            style: TextStyle(
                               fontSize: 20.0,
-                              fontWeight: FontWeight.normal,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ),
+                        Positioned(
+                          right: 5,
+                          bottom: 0,
+                          child: FlatButton(
+                            onPressed:
+                                () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => Details(
+                                        name:name,
+                                        title:"SYMPTOMS",
+                                        symptoms:symptoms,
+                                      )));
+                            },
+                            child: Text(
+                              "OPEN",
+                            ),
+                            textColor: Colors.white,
+                            color: Colors.black87,
+
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(12.0),
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(30.0),
+                  child: Container(
+                    color: cardColor1,
+                    alignment: Alignment.center,
+                    height: 100.0,
+                    child: Stack(
+                      children: <Widget>[
+                        Align(
+                          alignment: Alignment.center,
+                          child: Text(
+                            "CAUSES",
+                            style: GoogleFonts.aldrich(
                               color: Colors.white,
-                            )),
-                      ),
-                    ),
-                    Container(
-                      color: Colors.white,
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Icon(Icons.ac_unit,color: Colors.pink,),
-                          Text("  Causes:",
-                              style: TextStyle(
-                                  fontSize: 30.0,
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.red)),
-                        ],
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.all(15.0),
-                      child: Container(
-                        padding: EdgeInsets.only(top: 10.0, bottom: 10.0),
-                        child: Text(causes,
-                            style: TextStyle(
                               fontSize: 20.0,
-                              fontWeight: FontWeight.normal,
-                              color: Colors.white,
-                            )),
-                      ),
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ),
+                        Positioned(
+                          right: 5,
+                          bottom: 0,
+                          child: FlatButton(
+                            onPressed:
+                                () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => Details(
+                                        name:name,
+                                        title:"CAUSES",
+                                        symptoms:causes,
+                                      )));
+                            },
+                            child: Text(
+                              "OPEN",
+                            ),
+                            textColor: Colors.white,
+                            color: Colors.black87,
+                          ),
+                        )
+                      ],
                     ),
-                  ]),
-            ),
+                  ),
+                ),
+              ),
+
+
+
+              ]),
           ),
         ),
-
-    );
+      ),
+    ));
   }
+
+
 }
+

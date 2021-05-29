@@ -1,0 +1,88 @@
+[
+  {
+    "1": "Which of the following is a common cause of death in patients with acute renal failure",
+    "2": "Which of the following is a manifestation of hypocalcemia",
+    "3": "What is the most common cause of death in patients with toxic epidermal necrolysis(TEN)",
+    "4": "Which of the following is the most common complication of otitis media",
+    "5": "Which of the following is most useful in differentiating a patient with acute cholangitis from a patient with acute cholecystitis",
+    "6": "Which of the followingis a known risk factor for subarachnoid hemorrhage",
+    "7":  "Injury to which of the following is the most common cause of traumatic death in children?",
+    "8": "Which of the following is the most common valve affecte in rheumatic heart disease",
+    "9": "Which of the following moat places women at risk of abruptio placentae",
+    "10": "Which of the following toxins is suggested by the smell of garlic"
+  },
+  {
+    "1": {
+      "a": "Hypercalcemia",
+      "b": "Hypernatremia",
+      "c": "Hyperkalemia",
+      "d": "Hypermagnesemia"
+    },
+    "2": {
+      "a": "QTc shortening",
+      "b": "Perioral parasthesias",
+      "c": "Polyuria",
+      "d": "Nephrolithiasis"
+    },
+    "3": {
+      "a": "Respiratory failure",
+      "b": "Electrolyte abnormalities",
+      "c": "Dehydration",
+      "d": "Sepsis"
+    },
+    "4": {
+      "a": "Hearing loss",
+      "b": "Meningitis",
+      "c": "Brain Abscess",
+      "d":"Labyrinthitis"
+    },
+    "5": {
+      "a": "Leukocytosis",
+      "b":"Jaundice",
+      "c": "Abdominal tenderness",
+      "d": "Murphy sign"
+    },
+    "6": {
+      "a": "Smoking",
+      "b": "Oral contraceptive use",
+      "c": "Hypotension",
+      "d": "Hypercholeserolemia"
+    },
+    "7": {
+      "a": "Chest",
+      "b": "Abdomen",
+      "c": "Head",
+      "d": "Pelvis"
+    },
+    "8": {
+      "a": "Aortic",
+      "b": "Pulmonic",
+      "c": "Mitral",
+      "d": "Tricuspid"
+    },
+    "9": {
+      "a": "Preeclampsia",
+      "b": "Cocaine use",
+      "c": "Cigaratte smoking",
+      "d": "Premature rupture of membranes(PROM)"
+    },
+    "10": {
+      "a": "Zinc",
+      "b": "Toluene",
+      "c": "Cyanide",
+      "d":"Organophosphate"
+    }
+  },
+  {
+    "1": "Hyperkalemia",
+    "2":"Perioral parasthesias",
+    "3":"Sepsis",
+    "4": "Hearing loss",
+    "5": "Jaundice",
+    "6": "Smoking",
+    "7": "Head",
+    "8": "Mitral",
+    "9": "Preeclampsia",
+    "10": "Organophosphate"
+  }
+]
